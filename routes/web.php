@@ -19,13 +19,13 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/backend', function(){
     return view('backendhome');
-});
+})->middleware('auth', 'role:admin');
 
 Route::get('/','HomeController@index');
 
 //RUTAS BACKEND
 Route::get('/backend/pedidos', 'BackendController@pedidos')->middleware('auth', 'role:admin');
-Route::get('/backend/stock', 'BackendController@stock')->middleware('auth', 'role:admin');
+Route::get('/backend/stock/{place_id}', 'StockController@show')->middleware('auth', 'role:admin');
 Route::get('/backend/productos', 'BackendController@productos')->middleware('auth', 'role:admin');
 Route::get('/backend/ventas', 'BackendController@ventas')->middleware('auth', 'role:admin');
 Route::get('/backend/reporte', 'BackendController@reporte')->middleware('auth', 'role:admin');
@@ -52,4 +52,4 @@ Route::post('/backend/guardarColor/{id}', 'ShoeController@guardarColor')->middle
 Route::post('/backend/guardarStock', 'StockController@guardarStock')->middleware('auth', 'role:admin');
 Route::post('/backend/borrarStock', 'StockController@borrarStock')->middleware('auth', 'role:admin');
 Route::post('/backend/borrarColor/{shoe_id}/{id}', 'BackendController@borrarcolor')->middleware('auth', 'role:admin');
-Route::api('/carrito/api/{user_id}', 'ShopcartController@apiCarrito');
+//Route::api('/carrito/api/{user_id}', 'ShopcartController@apiCarrito');

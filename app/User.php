@@ -84,4 +84,19 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public function address ()
+    {
+        return $this->hasMany(Address::class, 'user_id');
+    }
+
+    public function paymentOrder ()
+    {
+        return $this->hasMany(Payment_Order::class, 'user_id');
+    }
+
+    public function shopcar ()
+    {
+        return $this->hasMany(Shopcar::class, 'user_id');
+    }
 }

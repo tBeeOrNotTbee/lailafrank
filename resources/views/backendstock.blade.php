@@ -1,55 +1,38 @@
 @extends("layouts.backendLayout")
 
 @section("titulo")
-    Stock
+Stock // {{$place->place}}
 @endsection
 
 @section("mainBackend")
-<h2>Stock</h2>
+<h2>Stock // {{$place->place}}</h2>
 <table id="table" class="table-responsive table table-striped table-sm">
     <thead>
         <tr>
-            <th>ID de prodcuto</th>
+            <th>ID de producto</th>
             <th>Nombre</th>
             <th>Talla</th>
+            <th>Color</th>
             <th>Pedidos</th>
-            <th>Stock depósito</th>
-            <th>Stock showroom</th>
-            <th>Stock total</th>
+            <th>Stock</th>
             <th>Favoritos</th>
         </tr>
     </thead>
     <tbody>
+        @forelse ($stocks as $stock)
         <tr>
-            <td>1</td>
-            <td><a href="backend/editarProductos/producto_id">Modelo-5</a></td>
-            <td>Modelo-5</td>
-            <td>33</td>
-            <td>6</td>
-            <td>6</td>
-            <td>12</td>
-            <td>15</td>
+            <td>{{$stock->shoe_id}}</td>
+            <td><a href="backend/editarProductos/{{$stock->shoe_id}}">{{$stock->shoe->name}}</a></td>
+            <td>{{$stock->size}}</td>
+            <td>{{$stock->color->name}}</td>
+            <td> - - </td>{{-- TODO --}}
+            <td>{{$stock->quantity}}</td>
+            <td> - - </td>{{-- TODO --}}
         </tr>
-        <tr>
-            <td>1</td>
-            <td><a href="backend/editarProductos/producto_id">Modelo-5</a></td>
-            <td>Modelo-5</td>
-            <td>33</td>
-            <td>6</td>
-            <td>6</td>
-            <td>12</td>
-            <td>15</td>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td><a href="backend/editarProductos/producto_id">Modelo-5</a></td>
-            <td>Modelo-5</td>
-            <td>33</td>
-            <td>6</td>
-            <td>6</td>
-            <td>12</td>
-            <td>15</td>
-        </tr>
+        @empty
+
+        @endforelse
+
     </tbody>
 </table>
 @endsection

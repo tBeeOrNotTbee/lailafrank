@@ -11,6 +11,6 @@ class Place extends Model
 
     
     public function stock(){
-        return $this->hasMany('App\Stock','id');
+        return $this->hasMany('App\Stock','place_id');
     }
 }

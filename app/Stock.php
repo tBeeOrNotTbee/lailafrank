@@ -13,14 +13,19 @@ class Stock extends Model
     public $guarded = [];
 
     public function shoe(){
-        return $this->hasOne('App\Shoe');
+        return $this->belongsTo('App\Shoe', 'shoe_id');
     }
 
     public function place(){
-        return $this->hasOne('App\Place');
+        return $this->belongsTo('App\Place', 'place_id');
     }
 
     public function color(){
-        return $this->hasOne('App\Color');
+        return $this->belongsTo('App\Color', 'color_id');
+    }
+
+    public function shopcars ()
+    {
+        return $this->belongsToMany(Shopcar::class, 'shopcarts_stock', 'stock_id', 'stock_id');
     }
 }

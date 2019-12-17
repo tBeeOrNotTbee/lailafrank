@@ -14,10 +14,6 @@ public function pedidos(){
     return view('backendpedidos');
 }
 
-public function stock(){
-    return view('backendstock');
-}
-
 public function productos(){
     $shoes = Shoe::all();
 

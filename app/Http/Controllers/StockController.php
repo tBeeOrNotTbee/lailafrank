@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use App\Stock;
+use App\Shoe;
+use App\Place;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -44,9 +47,11 @@ class StockController extends Controller
      * @param  \App\Stock  $stock
      * @return \Illuminate\Http\Response
      */
-    public function show(Stock $stock)
+    public function show($place_id)
     {
-        //
+        $stocks = Stock::where('place_id', '=', $place_id)->get();
+        $place = Place::find($place_id);
+        return view('backendstock', ['stocks'=>$stocks, 'place'=>$place, 'stockM' => 'true']);
     }
 
     /**

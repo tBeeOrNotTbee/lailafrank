@@ -23,13 +23,13 @@
     <!--=============================================-->
     <!--======              NAV                ======-->
     <nav id="backnav" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-            <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Zapatería</a>
-            <ul class="navbar-nav px-3">
-                <li class="nav-item text-nowrap">
-                    <a class="nav-link" href="#">Salir</a>
-                </li>
-            </ul>
-        </nav>
+        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Zapatería</a>
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="nav-link" href="#">Salir</a>
+            </li>
+        </ul>
+    </nav>
     <!--=============================================-->
 
     <div class="container-fluid">
@@ -38,51 +38,60 @@
             <!--=============================================-->
             <!--======              ASIDE              ======-->
             <aside class="col-md-2 d-none d-md-block bg-light sidebar">
-                    <div class="sidebar-sticky">
-                        <ul class="nav flex-column">
-                            <li class="nav-item" style="margin-top: 5em;">
-                                <a class="nav-link" href="/backend/pedidos">
-                                    Pedidos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/backend/stock">
+                <div class="sidebar-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item" style="margin-top: 5em;">
+                            <a class="nav-link" href="/backend/pedidos">
+                                Pedidos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <div id="accordion">
+                                <a id="headingOne" class="nav-link" data-toggle="collapse" data-target="#collapseOne"
+                                    aria-expanded="false" aria-controls="collapseOne" style="cursor:pointer!important;">
                                     Stock
                                 </a>
-                            </li>
-                            <li class="nav-item">
-                                <div class="dropdown-menu">
-                                <span class="dropdown-item-text">Productos2</span>
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
+
+                                <div id="collapseOne" class="collapse {{isset($stockM) ? 'show' : ''}}" aria-labelledby="headingOne"
+                                    data-parent="#accordion">
+                                    <div class="card-body">
+                                        <a class="nav-link" href="/backend/stock/1">
+                                            Depósito
+                                        </a>
+                                        <a class="nav-link" href="/backend/stock/2">
+                                            Showroom
+                                        </a>
+                                    </div>
                                 </div>
-                                <a class="nav-link" href="/backend/productos">
-                                    Productos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/backend/ventas">
-                                    Ventas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/backend/reporte">
-                                    Reporte de ventas
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/backend/misGustos">
-                                    Mis Gustos
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/backend/usuarios">
-                                    Usuarios
-                                </a>
-                            </li>
-                    </div>
-                </aside>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/productos">
+                                Productos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/ventas">
+                                Ventas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/reporte">
+                                Reporte de ventas
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/misGustos">
+                                Mis Gustos
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/usuarios">
+                                Usuarios
+                            </a>
+                        </li>
+                </div>
+            </aside>
             <!--=============================================-->
 
 
@@ -92,7 +101,7 @@
                 @yield("mainBackend")
             </main>
             <!--=============================================-->
-            
+
         </div>
     </div>
 
@@ -103,7 +112,7 @@
     @yield("scripts")
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#table').DataTable({
                 dom: 'Bfrtip',
                 buttons: [
@@ -139,16 +148,16 @@
 
     <script>
         // Example starter JavaScript for disabling form submissions if there are invalid fields
-        (function() {
+        (function () {
             'use strict';
 
-            window.addEventListener('load', function() {
+            window.addEventListener('load', function () {
                 // Fetch all the forms we want to apply custom Bootstrap validation styles to
                 var forms = document.getElementsByClassName('needs-validation');
 
                 // Loop over them and prevent submission
-                var validation = Array.prototype.filter.call(forms, function(form) {
-                    form.addEventListener('submit', function(event) {
+                var validation = Array.prototype.filter.call(forms, function (form) {
+                    form.addEventListener('submit', function (event) {
                         if (form.checkValidity() === false) {
                             event.preventDefault();
                             event.stopPropagation();
