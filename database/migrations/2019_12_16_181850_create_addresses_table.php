@@ -25,7 +25,7 @@ class CreateAddressesTable extends Migration
             $table->string('floor')->nullable();
             $table->string('apartment');
             $table->string('city');
-            $table->string('province');
+            $table->string('state');
             $table->string('post_code');
             $table->string('country');
             $table->bigInteger('telephone')->nullable();

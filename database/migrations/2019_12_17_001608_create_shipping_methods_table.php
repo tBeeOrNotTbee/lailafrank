@@ -18,12 +18,10 @@ class CreateShippingMethodsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('address_id')->nullable();
-            $table->unsignedBigInteger('shipping_service')->nullable();
-            $table->unsignedBigInteger('payment_order_id')->nullable();
+            $table->unsignedBigInteger('shipping_service_id')->nullable();
 
-            $table->foreign('address_id')->references('id')->on('address');
+            $table->foreign('address_id')->references('id')->on('addresses');
             $table->foreign('shipping_service_id')->references('id')->on('shipping_services');
-            $table->foreign('payment_order_id')->references('id')->on('payment_orders');
         });
     }
 

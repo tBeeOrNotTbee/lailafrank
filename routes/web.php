@@ -52,4 +52,10 @@ Route::post('/backend/guardarColor/{id}', 'ShoeController@guardarColor')->middle
 Route::post('/backend/guardarStock', 'StockController@guardarStock')->middleware('auth', 'role:admin');
 Route::post('/backend/borrarStock', 'StockController@borrarStock')->middleware('auth', 'role:admin');
 Route::post('/backend/borrarColor/{shoe_id}/{id}', 'BackendController@borrarcolor')->middleware('auth', 'role:admin');
+
+Route::get('/backend/shopcar/add/{stock_id}', 'ShopcarController@add')->middleware('auth');
+Route::get('/backend/shopcar/list/', 'ShopcarController@list')->middleware('auth', 'role:admin');
+Route::get('/shopcar/remove/{shopcar_id}/{stock_id}', 'ShopcarController@removeStock')->middleware('auth');
+Route::get('/backend/address/new/', 'AddressController@newBackendAddress')->middleware('auth', 'role:admin');
+Route::post('/address/{from}/new/', 'AddressController@newAddress')->middleware('auth');
 //Route::api('/carrito/api/{user_id}', 'ShopcartController@apiCarrito');

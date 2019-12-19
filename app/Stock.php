@@ -24,8 +24,8 @@ class Stock extends Model
         return $this->belongsTo('App\Color', 'color_id');
     }
 
-    public function shopcars ()
+    public function shopcar()
     {
-        return $this->belongsToMany(Shopcar::class, 'shopcarts_stock', 'stock_id', 'stock_id');
+        return $this->belongsToMany('App\Stock', 'shopcar_stock', 'stock_id', 'shopcar_id')->withPivot('id');
     }
 }

@@ -7,12 +7,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Shopcar extends Model
 {
-    public $table = 'shopcar';
+    public $table = 'shopcars';
     public $guarded = [];
 
     public function stock ()
     {
-        return $this->belongsToMany(Stock::class, 'shopcarts_stock', 'stock_id', 'stock_id');
+        return $this->belongsToMany('App\Stock', 'shopcar_stock', 'shopcar_id', 'stock_id')->withPivot('id');
     }
 
     public function payment_order ()

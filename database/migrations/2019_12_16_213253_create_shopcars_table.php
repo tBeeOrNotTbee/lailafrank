@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateShopchartsTable extends Migration
+class CreateShopcarsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,7 @@ class CreateShopchartsTable extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('user_id');
-            $table->integer('ordered');
+            $table->integer('ordered')->default('0');
 
             $table->foreign('user_id')->references('id')->on('users');
         });

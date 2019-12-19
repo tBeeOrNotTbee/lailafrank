@@ -90,6 +90,11 @@
                                 Usuarios
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/backend/shopcar/list/">
+                                Carrito de compras
+                            </a>
+                        </li>
                 </div>
             </aside>
             <!--=============================================-->

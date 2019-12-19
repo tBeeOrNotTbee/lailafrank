@@ -10,7 +10,6 @@ Vista - {{$shoe['name']}}
 @section("mainBackend")
 <h2>{{$shoe['name']}}</h2>
 <a href="/backend/editarProducto/{{$shoe['id']}}" class="btn btn-sm btn-outline-primary mt-3 mb-3">Editar</a>
-<a href="/backend/addToChart/{{$shoe['id']}}" class="btn btn-sm btn-outline-warning mt-3 mb-3">Agregar a carrito</a>
 
 @if (isset($updateOK)&&$updateOK==1)
 <p class="alert alert-success" style="width:40%">Se actualizó la información en la base de datos</p>
@@ -139,7 +138,10 @@ Vista - {{$shoe['name']}}
                     <td>{{$thisColor = App\Color::find($stock->color_id)->name}}</td>
                     <td>{{$thisPlace = App\Place::find($stock->place_id)->place}}</td>
                     <td>{{$stock->quantity}}</td>
-                    <td><button type="submit" class="btn btn-sm btn-outline-danger">Borrar</button></td>
+                    <td>
+                        <button type="submit" class="btn btn-sm btn-outline-danger">Borrar</button>
+                        <a href="/backend/shopcar/add/{{$stock->id}}" class="btn btn-sm btn-outline-warning">Comprar</a>
+                    </td>
                     </form>
                 </tr>
             @endforeach

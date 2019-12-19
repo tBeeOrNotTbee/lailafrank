@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="iso-8859-1" standalone="yes"?> 
+<ROWS>  
+<cabecera ver="2.0" nrocuenta="111757/001" />   
+<origenes>     
+<origen calle="La Rioja" nro="300" piso="" depto="" cp="1215" localidad="CAPITAL FEDERAL" provincia="CAPITAL FEDERAL" contacto="" email="test@oca.com.ar" solicitante="" observaciones="" centrocosto="" idfranjahoraria="1" idcentroimposicionorigen="0" fecha="20151015">
+<envios>
+<envio idoperativa="252014" nroremito="Envio1">
+<destinatario apellido="Fernandez" nombre="Martin" calle="BALCARCE" nro="50" piso="" depto="" localidad="CAPITAL FEDERAL" provincia="CAPITAL FEDERAL"             cp="1214" telefono="49569622" email="test@oca.com.ar" idci="0"             celular="1121877788" observaciones="Prueba" />
+<paquetes>
+<paquete alto="10" ancho="10" largo="10" peso="1" valor="10" cant="3" />
+</paquetes>
+</envio>
+</envios>
+</origen>
+</origenes>
+</ROWS>
