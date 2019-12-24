@@ -7,6 +7,14 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+          "type": "vcs",
+     
+          "url": "https://github.com/juanchorossi/OCA-PHP-API"
+     
+        }
+    ],
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-cors": "^0.11.4",

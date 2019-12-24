@@ -48,7 +48,7 @@ let tarifar_envio_corporativo = function (pesoTotal, volumen, codigoPostalOrigen
 }
 
 tarifar_envio_corporativo(1.560, 10, 1128, 1900, 1, 0, '27-31879156-1', 294536)
-
+(pesoTotal, volumen, codigoPostalOrigen, codigoPostalDestino, cantidadPaquetes, valorDeclarado, cuit, operativa) {
 /*             'Content-Length': param.length, */
 
 /* 

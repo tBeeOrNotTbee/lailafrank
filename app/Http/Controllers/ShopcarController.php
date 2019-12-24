@@ -7,23 +7,25 @@ use Illuminate\Support\Facades\Auth;
 use App\Stock;
 use App\Shopcar;
 use App\Address;
+require_once('..\App\Oca');
 
 class ShopcarController extends Controller
 {
-    public function add ($stock_id){
+    public function add($stock_id)
+    {
         $user = Auth::user();
         $stock = Stock::find($stock_id);
 
-        $shopcar = Shopcar::where('ordered','=','0')
-                            ->where('user_id','=', $user->id)
-                            ->take(1)
-                            ->first();
+        $shopcar = Shopcar::where('ordered', '=', '0')
+            ->where('user_id', '=', $user->id)
+            ->take(1)
+            ->first();
 
-        if (is_null($shopcar)){
+        if (is_null($shopcar)) {
             //debe crearlo
             $shopcar = $user->shopcar()->create([
-                'user_id'=>$user->id
-                ]);
+                'user_id' => $user->id
+            ]);
         }
 
         //continua proceso
@@ -36,21 +38,36 @@ class ShopcarController extends Controller
     {
         $user = Auth::user();
 
-        $shopcar = Shopcar::where('ordered','=','0')
-                            ->where('user_id','=', $user->id)
-                            ->take(1)
-                            ->first();
+        $shopcar = Shopcar::where('ordered', '=', '0')
+            ->where('user_id', '=', $user->id)
+            ->take(1)
+            ->first();
 
-        if(is_null($shopcar) || $shopcar->stock->isEmpty()){
+        if (is_null($shopcar) || $shopcar->stock->isEmpty()) {
             //dd($shopcar->stock);
-            return view ('backendVerCarrito', ['vacio'=>'ok']);
+            return view('backendVerCarrito', ['vacio' => 'ok']);
         }
         //dd($shopcar);
         $stocks = $shopcar->stock;
 
         $addresses = Address::where('user_id', '=', $user->id)->get();
 
-        return view ('backendVerCarrito', compact('shopcar','stocks', 'addresses'));
+        /*   INTEGRACION OCA   */
+        ### Unicamente para tarifar un envío requiere un número de operativa y CUIT válidos,
+        ### autorizados por OCA para operar (at. al cliente 0800-999-7700). 
+        ### Otros métodos no requieren esta autorización
+
+        $oca     = new Oca1($cuit = '27-31879156-1', $operativa = 294536);
+        $price     = $oca->tarifarEnvioCorporativo(1, 1, 1640, 1006, 1, 0);
+        dd($price); 
+        //$envios = $oca->listEnvios($fechaDesde = '08-08-2015', $fechaHasta = '13-08-2015');
+
+        print_r($envios);
+        print_r($price);
+
+        /* FIN INTEGRACION OCA */
+
+        return view('backendVerCarrito', compact('shopcar', 'stocks', 'addresses'));
     }
 
     public function removeStock($shopcar_id, $stock_id)
