@@ -1,5 +1,5 @@
 let tarifar_envio_corporativo = function (pesoTotal, volumen, codigoPostalOrigen, codigoPostalDestino, cantidadPaquetes, valorDeclarado, cuit, operativa) {
-
+    
     /* var params = {
         PesoTotal: pesoTotal,
         CodigoPostalOrigen: codigoPostalOrigen,
@@ -11,10 +11,10 @@ let tarifar_envio_corporativo = function (pesoTotal, volumen, codigoPostalOrigen
     } */
 
 
-    let param = '    <?xml version="1.0" encoding="utf-8"?>'
+    let param = '<?xml version="1.0" encoding="utf-8"?>'
     param += '<soap12:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://www.w3.org/2003/05/soap-envelope">'
     param += '<soap12:Body>'
-    param += '<Tarifar_Envio_Corporativo xmlns="#Oca_e_Pak">'
+    param += '<Tarifar_Envio_Corporativo xmlns="#Oca_e_Pak"> <cabecera ver="2.0" nrocuenta="9980700" />'
     param += '<PesoTotal>'+pesoTotal+'</PesoTotal>'
     param += '<VolumenTotal>'+volumen+'</VolumenTotal>'
     param += '<CodigoPostalOrigen>'+codigoPostalOrigen+'</CodigoPostalOrigen>'
@@ -32,11 +32,12 @@ let tarifar_envio_corporativo = function (pesoTotal, volumen, codigoPostalOrigen
 
     fetch(url, {
         method: 'POST',
-        body: param,
         headers: {
-            'Content-Type': 'application/soap+xml; charset=utf-8',
-            'Content-Length': param.length
-        }
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'SOAPAction': "#Oca_Express_Pak/Tarifar_Envio_Corporativo",
+            'Content-Length': length
+        },
+        body: 'PesoTotal=' + pesoTotal + '&VolumenTotal=' + volumen + '&CodigoPostalOrigen=' + codigoPostalOrigen + '&CodigoPostalDestino=' + codigoPostalDestino + '&CantidadPaquetes=' + cantidadPaquetes + '&Cuit=' + cuit + '&Operativa=' + operativa
     }).then((res) => {
         return $.parseXML(res)
     }).then((res) => {
@@ -47,3 +48,25 @@ let tarifar_envio_corporativo = function (pesoTotal, volumen, codigoPostalOrigen
 }
 
 tarifar_envio_corporativo(1.560, 10, 1128, 1900, 1, 0, '27-31879156-1', 294536)
+
+/*             'Content-Length': param.length, */
+
+/* 
+POST /oep_tracking/Oep_Track.asmx/Tarifar_Envio_Corporativo HTTP/1.1
+Host: webservice.oca.com.ar
+Content-Type: application/x-www-form-urlencoded
+Content-Length: length
+
+PesoTotal=string&VolumenTotal=string&CodigoPostalOrigen=string&CodigoPostalDestino=string&CantidadPaquetes=string&Cuit=string&Operativa=string
+*/
+
+/* PRIMER INTENTO
+fetch(url, {
+        method: 'POST',
+        body: param,
+        headers: {
+            'Content-Type': 'application/soap+xml; charset=utf-8',
+            'SOAPAction': "#Oca_Express_Pak/Tarifar_Envio_Corporativo",
+            'Content-Length': param.length
+        }
+*/
