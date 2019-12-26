@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Stock;
 use App\Shopcar;
 use App\Address;
-require_once('..\App\Oca');
+use App\Custom\Oca;
 
 class ShopcarController extends Controller
 {
@@ -57,13 +57,14 @@ class ShopcarController extends Controller
         ### autorizados por OCA para operar (at. al cliente 0800-999-7700). 
         ### Otros métodos no requieren esta autorización
 
-        $oca     = new Oca1($cuit = '27-31879156-1', $operativa = 294536);
-        $price     = $oca->tarifarEnvioCorporativo(1, 1, 1640, 1006, 1, 0);
+        /* $oca = new Oca($cuit = '27-31879156-1', $operativa = 298450);
+        //dd($oca);
+        $price = $oca->tarifarEnvioCorporativo(1, 1, 1128, 1900, 1, 0);
         dd($price); 
         //$envios = $oca->listEnvios($fechaDesde = '08-08-2015', $fechaHasta = '13-08-2015');
 
         print_r($envios);
-        print_r($price);
+        print_r($price); */
 
         /* FIN INTEGRACION OCA */
 

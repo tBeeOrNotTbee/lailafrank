@@ -7,14 +7,6 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-          "type": "vcs",
-     
-          "url": "https://github.com/juanchorossi/OCA-PHP-API"
-     
-        }
-    ],
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-cors": "^0.11.4",
@@ -22,6 +14,7 @@
         "fideloper/proxy": "^4.0",
         "fortawesome/font-awesome": "^5.11",
         "ixudra/curl": "^6.18",
+        "juanchorossi/oca-php-api": "dev-master",
         "laravel/framework": "^6.2",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
@@ -55,7 +48,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests/"
+            "Tests\\": "tests/",
+            "Oca\\": "app/custom/"
         }
     },
     "minimum-stability": "dev",
