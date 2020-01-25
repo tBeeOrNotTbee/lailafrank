@@ -11,70 +11,70 @@ use Illuminate\Http\Request;
 class BackendController extends Controller
 {
 public function pedidos(){
-    return view('backendpedidos');
+    return view('backend.backendPedidos');
 }
 
 public function productos(){
     $shoes = Shoe::all();
 
-    return view('backendproductos',compact('shoes'));
+    return view('backend.backendProductos',compact('shoes'));
 }
 
 public function ventas(){
-    return view('backendventas');
+    return view('backend.backendVentas');
 }
 
 public function reporte(){
-    return view('backendreporte');
+    return view('backend.backendReporte');
 }
 
 public function misGustos(){
-    return view('backendmisGustos');
+    return view('backend.backendMisGustos');
 }
 
 public function usuarios(){
-    return view('backendusuarios');
+    return view('backend.backendUsuarios');
 }
 
 public function ventaMes(){
-    return view('backendventaMes');
+    return view('backend.backendVentaMes');
 }
 public function editarProducto($id){
     $shoe=Shoe::find($id);
-    return view('backendeditarProducto', compact('shoe'));
+    return view('backend.backendEditarProducto', compact('shoe'));
 }
 public function editarUsuario(){
-    return view('backendeditarUsuario');
+    return view('backend.backendEditarUsuario');
 }
 
 public function nuevoProducto(){
-    return view('backendnuevoProducto');
+    return view('backend.backendNuevoProducto');
 }
 
 public function verProducto($id, $updateOK = 0){
     $shoe=Shoe::find($id);
-    return view('backendverProducto', compact('shoe'));
+    return view('backend.backendVerProducto', compact('shoe'));
 }
 
 public function editarPreview($id){
     $shoe=Shoe::find($id);
-    return view('backendeditarPreview', compact('shoe'));
+    return view('backend.backendEditarPreview', compact('shoe'));
 }
 
 public function subirImagenes($id){
     $shoe=Shoe::find($id);
-    return view('backendsubirImagenes', compact('shoe'));
+    return view('backend.backendSubirImagenes', compact('shoe'));
 }
 
 public function verColores ($id){
     $shoe=Shoe::find($id);
-    return view('backendverColores', compact('shoe'));
+    return view('backend.backendVerColores', compact('shoe'));
 }
 
 public function guardarColor ($id){
     $shoe=Shoe::find($id);
     
-    return view('backendverColores', compact('shoe'));
+    return view('backend.backendVerColores', compact('shoe'));
 }
 
 public function borrarColor($shoe_id, $id){

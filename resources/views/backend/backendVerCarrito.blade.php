@@ -66,6 +66,7 @@ Carrito de compras
     @endforeach
 </form>
 
+{{-- <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script> --}}
 <script src="{{asset('js/oca.js')}}"></script>
 @else
 <h4>No hay productos cargados.</h4>

@@ -45,7 +45,7 @@ class ShopcarController extends Controller
 
         if (is_null($shopcar) || $shopcar->stock->isEmpty()) {
             //dd($shopcar->stock);
-            return view('backendVerCarrito', ['vacio' => 'ok']);
+            return view('backend.backendVerCarrito', ['vacio' => 'ok']);
         }
         //dd($shopcar);
         $stocks = $shopcar->stock;
@@ -68,7 +68,7 @@ class ShopcarController extends Controller
 
         /* FIN INTEGRACION OCA */
 
-        return view('backendVerCarrito', compact('shopcar', 'stocks', 'addresses'));
+        return view('backend.backendVerCarrito', compact('shopcar', 'stocks', 'addresses'));
     }
 
     public function removeStock($shopcar_id, $stock_id)

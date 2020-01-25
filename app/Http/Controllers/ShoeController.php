@@ -88,7 +88,7 @@ class ShoeController extends Controller
                 
         $shoe->color()->save($color);
         
-        return view('backendverProducto', compact("shoe"));
+        return view('backend.backendVerProducto', compact("shoe"));
     }
 
     /**
@@ -161,7 +161,7 @@ class ShoeController extends Controller
 
         $updateOK=1;
         
-        return view('backendverProducto', compact('shoe', 'updateOK', 'shoe_img'));
+        return view('backend.backendVerProducto', compact('shoe', 'updateOK', 'shoe_img'));
     }
 
     /**

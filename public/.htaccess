@@ -1,5 +1,13 @@
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
+        SetEnvIf Origin "^(.*\.domain\.com)$" ORIGIN_SUB_DOMAIN=$1
+        Header set Access-Control-Allow-Origin "%{ORIGIN_SUB_DOMAIN}e" env=ORIGIN_SUB_DOMAIN
+        Header set Access-Control-Allow-Origin: "http://webservice.oca.com.ar/"
+        Header set Access-Control-Allow-Methods: "*"
+        Header set Access-Control-Allow-Headers: "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+        Access-Control-Allow-Credentials: true
+        Access-Control-Allow-Headers: Content-Type 
+
         Options -MultiViews -Indexes
     </IfModule>
 

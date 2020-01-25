@@ -51,7 +51,7 @@ class StockController extends Controller
     {
         $stocks = Stock::where('place_id', '=', $place_id)->get();
         $place = Place::find($place_id);
-        return view('backendstock', ['stocks'=>$stocks, 'place'=>$place, 'stockM' => 'true']);
+        return view('backend.backendstock', ['stocks'=>$stocks, 'place'=>$place, 'stockM' => 'true']);
     }
 
     /**
