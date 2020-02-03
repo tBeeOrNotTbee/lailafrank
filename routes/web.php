@@ -15,8 +15,13 @@ use App\Http\Controllers\BackendController;
 
 Auth::routes();
 
+////// RUTAS VISTAS /////
 Route::get('/home', 'HomeController@index')->name('home');
 
+
+
+
+//////////////////
 Route::get('/backend', function(){
     return view('backend.backendHome');
 })->middleware('auth', 'role:admin');

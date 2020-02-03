@@ -17,7 +17,7 @@ class CreateShoesImgs extends Migration
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
-            $table->bigInteger('shoe_id');
+            $table->unsignedBigInteger('shoe_id');
             $table->foreign('shoe_id')->references('id')->on('shoes');
             $table->string('img_path');
         });

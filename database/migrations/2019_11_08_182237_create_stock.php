@@ -18,10 +18,10 @@ class CreateStock extends Migration
             $table->timestamps();
             $table->softDeletes();
             $table->integer('size');
-            $table->bigInteger('quantity');
-            $table->bigInteger('color_id');
-            $table->bigInteger('shoe_id');
-            $table->bigInteger('place_id');
+            $table->integer('quantity');
+            $table->unsignedBigInteger('color_id');
+            $table->unsignedBigInteger('shoe_id');
+            $table->unsignedBigInteger('place_id');
             $table->foreign('shoe_id')->references('id')->on('shoes');
             $table->foreign('place_id')->references('id')->on('places');
             $table->foreign('color_id')->references('id')->on('colors');
