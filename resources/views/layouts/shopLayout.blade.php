@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/brook.css">
     <link rel="stylesheet" href="../css/lailaStyle.css">
-    <title>@yield('title')</title>
+    <title>Laila Frank - @yield('title') </title>
 </head>
 
 <body>
@@ -211,13 +211,63 @@
         <main class="page-content ml--100 ml_lg--0 ml_md--0 ml_sm--0">
             <!-- Contenido Principal -->
             <div class="container-fluid">
-                @yield('advert')
+                <div class="row">
+                    <div class="d-none d-md-block col-12 m-4 text-center">
+                        <img src="../img/logo_shop.png" class="" alt="">
+                    </div>
+                </div>
 
 
                 <!-- CONTENIDO PRINCIPAL -->
+                <div class="row">
+                    <!-- SHOP MENU RESPONSIVE -->
+                    <div class="col-12 mt-4 mb-3 d-block d-md-none">
+                        <div id="accordion">
+                            <div class="card border-0">
+                                <div class="card-header noPad border-0 noBk w100 text-center" id="headingThree">
+                                    <h5 class="mb-0 w100 d-flex justify-content-center">
+                                        <button class="shop-menu-btn collapsed w80 monserrat d-flex justify-content-end" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                            <span class="col-6 text-center">MENÚ</span> <i class="fas fa-sort-down col-4 d-flex justify-content-end"></i>
+                                        </button>
+                                    </h5>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
 
-                @yield('content')
+                                        <ul class="list-group list-group-flush shop-links">
+                                            <li class="list-group-item shop-bk"><a href="shopMiCuenta.php" class="grey shop-link-active">Mi cuenta</a></li>
+                                            <li class="list-group-item shop-bk"><a href="shopEditarCuenta.php" class="grey">Editar cuenta</a></li>
+                                            <li class="list-group-item shop-bk"><a href="shopMisDirecciones.php" class="grey">Mis direcciones</a></li>
+                                            <li class="list-group-item shop-bk"><a href="shopCompras.php" class="grey">Mis compras</a></li>
+                                            <li class="list-group-item shop-bk"><a href="shopMisFavoritos.php" class="grey">Mis favoritos</a></li>
+                                            <li class="list-group-item shop-bk"><a href="shopNewsletter.php" class="grey">Newsletter</a></li>
+                                            <li class="list-group-item shop-bk"><a href="../index.php" class="grey">Cerrar sesion</a></li>
+                                        </ul>
 
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- SHOP MENU DESKTOP -->
+
+                    <div class="d-none d-md-block col-md-3 shop-bk">
+
+                        <ul class="list-group list-group-flush shop-links shop-links-desk">
+                            <li class="list-group-item border-0 p-1 noBk"><a href="shopMiCuenta.php" class="grey shop-link-active">Mi cuenta</a></li>
+                            <li class="list-group-item border-0 p-1 noBk"><a href="shopEditarCuenta.php" class="grey">Editar cuenta</a></li>
+                            <li class="list-group-item border-0 p-1 noBk"><a href="shopMisDirecciones.php" class="grey">Mis direcciones</a></li>
+                            <li class="list-group-item border-0 p-1 noBk"><a href="shopCompras.php" class="grey">Mis compras</a></li>
+                            <li class="list-group-item border-0 p-1 noBk"><a href="shopMisFavoritos.php" class="grey">Mis favoritos</a></li>
+                            <li class="list-group-item border-0 p-1 noBk"><a href="shopNewsletter.php" class="grey">Newsletter</a></li>
+                            <li class="list-group-item border-0 p-1 noBk"><a href="../index.php" class="grey">Cerrar sesion</a></li>
+                        </ul>
+
+                    </div>
+
+                    @yield('content')
+                </div>
 
 
 
@@ -234,7 +284,7 @@
                     <div class="col-12 col-md-2 text-center mt-5">
                         <i class="fas fa-map-marker-alt"></i>
                         <h2>Showroom</h2>
-                        <p>3 de Febrero 1930<br>plata baja E</p>
+                        <p>3 de Febrero 1930<br>Planta baja E</p>
                     </div>
                     <div class="col-12 col-md-2 text-center mt-3">
                         <i class="fas fa-phone-alt"></i>

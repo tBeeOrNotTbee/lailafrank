@@ -1,4 +1,4 @@
-@section(toolbarFront)
+@section('toolbarFront')
 <!-- Start Toolbar -->
 <div class="demo-option-container d-none d-md-flex">
     <!-- Start Toolbar -->

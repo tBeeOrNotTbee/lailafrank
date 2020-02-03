@@ -1,0 +1,90 @@
+@font-face {
+    font-family: smooth-stone;
+    src: url(../fonts/smoothStone-Regular.ttf);
+}
+
+.smooth-stone{
+    font-family: smooth-stone!important;
+}
+
+@font-face {
+    font-family: times;
+    src: url(../fonts/times-bold.ttf);
+}
+
+.times{
+    font-family: times!important;
+}
+
+
+@font-face{
+    font-family: monserrat;
+    src: url(../fonts/montserrat-regular-webfont.ttf)
+}
+
+.monserrat{
+    font-family: monserrat!important;
+}
+
+@font-face{
+    font-family: monserrat-bold;
+    src: url(../fonts/montserrat-bold-webfont.ttf)
+}
+
+.monserrat-bold{
+    font-family: monserrat-bold!important;
+}
+
+@font-face{
+    font-family: roboto;
+    src: url(../fonts/roboto-Regular.ttf)
+}
+
+.roboto{
+    font-family: roboto!important;
+}
+
+@font-face{
+    font-family: roboto-condensed;
+    src: url(../fonts/robotoCondensed-Light.ttf)
+}
+
+.roboto-condensed{
+    font-family: roboto-condensed!important;
+}
+
+@font-face{
+    font-family: playfair;
+    src: url(../fonts/playfairDisplay-Regular.ttf)
+}
+
+.playfair{
+    font-family: playfair!important;
+}
+
+@font-face{
+    font-family: playfair-black-italic;
+    src: url(../fonts/playfairDisplay-BlackItalic.ttf)
+}
+
+.playfair-black-italic{
+    font-family: playfair-black-italic!important;
+}
+
+@font-face{
+    font-family: playfair-bold-italic;
+    src: url(../fonts/playfairDisplay-BoldItalic.ttf)
+}
+
+.playfair-bold-italic{
+    font-family: playfair-bold-italic!important;
+}
+
+@font-face{
+    font-family: roboto-light;
+    src: url(../fonts/roboto-Light.ttf)
+}
+
+.roboto-light{
+    font-family: roboto-light!important;
+}

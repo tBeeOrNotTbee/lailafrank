@@ -17,7 +17,9 @@ Auth::routes();
 
 ////// RUTAS VISTAS /////
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/history', function(){
+    return view('history');
+});
 
 
 

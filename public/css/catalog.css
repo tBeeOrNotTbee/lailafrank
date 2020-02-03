@@ -1,0 +1,83 @@
+.catalog-row {
+    margin-top: 10vh;
+}
+
+.catalog-sub-container {
+    width: 100%;
+}
+
+.catalog-sub {
+    box-sizing: content-box !important;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5em;
+}
+
+.catalog-sub span {
+    font-size: 1.5em;
+}
+
+.img-catalog {
+    background-color: blue;
+    height: 60vh;
+    width: 100%;
+}
+
+.thumbnail-big {
+    margin: 0 auto;
+}
+
+.thumbnail-title {
+    text-transform: uppercase;
+    font-size: 0.7em;
+}
+
+.thumbnail-price {
+    font-size: 0.7em;
+    font-weight: bold;
+}
+
+.show-color {
+    border: 1px solid rgb(68, 68, 68);
+    width: 1.8em;
+    height: 0.9em;
+    padding: 0.1em 0.2em;
+}
+
+.show-color div {
+    height: 100%;
+}
+
+#product1 {
+    margin-bottom: 5vh;
+}
+
+.see-more {
+    margin: 10vh auto;
+}
+
+.shoe-img-preview {
+    /* width: 130px;
+    height: 195px; */
+    position: relative;
+    display: inline-block;
+}
+
+.shoe-img-preview .img-top {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    transition: all 1s linear!important;
+}
+.shoe-img-preview:hover .img-top {
+    opacity: 1;
+}
+
+/* PRODUCT DETAIL */
+.gallery {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
