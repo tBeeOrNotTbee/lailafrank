@@ -31,7 +31,8 @@ class NewTableShoes extends Migration
             $table->string('chapped');
             $table->string('cover');
             $table->integer('hidden')->nullable();
-            $table->string('preview_img');
+            $table->integer('offer')->nullable();
+            $table->integer('stock_control')->nullable();
         });
     }
 

@@ -6,15 +6,6 @@ use App\Shoe;
 use Faker\Generator as Faker;
 
 $factory->define(Shoe::class, function (Faker $faker) {
-    $preview_img=[
-        'shoe_1.jpg',
-        'shoe_2.jpg',
-        'shoe_3.jpg',
-        'shoe_4.jpg',
-        'shoe_5.jpg',
-        'shoe_6.jpg'
-    ];
-
     return [
         'name'=>$faker->name,
         'price'=>$faker->randomFloat(2, 6000, 12000),
@@ -29,6 +20,5 @@ $factory->define(Shoe::class, function (Faker $faker) {
         'sole'=>$faker->word(),
         'chapped'=>$faker->word(),
         'cover'=>$faker->word(),
-        'preview_img'=>$faker->randomElement($preview_img)
     ];
 });

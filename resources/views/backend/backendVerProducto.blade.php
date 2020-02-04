@@ -55,12 +55,14 @@ Vista - {{$shoe['name']}}
                 <li><b>Forro: </b>{{$shoe['cover']}}</li>
 
                 <li><b>Visible: </b>{{ $shoe['hidden'] == 1 ? 'No':'Si'}}</li>
+                <li><b>En oferta: </b>{{ $shoe['offer'] == 1 ? 'Si':'No'}}</li>
 
                 <li><b>Alerta de stock: </b>{{$shoe['stock_control']}}</li>
             </ul>
         </div>
         <div class="col-12 col-md-6">
             <div class="card mb-3" style="width: 18rem;">
+                @if ($shoe->preview())
                 <img src="/storage/{{$shoe['preview_img']}}" class="img-thumbnail" alt="Imagen de vista previa">
                 <div class="card-body">
                     <p class="card-text">Foto de vista previa.</p>

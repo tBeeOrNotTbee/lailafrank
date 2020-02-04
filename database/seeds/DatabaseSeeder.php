@@ -22,5 +22,10 @@ class DatabaseSeeder extends Seeder
         
         DB::table('places')->insert(['place'=>'Depósito']);
         DB::table('places')->insert(['place'=>'Showroom']);
+        
+        DB::table('img_categories')->insert(['category'=>'previewA']);
+        DB::table('img_categories')->insert(['category'=>'previewB']);
+        DB::table('img_categories')->insert(['category'=>'previewLarge']);
+        DB::table('img_categories')->insert(['category'=>'imgCatalog']);
     }
 }

@@ -58,8 +58,6 @@ class ShoeController extends Controller
 
         $this->validate($req, $rules);
 
-        $preview_img=$req->file('preview_img')->store('public');
-
         $datos = [
             "name" => $req["name"],
             "description_es" => $req["description_es"],
@@ -76,17 +74,55 @@ class ShoeController extends Controller
             "stock_control" => $req["stock_control"],
             "cover" => $req["cover"],
             "hidden" => $req["hidden"],
-            "preview_img" => basename($preview_img)
+            "offer" => $req["offer"]
         ];
+
+        dd($req->previewLargeCheck);
 
         $shoe = new Shoe($datos);
         
         $shoe->save();
 
         //Crear color por defecto.
-        $color = new Color(['shoe_id'=>$shoe->id, 'name'=>'Color único', 'color'=>'#000000']);
+        //$color = new Color(['shoe_id'=>$shoe->id, 'name'=>'Color único', 'color'=>'#000000']);
                 
-        $shoe->color()->save($color);
+        //$shoe->color()->save($color);
+
+        //imagenes
+
+        if ($req->previewLargeCheck == 1){
+            $previewLargeFile=$req->file('previewLarge')->store('public');
+
+            $shoe_img = new Shoe_img([
+                'shoe_id'=>$shoe->id, 
+                'img_path'=>basename($previewLargeFile), 
+                'category_id' => '3' 
+                ]);
+                
+            $shoe->shoe_img()->save($shoe_img);
+        }else{
+            //IMG PREVIEW A
+            $previewAFile=$req->file('previewA')->store('public');
+
+            $shoe_imgA = new Shoe_img([
+                'shoe_id'=>$shoe->id, 
+                'img_path'=>basename($previewAFile), 
+                'category_id' => '1' 
+                ]);
+                
+            $shoe->shoe_img()->save($shoe_imgA);
+
+            //IMG PREVIEW B
+            $previewBFile=$req->file('previewB')->store('public');
+
+            $shoe_imgB = new Shoe_img([
+                'shoe_id'=>$shoe->id, 
+                'img_path'=>basename($previewBFile), 
+                'category_id' => '1' 
+                ]);
+                
+            $shoe->shoe_img()->save($shoe_imgB);
+        }
         
         return view('backend.backendVerProducto', compact("shoe"));
     }
@@ -151,7 +187,8 @@ class ShoeController extends Controller
             "chapped" => $req["chapped"],
             "stock_control" => $req["stock_control"],
             "cover" => $req["cover"],
-            "hidden" => $req["hidden"]
+            "hidden" => $req["hidden"],
+            "offer" => $req["offer"]
         ];
 
         $shoe = Shoe::find($req['id']);
@@ -190,12 +227,45 @@ class ShoeController extends Controller
     public function editarProductPreview(Request $req, $id){
         $shoe = Shoe::find($id);
         
-        $newImg = $req->file('preview_img')->store("public");
+        foreach ($shoe->shoe_img as $img) {
+            if (in_array($img->category_id, ['1','2','3'])){
+                $img->delete();
+            }
+        }
 
-        $shoe->preview_img = basename($newImg);
+        if ($req->previewLargeCheck == 1){
+            $previewLargeFile=$req->file('previewLarge')->store('public');
 
-        $shoe->save();
-        
+            $shoe_img = new Shoe_img([
+                'shoe_id'=>$shoe->id, 
+                'img_path'=>basename($previewLargeFile), 
+                'category_id' => '3' 
+                ]);
+                
+            $shoe->shoe_img()->save($shoe_img);
+        }else{
+            //IMG PREVIEW A
+            $previewAFile=$req->file('previewA')->store('public');
+
+            $shoe_imgA = new Shoe_img([
+                'shoe_id'=>$shoe->id, 
+                'img_path'=>basename($previewAFile), 
+                'category_id' => '1' 
+                ]);
+                
+            $shoe->shoe_img()->save($shoe_imgA);
+
+            //IMG PREVIEW B
+            $previewBFile=$req->file('previewB')->store('public');
+
+            $shoe_imgB = new Shoe_img([
+                'shoe_id'=>$shoe->id, 
+                'img_path'=>basename($previewBFile), 
+                'category_id' => '1' 
+                ]);
+                
+            $shoe->shoe_img()->save($shoe_imgB);
+        }
         return redirect()->action('BackendController@verProducto', [$shoe->id]);
     }
 
