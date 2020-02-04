@@ -77,7 +77,7 @@ class ShoeController extends Controller
             "offer" => $req["offer"]
         ];
 
-        dd($req->previewLargeCheck);
+        //dd($req->previewLargeCheck);
 
         $shoe = new Shoe($datos);
         
@@ -118,7 +118,7 @@ class ShoeController extends Controller
             $shoe_imgB = new Shoe_img([
                 'shoe_id'=>$shoe->id, 
                 'img_path'=>basename($previewBFile), 
-                'category_id' => '1' 
+                'category_id' => '2' 
                 ]);
                 
             $shoe->shoe_img()->save($shoe_imgB);
@@ -261,7 +261,7 @@ class ShoeController extends Controller
             $shoe_imgB = new Shoe_img([
                 'shoe_id'=>$shoe->id, 
                 'img_path'=>basename($previewBFile), 
-                'category_id' => '1' 
+                'category_id' => '2' 
                 ]);
                 
             $shoe->shoe_img()->save($shoe_imgB);

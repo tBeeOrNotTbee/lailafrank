@@ -17,6 +17,7 @@
 
     <link rel="stylesheet" href="{{ asset('css/datatables.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/back.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/catalog.css')}}">
 </head>
 
 <body>

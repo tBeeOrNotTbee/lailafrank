@@ -62,8 +62,29 @@ Vista - {{$shoe['name']}}
         </div>
         <div class="col-12 col-md-6">
             <div class="card mb-3" style="width: 18rem;">
-                @if ($shoe->preview())
-                <img src="/storage/{{$shoe['preview_img']}}" class="img-thumbnail" alt="Imagen de vista previa">
+                <?php
+                    $preview = $shoe->preview();
+                ?>
+                @if (in_array($preview[0]['type'], ['1', '2']))
+                <?php foreach ($preview as $previewImg) {
+                            if ($previewImg['type'] == 1) {
+                                $previewA = $previewImg['path'];
+                            } else {
+                                $previewB = $previewImg['path'];
+                            }   
+                        }
+                     ;?>
+                <div class="p-3">
+                    <div class="shoe-img-preview">
+                        <img src="/storage/{{ $previewA }}" class="img-fluid" alt="">
+                        <img src="/storage/{{ $previewB }}" class="img-top img-fluid" alt="">
+                    </div>
+                </div>
+                @else
+                <img src="/storage/{{ $preview[0]['path'] }}" class="img-thumbnail" alt="Imagen de vista previa">
+
+                @endif
+
                 <div class="card-body">
                     <p class="card-text">Foto de vista previa.</p>
                     <a href="/backend/editarProductPreview/{{$shoe['id']}}">Editar imagen</a>
@@ -78,20 +99,19 @@ Vista - {{$shoe['name']}}
 <div class="row">
     <div class="col-md-6 mb-3">
         <a href="/backend/subirImagenes/{{$shoe['id']}}" class="btn btn-sm btn-outline-primary mt-3 mb-3">Agregar</a>
-        {{--dd($shoe_img)--}}
         <div class="container-fluid">
-        <div class="row">
-            @foreach ($shoe->shoe_img as $img)
+            <div class="row">
+                @foreach ($shoe->shoe_img()->where('category_id','=','4')->get() as $img)
                 <div class="col-4 card m-3" style="padding:0!important;">
                     <img src="/storage/{{$img['img_path']}}" class="img-thumbnail" alt="Imagen de vista previa">
                     <div class="card-body">
-                    <a href="/backend/shoeimg/delete/{{$img['id']}}/{{$shoe['id']}}" 
-                        class="btn btn-sm btn-outline-danger">Eliminar imagen</a>
+                        <a href="/backend/shoeimg/delete/{{$img['id']}}/{{$shoe['id']}}"
+                            class="btn btn-sm btn-outline-danger">Eliminar imagen</a>
                     </div>
                 </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
     </div>
 </div>
 
@@ -100,9 +120,11 @@ Vista - {{$shoe['name']}}
 <h4>Colores</h4>
 <ul>
     @forelse ($shoe->color as $color)
-        <li><b>{{$color->name}}</b> <div class="colorPreview" style="background:{{$color->color}}"></div></li>
+    <li><b>{{$color->name}}</b>
+        <div class="colorPreview" style="background:{{$color->color}}"></div>
+    </li>
     @empty
-        <li>No posee colores.</li>
+    <li>No posee colores.</li>
     @endforelse
 </ul>
 
@@ -120,55 +142,55 @@ Vista - {{$shoe['name']}}
 <h4>Stock</h4>
 @if (count($shoe->color) > 0)
 <table id="table" class="table-responsive table table-striped table-sm">
-        <thead>
-            <tr>
-                <th>Talle</th>
-                <th>Color</th>
-                <th>Lugar</th>
-                <th>Cantidad</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($shoe->stock as $stock)
-                <tr>
-                    <form action="/backend/borrarStock" method="post">
-                    @csrf
-                    <input type="hidden" name="shoe_id" value="{{$shoe->id}}">
-                    <input type="hidden" name="id" value="{{$stock->id}}">
-                    <td>{{$stock->size}}</td>
-                    <td>{{$thisColor = App\Color::find($stock->color_id)->name}}</td>
-                    <td>{{$thisPlace = App\Place::find($stock->place_id)->place}}</td>
-                    <td>{{$stock->quantity}}</td>
-                    <td>
-                        <button type="submit" class="btn btn-sm btn-outline-danger">Borrar</button>
-                        <a href="/backend/shopcar/add/{{$stock->id}}" class="btn btn-sm btn-outline-warning">Comprar</a>
-                    </td>
-                    </form>
-                </tr>
-            @endforeach
-            <tr>
-                <form action="/backend/guardarStock" method="post">
+    <thead>
+        <tr>
+            <th>Talle</th>
+            <th>Color</th>
+            <th>Lugar</th>
+            <th>Cantidad</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($shoe->stock as $stock)
+        <tr>
+            <form action="/backend/borrarStock" method="post">
+                @csrf
+                <input type="hidden" name="shoe_id" value="{{$shoe->id}}">
+                <input type="hidden" name="id" value="{{$stock->id}}">
+                <td>{{$stock->size}}</td>
+                <td>{{$thisColor = App\Color::find($stock->color_id)->name}}</td>
+                <td>{{$thisPlace = App\Place::find($stock->place_id)->place}}</td>
+                <td>{{$stock->quantity}}</td>
+                <td>
+                    <button type="submit" class="btn btn-sm btn-outline-danger">Borrar</button>
+                    <a href="/backend/shopcar/add/{{$stock->id}}" class="btn btn-sm btn-outline-warning">Comprar</a>
+                </td>
+            </form>
+        </tr>
+        @endforeach
+        <tr>
+            <form action="/backend/guardarStock" method="post">
                 @csrf
                 <input type="hidden" name="shoe_id" value="{{$shoe->id}}">
                 <td><input type="text" name="size" id=""></td>
                 <td><select name="color_id" id="">
-                    @foreach ($shoe->color as $color)
+                        @foreach ($shoe->color as $color)
                         <option value="{{$color->id}}">{{$color->name}}</option>
-                    @endforeach
-                </select></td>
+                        @endforeach
+                    </select></td>
                 <td><select name="place_id" id="">
                         @foreach ($places as $place)
-                            <option value="{{$place->id}}">{{$place->place}}</option>
+                        <option value="{{$place->id}}">{{$place->place}}</option>
                         @endforeach
                     </select></td>
                 <td><input type="text" name="quantity"></td>
                 <td><button type="submit" class="btn btn-sm btn-outline-primary">Guardar</button></td>
             </form>
-            </tr>
-        </tbody>
-    </table>
+        </tr>
+    </tbody>
+</table>
 @else
-    <p>Primero debe agregar un color para controlar el stock.</p>
+<p>Primero debe agregar un color para controlar el stock.</p>
 @endif
 @endsection

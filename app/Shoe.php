@@ -25,13 +25,16 @@ class Shoe extends Model
     }
 
     public function preview(){
-        $previewFiles = ['type'=>'0'];
-        foreach ($this->shoe_img() as $img){
+        $previewFiles = [];
+
+        foreach ($this->shoe_img as $img){
             if (in_array($img->category_id, ['1','2','3'])){
-                $previewFiles['type'] = $img->category_id;
-                array_push($previewFiles, $img->img_path);
+                $preview['type'] = $img->category_id;
+                $preview['path'] = $img->img_path;
+                array_push($previewFiles, $preview);
             }
         }
+
         return $previewFiles;
     }
 }

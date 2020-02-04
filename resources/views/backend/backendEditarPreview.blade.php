@@ -9,7 +9,31 @@ Editar imágen - {{$shoe['name']}}
 <a href="/backend/verProducto/{{$shoe['id']}}" class="btn btn-sm btn-outline-primary mt-3 mb-3">volver</a>
 
 <div class="card mb-3" style="width: 18rem;">
-    <img src="/storage/{{$shoe['preview_img']}}" class="img-thumbnail" alt="Imagen de vista previa">
+
+    <div class="card mb-3" style="width: 18rem;">
+        <?php
+            $preview = $shoe->preview();
+        ?>
+        @if (in_array($preview[0]['type'], ['1', '2']))
+        <?php foreach ($preview as $previewImg) {
+                    if ($previewImg['type'] == 1) {
+                        $previewA = $previewImg['path'];
+                    } else {
+                        $previewB = $previewImg['path'];
+                    }   
+                }
+             ;?>
+        <div class="p-3">
+            <div class="shoe-img-preview">
+                <img src="/storage/{{ $previewA }}" class="img-fluid" alt="">
+                <img src="/storage/{{ $previewB }}" class="img-top img-fluid" alt="">
+            </div>
+        </div>
+        @else
+        <img src="/storage/{{ $preview[0]['path'] }}" class="img-thumbnail" alt="Imagen de vista previa">
+
+        @endif
+    </div>
     <div class="card-body">
         <p class="card-text">Foto actual.</p>
     </div>
