@@ -3,11 +3,13 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Address extends Model
 {
     public $table = 'addresses';
     public $guarded = [];
+    use SoftDeletes;
 
     public function shipping_methods ()
     {

@@ -30,8 +30,7 @@ Editar imágen - {{$shoe['name']}}
             </div>
         </div>
         @else
-        <img src="/storage/{{ $preview[0]['path'] }}" class="img-thumbnail" alt="Imagen de vista previa">
-
+            <img src="/storage/{{ $preview[0]['path'] }}" class="img-thumbnail" alt="Imagen de vista previa">
         @endif
     </div>
     <div class="card-body">

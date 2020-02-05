@@ -92,6 +92,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="/backend/discount">
+                                Cupones de descuento
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="/backend/shopcar/list/">
                                 Carrito de compras
                             </a>

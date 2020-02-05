@@ -65,4 +65,9 @@ Route::get('/backend/shopcar/list/', 'ShopcarController@list')->middleware('auth
 Route::get('/shopcar/remove/{shopcar_id}/{stock_id}', 'ShopcarController@removeStock')->middleware('auth');
 Route::get('/backend/address/new/', 'AddressController@newBackendAddress')->middleware('auth', 'role:admin');
 Route::post('/address/{from}/new/', 'AddressController@newAddress')->middleware('auth');
+
+Route::get('/backend/discount', 'BackendController@discounts')->middleware('auth');
+Route::post('/backend/discount/create', 'DiscountController@create')->middleware('auth');
+Route::post('/backend/discount/destroy/', 'DiscountController@destroy')->middleware('auth');
+Route::get('/backend/discount/onoff/{discountId}/{active}', 'DiscountController@onoff')->middleware('auth');
 //Route::api('/carrito/api/{user_id}', 'ShopcartController@apiCarrito');

@@ -5,6 +5,7 @@ use App\Shoe;
 use App\Shoe_img;
 use App\Color;
 use App\Http\Controllers\Stock;
+use App\Discount;
 
 use Illuminate\Http\Request;
 
@@ -82,5 +83,10 @@ public function borrarColor($shoe_id, $id){
     $stocks=Stock::where('color_id','=',$id)->get();
     $stocks->destroy;
     return redirect('/backend/verProducto/'.$shoe_id.'#color');
+}
+
+public function discounts (){
+    $discounts = Discount::all();
+    return view('backend.backendDescuentos', compact('discounts'));
 }
 }
