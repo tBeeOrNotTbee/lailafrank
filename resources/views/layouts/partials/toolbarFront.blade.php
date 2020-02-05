@@ -1,4 +1,3 @@
-@section('toolbarFront')
 <!-- Start Toolbar -->
 <div class="demo-option-container d-none d-md-flex">
     <!-- Start Toolbar -->
@@ -51,6 +50,5 @@
     <!-- End Quick Link -->
 </div>
 <!-- End Toolbar -->
-@endsection
 
 

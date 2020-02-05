@@ -1,4 +1,3 @@
-@section('navFooter')
 <!-- FOOTER MENU RESPONSIVE -->
 <div class="col-12 mt-4 mb-3 d-block d-md-none">
     <div id="accordion">
@@ -42,4 +41,3 @@
     </ul>
 
 </div>
-@endsection

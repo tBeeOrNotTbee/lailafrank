@@ -17,8 +17,8 @@
 <body>
     <!-- Wrapper -->
     <div id="wrapper" class="wrapper">
-        @yield('partials.navFront')
-        @yield('partials.toolbarFront')
+        @include('layouts.partials.navFront')
+        @include('layouts.partials.toolbarFront')
 
         <!-- MAIN CONTENT -->
         <main class="page-content ml--100 ml_lg--0 ml_md--0 ml_sm--0">
@@ -66,12 +66,12 @@
 
 
     <!-- <script src="js/modernizr-3.6.0.min.js"></script> -->
-    <script src="../js/jquery-3.4.1.min.js"></script>
-    <script src="../js/bootstrap.bundle.min.js"></script>
-    <script src="../js/plugins.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/home.js"></script>
-    <script src="../js/jquery.instagramFeed.min.js"></script>
+    <script src="{{asset('js/jquery-3.4.1.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('js/plugins.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/home.js')}}"></script>
+    <script src="{{asset('js/jquery.instagramFeed.min.js')}}"></script>
 
     <script type="text/javascript">
         (function($) {

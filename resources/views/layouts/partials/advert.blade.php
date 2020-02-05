@@ -1,5 +1,3 @@
-@section('advert')
-
 <div class="row advert justify-content-between align-items-center" id="advert">
     <div class="col-1 d-none d-sm-block">
     </div>
@@ -21,4 +19,3 @@
         <a id="equis" class="col mr-3" onclick="closeAdvert()">X</a>
     </div>
 </div>
-@endsection

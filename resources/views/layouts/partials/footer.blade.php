@@ -1,4 +1,3 @@
-@section('footer')
 <ul id="footer-links" class="list-group list-group-flush text-center list-group-horizontal-md justify-content-center pl-md-5 pr-md-5">
     <a href="footercambios.php" class="footer-link roboto-light mt-2 rosa">Cambios & devoluciones</a>
     <a href="footerpolitica.php" class="footer-link roboto-light mt-2 rosa">Política de garantía</a>
@@ -25,4 +24,3 @@
         <p>shoes@lailafrank.com</p>
     </div>
 </footer>
-@endsection
