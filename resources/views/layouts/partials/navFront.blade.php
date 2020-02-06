@@ -4,7 +4,7 @@
         <div class="header-wrap nav d-flex align-items-center justify-content-between align-content-md-around">
             <div class="header-top order-2 order-md-1">
                 <div class="branding">
-                    <a href="../index.php" class="logo-res">
+                    <a href="/" class="logo-res">
                         <img src="../img/logo.png" class="img-fluid" alt="logo">
                     </a>
                 </div>
@@ -72,15 +72,15 @@
                     <img src="../img/logo_blanco.png" class="img-fluid" alt="logo">
                 </a>
 
-                <a class="roboto-condensed white newsletter-title" href="historia.php">
+                <a class="roboto-condensed white newsletter-title" href="/history">
                     <h4 class="py-3 mb-2 mt-5">HISTORIA</h4>
                 </a>
 
-                <a class="roboto-condensed white newsletter-title py-3 my-3" href="catalog.php">
+                <a class="roboto-condensed white newsletter-title py-3 my-3" href="/catalog">
                     <h4 class="py-3 my-2">CATALOGO</h4>
                 </a>
 
-                <a class="roboto-condensed white newsletter-title py-3 my-3" href="contacto.php">
+                <a class="roboto-condensed white newsletter-title py-3 my-3" href="/contact">
                     <h4 class="py-3 my-2">CONTACTO</h4>
                 </a>
 

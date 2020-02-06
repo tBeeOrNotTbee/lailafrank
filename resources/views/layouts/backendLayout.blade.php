@@ -27,7 +27,14 @@
         <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Zapatería</a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
-                <a class="nav-link" href="#">Salir</a>
+                <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </li>
         </ul>
     </nav>
@@ -53,8 +60,8 @@
                                     Stock
                                 </a>
 
-                                <div id="collapseOne" class="collapse {{isset($stockM) ? 'show' : ''}}" aria-labelledby="headingOne"
-                                    data-parent="#accordion">
+                                <div id="collapseOne" class="collapse {{isset($stockM) ? 'show' : ''}}"
+                                    aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
                                         <a class="nav-link" href="/backend/stock/1">
                                             Depósito

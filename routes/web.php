@@ -15,22 +15,20 @@ use App\Http\Controllers\BackendController;
 
 Auth::routes();
 
-////// RUTAS VISTAS /////
+////// RUTAS FRONTEND /////
+Route::get('/',function(){return view('home');});
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/history', function(){
-    return view('history');
-});
+Route::get('/history', function(){return view('history');});
+Route::get('/contact', function(){return view('contacto');});
+Route::get('/catalog', function(){return view('catalog');});
 
 
 
-//////////////////
+////// RUTAS BACKTEND /////
 Route::get('/backend', function(){
     return view('backend.backendHome');
 })->middleware('auth', 'role:admin');
 
-Route::get('/','HomeController@index');
-
-//RUTAS BACKEND
 Route::get('/backend/pedidos', 'BackendController@pedidos')->middleware('auth', 'role:admin');
 Route::get('/backend/stock/{place_id}', 'StockController@show')->middleware('auth', 'role:admin');
 Route::get('/backend/productos', 'BackendController@productos')->middleware('auth', 'role:admin');
