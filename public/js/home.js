@@ -6,13 +6,14 @@ document.getElementById("equis").onclick = function() {
     console.log('HOla!')
     document.getElementById("advert").style.display = "none"; 
 } 
+
 const newsletterForm = document.getElementById("newsletterForm");
 newsletterForm.onsubmit = async (e) => {
     e.preventDefault();
 
     let response = await fetch('/backend/newsletter', {
         method: 'POST',
-        body: new FormData(newsletterForm)
+        body: new FormData(newsletterForm).values()
     });
 
     let result = await response.json();
