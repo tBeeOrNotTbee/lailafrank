@@ -23,34 +23,34 @@
             @enderror
 
             <input type="password" id="password" class="input-line form-control @error('password') is-invalid @enderror noBk rounded-0 monserrat cero8em p-0 mt-2" placeholder="CONTRASEÑA" name="password" required autocomplete="current-password" aria-describedby="basic-addon2">
-        </form>
-
-        <div class="form-group row">
-            <div class="col-md-6 offset-md-4">
-                <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-                    <label class="form-check-label" for="remember">
-                        {{ __('Remember Me') }}
-                    </label>
+            
+            <div class="form-group row">
+                <div class="col-md-6 offset-md-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+                        
+                        <label class="form-check-label" for="remember">
+                            {{ __('Remember Me') }}
+                        </label>
+                    </div>
                 </div>
             </div>
-        </div>
-
-        <div class="d-flex justify-content-end mt-3 mb-5">
-            @if (Route::has('password.request'))
-            <span class="mt-3 shop-link"><a href="{{ route('password.request') }}" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">{{ __('¿Olvidaste tu contraseña?') }}</a></span>
-            @endif
-        </div>
-
-        <div class="d-flex justify-content-center mt-7">
-            <button type="submit" class="button-story m-0"><a href="shopMiCuenta.php" class="text-reset text-decoration-none m-0">Ingresar</a> </button>
-        </div>
-
-        <div class="d-flex justify-content-center mb-5">
-            <span class="mt-3 shop-link"><a href="registro.php" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">¿No tenés cuenta? Registrate acá</a></span>
-        </div>
-
+            
+            <div class="d-flex justify-content-end mt-3 mb-5">
+                @if (Route::has('password.request'))
+                <span class="mt-3 shop-link"><a href="{{ route('password.request') }}" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">{{ __('¿Olvidaste tu contraseña?') }}</a></span>
+                @endif
+            </div>
+            
+            <div class="d-flex justify-content-center mt-7">
+                <button type="submit" class="button-story m-0">Ingresar </button>
+            </div>
+            
+            <div class="d-flex justify-content-center mb-5">
+                <span class="mt-3 shop-link"><a href="registro.php" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">¿No tenés cuenta? Registrate acá</a></span>
+            </div>
+            
+        </form>
     </div>
 </div>
 @endsection

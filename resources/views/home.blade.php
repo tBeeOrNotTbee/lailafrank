@@ -123,10 +123,13 @@
         <img src="../img/logoLK.png" alt="Logo Laila Frank">
         <h2 class="newsletter-title roboto-condensed grey text-center">Suscribite <br class="d-block d-md-none"> al newsletter</h2>
         <div class="newsletter-input">
-            <input class="input-line" type="text" class="form-control" placeholder="Ingresá tu email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-            <div class="input-group-append">
-                <button class="button-line roboto-light camel" type="button">Ok</button>
-            </div>
+            <form id="newsletterForm" action="/backend/newsletter" method="post">
+                @csrf
+                <input class="input-line" name="email" type="email" class="form-control" placeholder="Ingresá tu email" aria-label="Recipient's email" aria-describedby="basic-addon2">
+                <div class="input-group-append">
+                    <button class="button-line roboto-light camel" onsubmit="" type="submit">Ok</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>
