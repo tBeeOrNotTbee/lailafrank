@@ -69,4 +69,4 @@ Route::post('/backend/discount/create', 'DiscountController@create')->middleware
 Route::post('/backend/discount/destroy/', 'DiscountController@destroy')->middleware('auth');
 Route::get('/backend/discount/onoff/{discountId}/{active}', 'DiscountController@onoff')->middleware('auth');
 //Route::api('/carrito/api/{user_id}', 'ShopcartController@apiCarrito');
-Route::post('backend/newsletter', 'NewsletterController@add');
+Route::post('/backend/newsletter', 'NewsletterController@add');
