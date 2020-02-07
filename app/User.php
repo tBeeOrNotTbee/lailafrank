@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'apellido', 'email', 'password', 'dni'
+        'name', 'surname', 'email', 'password', 'dni'
     ];
 
     /**
@@ -98,5 +98,9 @@ class User extends Authenticatable
     public function shopcar ()
     {
         return $this->hasMany(Shopcar::class, 'user_id');
+    }
+
+    public function fullName(){
+        return $this->name.' '.$this->surname;
     }
 }

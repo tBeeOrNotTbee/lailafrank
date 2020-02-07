@@ -89,3 +89,4 @@ class NewsletterController extends Controller
     {
         //
     }
+}

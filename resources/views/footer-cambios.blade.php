@@ -5,7 +5,8 @@
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>CAMBIOS Y DEVOLUCIONES</h1>
     </div>
-    <?php require_once('../partials/navfooter.php'); ?>
+    
+    @include('layouts.partials.navfooter')
 
     <div class="col-12 col-md-7 py-5">
         <p class="grey monserrat cero7em">

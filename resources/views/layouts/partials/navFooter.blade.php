@@ -13,12 +13,12 @@
                 <div class="card-body">
 
                     <ul class="list-group list-group-flush shop-links shop-bk">
-                        <li class="list-group-item noBk"><a href="footercambios.php" class="grey shop-link-active">CAMBIOS Y DEVOLUCIONES</a></li>
-                        <li class="list-group-item noBk"><a href="footerpolitica.php" class="grey">POLÍTICA DE GARANTÍA</a></li>
-                        <li class="list-group-item noBk"><a href="footerenvio.php" class="grey">TIEMPO Y COSTO DE ENVÍO</a></li>
-                        <li class="list-group-item noBk"><a href="footeropciones.php" class="grey">FORMAS DE PAGO</a></li>
-                        <li class="list-group-item noBk"><a href="footercuidado.php" class="grey">CUIDADO DEL CALZADO</a></li>
-                        <li class="list-group-item noBk"><a href="footerfaq.php" class="grey">¿NECESITAS AYUDA?</a></li>
+                        <li class="list-group-item noBk"><a href="/info/cambios" class="grey {{Request::is('info/cambios') ? 'shop-link-active' : ''}}">CAMBIOS Y DEVOLUCIONES</a></li>
+                        <li class="list-group-item noBk"><a href="/info/politica" class="grey {{Request::is('info/politica') ? 'shop-link-active' : ''}}">POLÍTICA DE GARANTÍA</a></li>
+                        <li class="list-group-item noBk"><a href="/info/envio" class="grey {{Request::is('info/envio') ? 'shop-link-active' : ''}}">TIEMPO Y COSTO DE ENVÍO</a></li>
+                        <li class="list-group-item noBk"><a href="/info/opciones" class="grey {{Request::is('info/opciones') ? 'shop-link-active' : ''}}">FORMAS DE PAGO</a></li>
+                        <li class="list-group-item noBk"><a href="/info/cuidado" class="grey {{Request::is('info/cuidado') ? 'shop-link-active' : ''}}">CUIDADO DEL CALZADO</a></li>
+                        <li class="list-group-item noBk"><a href="/info/faq" class="grey {{Request::is('info/faq') ? 'shop-link-active' : ''}}">¿NECESITAS AYUDA?</a></li>
                     </ul>
 
                 </div>
@@ -32,12 +32,12 @@
 <div class="d-none d-md-block col-md-3 shop-bk">
 
     <ul class="list-group list-group-flush shop-links shop-links-desk">
-        <li class="list-group-item border-0 p-1 noBk"><a href="footercambios.php" class="grey shop-link-active">CAMBIOS Y DEVOLUCIONES</a></li>
-        <li class="list-group-item border-0 p-1 noBk"><a href="footerpolitica.php" class="grey">POLÍTICA DE GARANTÍA</a></li>
-        <li class="list-group-item border-0 p-1 noBk"><a href="footerenvio.php" class="grey">TIEMPO Y COSTO DE ENVÍO</a></li>
-        <li class="list-group-item border-0 p-1 noBk"><a href="footeropciones.php" class="grey">FORMAS DE PAGO</a></li>
-        <li class="list-group-item border-0 p-1 noBk"><a href="footercuidado.php" class="grey">CUIDADO DEL CALZADO</a></li>
-        <li class="list-group-item border-0 p-1 noBk"><a href="footerfaq.php" class="grey">¿NECESITAS AYUDA?</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/info/cambios" class="grey {{Request::is('info/cambios') ? 'shop-link-active' : ''}}">CAMBIOS Y DEVOLUCIONES</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/info/politica" class="grey {{Request::is('info/politica') ? 'shop-link-active' : ''}}">POLÍTICA DE GARANTÍA</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/info/envio" class="grey {{Request::is('info/envio') ? 'shop-link-active' : ''}}">TIEMPO Y COSTO DE ENVÍO</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/info/opciones" class="grey {{Request::is('info/opciones') ? 'shop-link-active' : ''}}">FORMAS DE PAGO</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/info/cuidado" class="grey {{Request::is('info/cuidado') ? 'shop-link-active' : ''}}">CUIDADO DEL CALZADO</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/info/faq" class="grey {{Request::is('info/faq') ? 'shop-link-active' : ''}}">¿NECESITAS AYUDA?</a></li>
     </ul>
 
 </div>

@@ -5,7 +5,7 @@
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>CUIDADO DEL CALZADO</h1>
     </div>
-    <?php require_once('../partials/navfooter.php'); ?>
+    @include('layouts.partials.navfooter')
     <div class="col-12 col-md-7 py-4 cero7em">
         <h4 class="monserrat black ">TIP 1</h4>
         <p class="monserrat grey mb-4">Si tus zapatos son nuevos úsalos poco a poco para que cojan la forma del pie y no te hagan rozaduras. No es recomendable usar el mismo par de zapatos todos los días, es necesario que respire, se airee y recupere la forma.</p>

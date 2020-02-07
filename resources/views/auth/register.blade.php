@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="email" id="apellido" name="apellido" class="form-control" placeholder="Apellido">
+                            <input type="text" id="surname" name="surname" class="form-control" placeholder="Apellido">
 
                         </div>
 

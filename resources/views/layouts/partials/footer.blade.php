@@ -1,10 +1,10 @@
 <ul id="footer-links" class="list-group list-group-flush text-center list-group-horizontal-md justify-content-center pl-md-5 pr-md-5">
-    <a href="footercambios.php" class="footer-link roboto-light mt-2 rosa">Cambios & devoluciones</a>
-    <a href="footerpolitica.php" class="footer-link roboto-light mt-2 rosa">Política de garantía</a>
-    <a href="footerenvio.php" class="footer-link roboto-light mt-2 rosa">Tiempo & costo de envío</a>
-    <a href="footeropciones.php" class="footer-link roboto-light mt-2 rosa">Formas de pago</a>
-    <a href="footercuidado.php" class="footer-link roboto-light mt-2 rosa">Cuidados del calzado</a>
-    <a href="#" class="footer-link roboto-light mt-2 rosa">¿Necesitas ayuda?</a>
+    <a href="/info/cambios" class="footer-link roboto-light mt-2 rosa">Cambios & devoluciones</a>
+    <a href="/info/politica" class="footer-link roboto-light mt-2 rosa">Política de garantía</a>
+    <a href="/info/envio" class="footer-link roboto-light mt-2 rosa">Tiempo & costo de envío</a>
+    <a href="/info/opciones" class="footer-link roboto-light mt-2 rosa">Formas de pago</a>
+    <a href="/info/cuidado" class="footer-link roboto-light mt-2 rosa">Cuidados del calzado</a>
+    <a href="/info/faq" class="footer-link roboto-light mt-2 rosa">¿Necesitas ayuda?</a>
 </ul>
 
 <footer class="row footer-info d-flex justify-content-center align-items-center">

@@ -5,7 +5,7 @@
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>OPCIONES DE PAGO</h1>
     </div>
-    <?php require_once('../partials/navfooter.php'); ?>
+    @include('layouts.partials.navfooter')
     <div class="col-12 col-md-7 py-4 cero7em">
         <p class="monserrat grey"> <b class="black">Tarjetas de crédito:</b> <br><br>
 

@@ -48,25 +48,25 @@
             <aside class="col-md-2 d-none d-md-block bg-light sidebar">
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
-                        <li class="nav-item" style="margin-top: 5em;">
+                        <li class="nav-item {{ Request::is('backend/pedidos') ? 'active' : '' }}" style="margin-top: 5em;">
                             <a class="nav-link" href="/backend/pedidos">
-                                Pedidos
+                                Pedidos 
                             </a>
                         </li>
                         <li class="nav-item">
                             <div id="accordion">
-                                <a id="headingOne" class="nav-link" data-toggle="collapse" data-target="#collapseOne"
+                                <a id="headingOne" class="nav-link {{ Request::is('backend/stock') ? 'active' : '' }}" data-toggle="collapse" data-target="#collapseOne"
                                     aria-expanded="false" aria-controls="collapseOne" style="cursor:pointer!important;">
-                                    Stock
+                                    Stock 
                                 </a>
 
                                 <div id="collapseOne" class="collapse {{isset($stockM) ? 'show' : ''}}"
                                     aria-labelledby="headingOne" data-parent="#accordion">
                                     <div class="card-body">
-                                        <a class="nav-link" href="/backend/stock/1">
+                                        <a class="nav-link {{ Request::is('backend/stock/1') ? 'active' : '' }}" href="/backend/stock/1">
                                             Depósito
                                         </a>
-                                        <a class="nav-link" href="/backend/stock/2">
+                                        <a class="nav-link {{ Request::is('backend/stock/2') ? 'active' : '' }}" href="/backend/stock/2">
                                             Showroom
                                         </a>
                                     </div>
@@ -74,38 +74,38 @@
                             </div>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/backend/productos">
-                                Productos
+                            <a class="nav-link {{Request::path() == 'backend/productos' ? 'active' : ''}}" href="/backend/productos">
+                                Productos 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/backend/ventas">
-                                Ventas
+                            <a class="nav-link {{ Request::is('backend/ventas') ? 'active' : '' }}" href="/backend/ventas">
+                                Ventas 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/backend/reporte">
-                                Reporte de ventas
+                            <a class="nav-link {{ Request::is('backend/reporte') ? 'active' : '' }}" href="/backend/reporte">
+                                Reporte de ventas 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/backend/misGustos">
-                                Mis Gustos
+                            <a class="nav-link {{ Request::is('backend/misGustos') ? 'active' : '' }}" href="/backend/misGustos">
+                                Mis Gustos 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/backend/usuarios">
-                                Usuarios
+                            <a class="nav-link {{ Request::is('backend/usuarios') ? 'active' : '' }}" href="/backend/usuarios">
+                                Usuarios 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/backend/discount">
-                                Cupones de descuento
+                            <a class="nav-link {{ Request::is('backend/discount') ? 'active' : '' }}" href="/backend/discount">
+                                Cupones de descuento 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/backend/shopcar/list/">
-                                Carrito de compras
+                            <a class="nav-link {{ Request::is('backend/shopcar/list/') ? 'active' : '' }}" href="/backend/shopcar/list/">
+                                Carrito de compras 
                             </a>
                         </li>
                 </div>

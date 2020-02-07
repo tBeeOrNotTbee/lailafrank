@@ -20,4 +20,23 @@ class Address extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function fullName(){
+        return $this->name.' '.$this->surname;
+    }
+
+    public function cardLineOne()
+    {
+        return $this->street.' '.$this->number.', PISO '.' '.$this->floor.', '.$this->apartment;
+    }
+
+    public function cardLineTwo()
+    {
+        return $this->city.', '.$this->post_code;
+    }
+
+    public function cardLineThree()
+    {
+        return $this->state.', '.$this->country;
+    }
 }

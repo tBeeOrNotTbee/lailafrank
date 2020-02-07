@@ -1,5 +1,5 @@
 <div class="w-100 mt-3 text-center">
-    <a class="shop-menu-btn w-75 monserrat py-3 my-3 cero7em" href="#">
+    <a class="shop-menu-btn w-75 monserrat py-3 my-3 cero7em" href="/shop/myaccount">
         Mi cuenta
     </a>
 

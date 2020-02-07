@@ -5,7 +5,7 @@
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>TIEMPOS Y COSTOS DE ENVÍO</h1>
     </div>
-    <?php require_once('../partials/navfooter.php'); ?>
+    @include('layouts.partials.navfooter')
     <div class="col-12 col-md-7 py-4">
         <p class="monserrat grey cero7em"><b class="black">Todas las opciones de envío dentro de Argentina son sin cargo. </b> <br><br>
             Los envíos al exterior superiores a IMPORTE PRETENDIDO U$D (dólares estadounidenses) son sin cargo.

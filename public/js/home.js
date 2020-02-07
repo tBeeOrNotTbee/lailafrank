@@ -3,19 +3,20 @@
 } */
 
 document.getElementById("equis").onclick = function() { 
-    console.log('HOla!')
     document.getElementById("advert").style.display = "none"; 
 } 
 
 const newsletterForm = document.getElementById("newsletterForm");
 newsletterForm.onsubmit = async (e) => {
     e.preventDefault();
+    let dataVars = new FormData(newsletterForm);    
 
     let response = await fetch('/backend/newsletter', {
         method: 'POST',
-        body: new FormData(newsletterForm).values()
+        body: dataVars
     });
-
+    console.log(await response);
+    
     let result = await response.json();
     console.log(result);
     alert(result.message);

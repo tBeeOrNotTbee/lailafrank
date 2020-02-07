@@ -23,6 +23,19 @@ Route::get('/contact', function(){return view('contacto');});
 Route::get('/catalog', function(){return view('catalog');});
 
 
+////// RUTAS ESTATICAS FOOTER /////
+Route::get('/info/cambios', function(){return view('footer-cambios');});
+Route::get('/info/politica', function(){return view('footer-politica');});
+Route::get('/info/envio', function(){return view('footer-envios');});
+Route::get('/info/opciones', function(){return view('footer-opciones');});
+Route::get('/info/cuidado', function(){return view('footer-cuidados');});
+Route::get('/info/faq', function(){return view('footer-faq');});
+
+////// RUTAS SHOP /////
+Route::get('/shop/myaccount', 'HomeController@showAccount')->middleware('auth');
+Route::get('/shop/myaccount/edit', 'HomeController@editAccount')->middleware('auth');
+Route::post('/shop/myaccount/edit', 'ProfileController@updateAccount')->middleware('auth');
+
 
 ////// RUTAS BACKTEND /////
 Route::get('/backend', function(){

@@ -5,7 +5,7 @@
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>POLÍTICA DE GARANTÍA</h1>
     </div>
-    <?php require_once('../partials/navfooter.php'); ?>
+    @include('layouts.partials.navfooter')
     <div class="col-12 col-md-7 py-4 cero7em">
         <p class="grey monserrat p-2">
             <b class="black">Los productos adquiridos en la página web cuentan con 7 días de garantía. </b> <br><br>
