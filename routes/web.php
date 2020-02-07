@@ -32,9 +32,14 @@ Route::get('/info/cuidado', function(){return view('footer-cuidados');});
 Route::get('/info/faq', function(){return view('footer-faq');});
 
 ////// RUTAS SHOP /////
-Route::get('/shop/myaccount', 'HomeController@showAccount')->middleware('auth');
-Route::get('/shop/myaccount/edit', 'HomeController@editAccount')->middleware('auth');
+Route::get('/shop/myaccount', 'ProfileController@showAccount')->middleware('auth');
+Route::get('/shop/myaccount/edit', 'ProfileController@editAccount')->middleware('auth');
 Route::post('/shop/myaccount/edit', 'ProfileController@updateAccount')->middleware('auth');
+Route::get('/shop/myaccount/addresses', 'ProfileController@addresses')->middleware('auth');
+Route::get('/shop/myaccount/addresses/new', 'ProfileController@addressnew')->middleware('auth');
+Route::get('/shop/myaccount/purchases', 'ProfileController@purchases')->middleware('auth');
+Route::get('/shop/myaccount/favorites', 'ProfileController@favorites')->middleware('auth');
+Route::get('/shop/myaccount/newsletter', 'ProfileController@newsletter')->middleware('auth');
 
 
 ////// RUTAS BACKTEND /////

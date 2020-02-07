@@ -35,14 +35,14 @@ class AddressController extends Controller
             "state"=>$req->state,
             "post_code"=>$req->post_code,
             "country"=>$req->country,
-            "telephone"=>$req->telephone
+            "cellphone"=>$req->cellphone
         ]);
 
         if ($from === 'backend') {
             return redirect('/backend/shopcar/list/');
         } else if ($from === 'frontend'){
             /*TODO*/
-            return redirect('/backend/shopcar/list/');
+            return redirect('/shop/myaccount/addresses');
         }
     }
 

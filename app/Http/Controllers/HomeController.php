@@ -33,14 +33,4 @@ class HomeController extends Controller
         $request->user()->authorizeRoles(‘admin’);
         return view(‘some.view’);
     }
-
-    public function showAccount()
-    {
-        return view('shopMiCuenta');
-    }
-
-    public function editAccount()
-    {
-        return view('shopEditarCuenta');
-    }
 }

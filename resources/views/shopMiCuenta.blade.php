@@ -42,21 +42,25 @@
             <div class="col-12 col-md-6 mb-4">
                 <div class="card shop-bk border-0 h100x">
                     <div class="card-body d-flex flex-column justify-content-around">
-                        <h5 class="card-title monserrat shop-card-title grey2 cero8em">Dirección de envío predeterminada</h5>
+                        <h5 class="card-title monserrat shop-card-title grey2 cero8em">Dirección de envío</h5>
                         
                         @forelse (Auth::user()->address as $address)
                             <p class="card-text monserrat shop-card-text grey2 cero7em my-0">{{$address->fullName()}}</p>
                             <p class="card-text monserrat shop-card-text grey2 cero7em my-0">{{$address->cardLineOne()}}</p>
                             <p class="card-text monserrat shop-card-text grey2 cero7em my-0">{{$address->cardLineTwo()}}</p>
                             <p class="card-text monserrat shop-card-text grey2 cero7em my-0">{{$address->cardLineThree()}}</p>
-                            <p class="card-text monserrat shop-card-text grey2 cero7em my-0">T: 1550135428</p>
+                            <p class="card-text monserrat shop-card-text grey2 cero7em my-0">T: {{$address->cellphone}}//{{$address->telephone ?? ''}}</p>
                             
                             <div class="w-100 d-flex flex-row-reverse">
-                                <a href="/shop/myaccount/address/edit/{{$addres->id()}}" class="shop-card-text monserrat text-uppercase grey2 cero7em"><i class="fas fa-pencil-alt"></i> Editar</a>
+                                <a href="/shop/myaccount/addresses/edit/{{$address->id}}" class="shop-card-text monserrat text-uppercase grey2 cero7em"><i class="fas fa-pencil-alt"></i> Editar</a>
                             </div>
+                            @break
                         @empty
                             <p class="card-text monserrat shop-card-text grey2 cero8em">No ha establecido una dirección de envío predeterminada todavía</p>
                             <hr class="w100">
+                            <div class="w-100 d-flex flex-row-reverse">
+                                <a href="/shop/myaccount/addresses/new" class="shop-card-text monserrat text-uppercase grey2 cero7em"><i class="fas fa-pencil-alt"></i> Nueva</a>
+                            </div>
                         @endforelse
                     </div>
                 </div>

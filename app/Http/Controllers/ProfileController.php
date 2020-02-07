@@ -10,6 +10,41 @@ use App\User;
 
 class ProfileController extends Controller
 {
+    public function showAccount()
+    {
+        return view('shopMiCuenta');
+    }
+
+    public function editAccount()
+    {
+        return view('shopEditarCuenta');
+    }
+
+    public function addresses()
+    {
+        return view('shopMisDirecciones');
+    }
+
+    public function purchases()
+    {
+        return view('shopCompras');
+    }
+
+    public function favorites()
+    {
+        return view('shopMisFavoritos');
+    }
+
+    public function newsletter()
+    {
+        return view('shopNewsletter');
+    }
+
+    public function addressnew()
+    {
+        return view('shopNuevaDireccion');
+    }
+
     public function updateAccount(Request $req){
         Request()->validate([
             'name' => ['required', 'string', 'max:250'],

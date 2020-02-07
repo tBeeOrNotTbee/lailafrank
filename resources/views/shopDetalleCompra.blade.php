@@ -1,6 +1,6 @@
 @extends('layouts.shopLayout')
 @section('title', 'Detalle de Compra')
-@section('content')
+@section('contentShop')
 <div class="col-12 col-md-7 py-4">
     <h2 class="monserrat-bold shop-title cero8em text-center text-md-left">Mis compras</h2>
     <p class="monserrat grey2 cero8em text-center text-md-left">Datos de la compra/ Nro. 5800284197</p>

@@ -1,6 +1,6 @@
 @extends('layouts.shopLayout')
 @section('title', 'Editar Dirección')
-@section('content')
+@section('contentShop')
 <div class="col-12 col-md-7">
     <div class="container-fluid">
         <div class="row">

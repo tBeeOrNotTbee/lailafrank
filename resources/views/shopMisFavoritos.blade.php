@@ -1,6 +1,6 @@
 @extends('layouts.shopLayout')
 @section('title', 'Mis Favoritos')
-@section('content')
+@section('contentShop')
 <div class="col-12 col-md-7 py-md-5">
     <div class="container-fluid">
 
