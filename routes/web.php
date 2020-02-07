@@ -89,6 +89,4 @@ Route::get('/backend/discount/onoff/{discountId}/{active}', 'DiscountController@
 //Route::api('/carrito/api/{user_id}', 'ShopcartController@apiCarrito');
 Route::post('/backend/newsletter', 'NewsletterController@add');
 
-Route::get('backend/newsletter', function(){
-    return view('backend.backendNewsletter');
-});
+Route::get('backend/newsletter', 'NewsletterController@index');

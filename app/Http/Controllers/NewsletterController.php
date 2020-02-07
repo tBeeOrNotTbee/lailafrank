@@ -2,13 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use App\Newsletter;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 
 class NewsletterController extends Controller
 {
     public function add (Request $req){
-        return json_encode($req->email);
+        $email = json_encode($req->email);
+        $user_id = "";
+        if (Auth::user()) {
+            $user_id = Auth::id();
+        }
+        
+        $datos = [
+            "email" => $email, 
+            "user_id" => $user_id,
+        ];
+        $newsletter = new Newsletter($datos); 
+        $newsletter->save() ;
+        return $datos;
     }
     /**
      * Display a listing of the resource.
@@ -17,7 +31,13 @@ class NewsletterController extends Controller
      */
     public function index()
     {
-        //
+        $newsletterlist = Newsletter::all();
+        $users = User::all();
+        $users_id = [];
+        foreach ($users as $user){
+            array_push($users_id, $user->id) ;
+        }
+        return view('backend.backendnewsletter', compact('newsletterlist', 'users_id'));
     }
 
     /**

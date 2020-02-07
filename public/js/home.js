@@ -15,11 +15,8 @@ newsletterForm.onsubmit = async (e) => {
         method: 'POST',
         body: dataVars
     });
-    console.log(await response);
-    
-    let result = await response.json();
-    console.log(result);
-    alert(result.message);
+
+    alert("Subscripción exitosa");
 };
 
 

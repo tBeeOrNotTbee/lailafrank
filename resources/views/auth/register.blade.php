@@ -45,7 +45,7 @@
                         </div>
 
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="DNI">
+                            <input type="number" class="form-control" placeholder="DNI">
                         </div>
 
                         <div class="form-group">
