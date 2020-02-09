@@ -98,7 +98,7 @@
             espontánea el calzado que desean. <br><br>
             Trabajamos para incorporar a esas mujeres a la moda, a que puedan decidir,
             darles alternativas, ponderarlas.</p>
-        <a href="historia.php" class="button-story mx-auto ml-md-0">ver historia</a>
+        <a href="history" class="button-story mx-auto ml-md-0">ver historia</a>
     </div>
 </section>
 

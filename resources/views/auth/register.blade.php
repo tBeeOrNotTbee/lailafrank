@@ -18,7 +18,7 @@
                 </div>
 
                 <div class="card p-4 align-center">
-                    <form action="/shopMiCuenta">
+                    <form action="/register" method="POST">
                         <!-- Action va a shopMicuenta, VER -->
                         @CSRF
                         <div class="form-group">
@@ -42,10 +42,6 @@
                         <div class="form-group">
                             <input type="text" id="surname" name="surname" class="form-control" placeholder="Apellido">
 
-                        </div>
-
-                        <div class="form-group">
-                            <input type="number" class="form-control" placeholder="DNI">
                         </div>
 
                         <div class="form-group">

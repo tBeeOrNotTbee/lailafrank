@@ -70,7 +70,7 @@
             </form>
 
             <div class="d-flex justify-content-center mb-5">
-                <span class="mt-3 shop-link"><a href="registro.php"
+                <span class="mt-3 shop-link"><a href="register"
                         class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">¿No tenés
                         cuenta? Registrate acá</a></span>
             </div>
