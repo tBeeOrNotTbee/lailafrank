@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Catalog')
 @section('content')
+
 <div class="row catalog-row">
     <div class="col-12 col-md-6">
         <div class="container-fluid d-flex justify-content-center">
@@ -29,16 +30,27 @@
         <div class="container-fluid h100x">
             <div class="row h100x d-flex align-content-between flex-wrap">
 
+
                 <div id="product1" class="col-6 card border-0 rounded-0">
                     <div class="p-3">
                         <!-- THUMBNAIL CAROUSEL -->
                         <div class="shoe-img-preview">
-                            <img src="../img/mocasinNegro.JPG" class="img-fluid" alt="">
-                            <img src="../img/mocasinNegro1.JPG" class="img-top img-fluid" alt="">
+                            <?php $previews=$shoes[0]->previewSmall();?>
+                            <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid" alt="">
+                            <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid" alt="">
                         </div>
                     </div>
                     <div class="row d-flex justify-content-end" style="padding: 0 1.9rem;">
-                        <i class="far fa-heart" style="margin-right: 0!important"></i>
+                        {{-- Favorito --}}
+                        <?php $fav = $shoes[0]->isFavorite();?>
+
+                        @if ($fav == true)
+                            <a href="#" id="heartShoeTrue{{$shoes[0]->id}}" onclick="favoriteAction({{$shoes[0]->id}})" class="d-block" style="margin-right: 0!important"><i id="indicatorFav{{$shoes[0]->id}}" class="fas fa-heart rosa"></i></a>
+                            <a href="#" id="heartShoeFalse{{$shoes[0]->id}}" onclick="favoriteAction({{$shoes[0]->id}})" class="d-none" style="margin-right: 0!important"><i id="indicatorFav{{$shoes[0]->id}}" class="far fa-heart"></i></a>
+                        @else
+                            <a href="#" id="heartShoeFalse{{$shoes[0]->id}}" onclick="favoriteAction({{$shoes[0]->id}})" class="d-block" style="margin-right: 0!important"><i id="indicatorFav{{$shoes[0]->id}}" class="far fa-heart"></i></a>
+                            <a href="#" id="heartShoeTrue{{$shoes[0]->id}}" onclick="favoriteAction({{$shoes[0]->id}})" class="d-none" style="margin-right: 0!important"><i id="indicatorFav{{$shoes[0]->id}}" class="fas fa-heart rosa"></i></a>
+                        @endif
                     </div>
                     <div class="card-body text-center">
                         <a class="card-title roboto-light black thumbnail-title" href="catalog-item.php">Nombre Feliciana</a>

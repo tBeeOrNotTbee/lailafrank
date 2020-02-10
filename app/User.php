@@ -100,6 +100,10 @@ class User extends Authenticatable
         return $this->hasMany(Shopcar::class, 'user_id');
     }
 
+    public function favorites(){
+        return $this->belongsToMany('App\Shoe', 'favorites', "user_id", "shoe_id");
+    }
+
     public function fullName(){
         return $this->name.' '.$this->surname;
     }

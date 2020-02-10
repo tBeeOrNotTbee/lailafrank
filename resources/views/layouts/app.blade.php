@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('css/brook.css')}}">
     <link rel="stylesheet" href="{{asset('css/lailaStyle.css')}}">
+    <link rel="stylesheet" href="{{asset('css/catalog.css')}}">
     <title>@yield('title')</title>
 </head>
 

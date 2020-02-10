@@ -52,3 +52,35 @@ function suscribirNewsletter() {
         });
     });
 } */
+
+
+/* FAVORITOS */
+function favoriteAction(shoeId){
+    let icoID = 'indicatorFav'+shoeId;   
+
+    let icoTrue = document.getElementById('heartShoeTrue'+shoeId);
+    let icoFalse =document.getElementById('heartShoeFalse'+shoeId)
+
+    let url = '/favorites/change/'+shoeId;
+
+    fetch(url, {
+        method:"GET"
+    }).then((response)=>{
+        return response.json()
+    }).then((response)=>{
+        console.log(response);
+        
+        if (response == true) {
+            console.log('state=true');
+            icoTrue.classList="d-block";
+            icoFalse.classList="d-none";
+            //ico.className = "fas fa-heart rosa";
+        }else{
+            console.log('state=false');
+            icoTrue.classList="d-none";
+            icoFalse.classList="d-block";
+            //ico.className = "far fa-heart";
+        }
+    }
+    )
+}

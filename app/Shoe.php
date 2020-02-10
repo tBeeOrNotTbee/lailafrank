@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 use App\Stock;
 use App\Shoe_img;
 use App\Color;
@@ -29,6 +30,10 @@ class Shoe extends Model
 
     public function category(){
         return $this->belongsTo('App\Shoe_category', 'category_id');
+    }
+
+    public function favorites(){
+        return $this->belongsToMany('App\User', 'favorites', "shoe_id", "user_id");
     }
 
     public function previewLarge()
@@ -75,5 +80,22 @@ class Shoe extends Model
         }else{
             return $previewB;
         }
+    }
+
+    public function isFavorite()
+    {
+        $userId = Auth::user()->id;
+
+        $favoritesShoes = Auth::user()->favorites()->get();
+
+        $state = false;
+
+        foreach ($favoritesShoes as $favorite) {
+            if ($favorite->id == $this->id) {
+                $state = true;
+            }
+        }
+
+        return $state;
     }
 }

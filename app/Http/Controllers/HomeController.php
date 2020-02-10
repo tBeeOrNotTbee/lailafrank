@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Shoe;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -32,5 +32,11 @@ class HomeController extends Controller
     {
         $request->user()->authorizeRoles(‘admin’);
         return view(‘some.view’);
+    }
+
+    public function catalog()
+    {
+        $shoes = Shoe::all();
+        return view('catalog', compact('shoes'));
     }
 }

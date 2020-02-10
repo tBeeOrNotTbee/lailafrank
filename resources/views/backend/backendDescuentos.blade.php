@@ -22,9 +22,6 @@ Cupones de descuento
 
         let url = '/backend/discount/onoff/'+id+'/'+activity;
 
-        console.log(url);
-        
-
         fetch(url, {
             method: "GET"
         }).then((response)=>{

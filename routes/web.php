@@ -12,6 +12,7 @@
 */
 
 use App\Http\Controllers\BackendController;
+use App\Http\Controllers\FavoritesController;
 
 Auth::routes();
 
@@ -20,7 +21,7 @@ Route::get('/',function(){return view('home');});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/history', function(){return view('history');});
 Route::get('/contact', function(){return view('contacto');});
-Route::get('/catalog', function(){return view('catalog');});
+Route::get('/catalog', 'HomeController@catalog');
 
 
 ////// RUTAS ESTATICAS FOOTER /////
@@ -40,6 +41,8 @@ Route::get('/shop/myaccount/addresses/new', 'ProfileController@addressnew')->mid
 Route::get('/shop/myaccount/purchases', 'ProfileController@purchases')->middleware('auth');
 Route::get('/shop/myaccount/favorites', 'ProfileController@favorites')->middleware('auth');
 Route::get('/shop/myaccount/newsletter', 'ProfileController@newsletter')->middleware('auth');
+Route::get('/favorites/change/{shoeId}', 'FavoritesController@changeState')->middleware('auth');
+Route::get('/favorites/change2/{shoeId}', 'FavoritesController@changeState2')->middleware('auth');
 
 
 ////// RUTAS BACKTEND /////
