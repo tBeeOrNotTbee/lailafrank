@@ -15,9 +15,11 @@ newsletterForm.onsubmit = async (e) => {
         method: 'POST',
         body: dataVars
     });
-
+    location.reload();
     alert("Subscripción exitosa");
 };
+/* const unsubscribeForm = document.getElementById("unsubscribe");
+unsubscribeForm.onsubmit = alert("Ya no estás en nuestra lista"); */
 
 
 
