@@ -33,6 +33,8 @@ class NewTableShoes extends Migration
             $table->integer('hidden')->nullable();
             $table->integer('offer')->nullable();
             $table->integer('stock_control')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
+            $table->foreign('category_id')->references('id')->on('shoe_categories');
         });
     }
 

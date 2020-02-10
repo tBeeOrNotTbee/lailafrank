@@ -74,7 +74,8 @@ class ShoeController extends Controller
             "stock_control" => $req["stock_control"],
             "cover" => $req["cover"],
             "hidden" => $req["hidden"],
-            "offer" => $req["offer"]
+            "offer" => $req["offer"],
+            "category_id" => $req["category_id"]
         ];
 
         //dd($req->previewLargeCheck);
@@ -190,7 +191,8 @@ class ShoeController extends Controller
             "stock_control" => $req["stock_control"],
             "cover" => $req["cover"],
             "hidden" => $req["hidden"],
-            "offer" => $req["offer"]
+            "offer" => $req["offer"],
+            "category_id" => $req["category_id"]
         ];
 
         $shoe = Shoe::find($req['id']);

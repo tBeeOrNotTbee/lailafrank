@@ -20,5 +20,6 @@ $factory->define(Shoe::class, function (Faker $faker) {
         'sole'=>$faker->word(),
         'chapped'=>$faker->word(),
         'cover'=>$faker->word(),
+        'category_id'=>$faker->numberBetween(1,5)
     ];
 });

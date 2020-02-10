@@ -1,6 +1,6 @@
 @extends("layouts.backendLayout")
 <?php use App\Place;
-$places = Place::all(); 
+$places = Place::all();
 ?>
 
 @section("titulo")
@@ -44,6 +44,8 @@ Vista - {{$shoe['name']}}
 
                 <li><b>Taco: </b>{{$shoe['heels']}}</li>
 
+                <li><b>Categoría: </b>{{$shoe->category->name}}</li>
+
                 <li><b>Altura de taco: </b>{{$shoe['height_heels']}}</li>
 
                 <li><b>Altura de plataforma: </b>{{$shoe['platform']}}</li>
@@ -55,6 +57,7 @@ Vista - {{$shoe['name']}}
                 <li><b>Forro: </b>{{$shoe['cover']}}</li>
 
                 <li><b>Visible: </b>{{ $shoe['hidden'] == 1 ? 'No':'Si'}}</li>
+
                 <li><b>En oferta: </b>{{ $shoe['offer'] == 1 ? 'Si':'No'}}</li>
 
                 <li><b>Alerta de stock: </b>{{$shoe['stock_control']}}</li>

@@ -27,5 +27,11 @@ class DatabaseSeeder extends Seeder
         DB::table('img_categories')->insert(['category'=>'previewB']);
         DB::table('img_categories')->insert(['category'=>'previewLarge']);
         DB::table('img_categories')->insert(['category'=>'imgCatalog']);
+
+        DB::table('shoe_categories')->insert(['name'=>'Boots']);
+        DB::table('shoe_categories')->insert(['name'=>'Sandals']);
+        DB::table('shoe_categories')->insert(['name'=>'Stilettos']);
+        DB::table('shoe_categories')->insert(['name'=>'Flats']);
+        DB::table('shoe_categories')->insert(['name'=>'Tango']);
     }
 }

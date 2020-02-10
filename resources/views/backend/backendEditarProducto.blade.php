@@ -150,6 +150,22 @@ Editar Producto
                     </div>
                 </div>
 
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="suela">categoría</label>
+                        <select type="text" class="form-control" id="category_id" name="category_id" required>
+                            @foreach (App\Shoe_category::all() as $category)
+                                <option value="{{$category->id}}" 
+                                    {{isset($shoe->category->id) && $shoe->category->id == $category->id ? 'selected' : ''}}
+                                    >{{$category->name}}</option>
+                            @endforeach
+                        </select>
+
+                        <div class="invalid-feedback">La categoría es requerida.</div>
+                        {!! $errors->first('sole','<div class="alert alert-danger">:message</div>')!!}
+                    </div>
+                </div>
+
 
                 <hr class="mb-4">
                 <h4>Opciones</h4>

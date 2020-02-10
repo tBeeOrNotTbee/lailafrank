@@ -27,6 +27,10 @@ class Shoe extends Model
         return $this->hasMany('App\Color', 'shoe_id');
     }
 
+    public function category(){
+        return $this->belongsTo('App\Shoe_category', 'category_id');
+    }
+
     public function previewLarge()
     {
         $previewLarge = $this->shoe_img()->where('category_id', '=', 3)->first();
