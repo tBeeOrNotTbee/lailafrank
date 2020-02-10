@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class NewsletterController extends Controller
 {
     public function add (Request $req){
-        $email = json_encode($req->email);
+        $email = $req->email;
         $user_id = "";
         if (Auth::user()) {
             $user_id = Auth::id();
