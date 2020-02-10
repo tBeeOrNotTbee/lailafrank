@@ -14,7 +14,13 @@ class ProfileController extends Controller
 {
     public function showAccount()
     {
-        return view('shopMiCuenta');
+        $subs  = Newsletter::all();
+        $email_list = [];
+
+        foreach ($subs as $sub) {
+            array_push($email_list, $sub->email);
+        }
+        return view('shopMiCuenta', compact('email_list'));
     }
 
     public function editAccount()

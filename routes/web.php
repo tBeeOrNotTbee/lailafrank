@@ -91,5 +91,5 @@ Route::post('/backend/discount/destroy/', 'DiscountController@destroy')->middlew
 Route::get('/backend/discount/onoff/{discountId}/{active}', 'DiscountController@onoff')->middleware('auth');
 //Route::api('/carrito/api/{user_id}', 'ShopcartController@apiCarrito');
 Route::post('/backend/newsletter', 'NewsletterController@add');
-
 Route::get('backend/newsletter', 'NewsletterController@index');
+Route::delete('backend/newsletter', 'NewsletterController@destroy');

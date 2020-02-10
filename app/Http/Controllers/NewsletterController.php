@@ -105,8 +105,10 @@ class NewsletterController extends Controller
      * @param  \App\Newsletter  $newsletter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Newsletter $newsletter)
+    public function destroy(Newsletter $newsletter, Request $request)
     {
-        //
+        $email = $request->email;
+        $unsubscribe = Newsletter::where('email', $email)->delete();
+        return redirect('/shop/myaccount/newsletter');
     }
 }

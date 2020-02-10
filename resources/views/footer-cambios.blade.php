@@ -5,7 +5,7 @@
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>CAMBIOS Y DEVOLUCIONES</h1>
     </div>
-    
+
     @include('layouts.partials.navfooter')
 
     <div class="col-12 col-md-7 py-5">
@@ -23,7 +23,7 @@
                 <img src="../img/logoLK.png" alt="Logo Laila Frank">
                 <h2 class="newsletter-title roboto-condensed grey text-center">Suscribite <br class="d-block d-md-none"> al newsletter</h2>
                 <div class="newsletter-input">
-                    <input class="input-line" type="text" class="form-control" placeholder="Ingresá tu email" aria-label="Recipient's username" aria-describedby="basic-addon2">
+                    <input type="text" class="input-line monserrat form-control" placeholder="Ingresá tu email" aria-label="Recipient's username" aria-describedby="basic-addon2">
                     <div class="input-group-append">
                         <button class="button-line roboto-light camel" type="button">Ok</button>
                     </div>
