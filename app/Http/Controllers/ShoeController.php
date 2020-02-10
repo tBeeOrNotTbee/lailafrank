@@ -80,50 +80,52 @@ class ShoeController extends Controller
         //dd($req->previewLargeCheck);
 
         $shoe = new Shoe($datos);
-        
+
         $shoe->save();
 
         //Crear color por defecto.
         //$color = new Color(['shoe_id'=>$shoe->id, 'name'=>'Color único', 'color'=>'#000000']);
-                
+
         //$shoe->color()->save($color);
 
         //imagenes
 
-        if ($req->previewLargeCheck == 1){
-            $previewLargeFile=$req->file('previewLarge')->store('public');
+        if (isset($req->previewLarge)) {
+            $previewLargeFile = $req->file('previewLarge')->store('public');
 
             $shoe_img = new Shoe_img([
-                'shoe_id'=>$shoe->id, 
-                'img_path'=>basename($previewLargeFile), 
-                'category_id' => '3' 
-                ]);
-                
+                'shoe_id' => $shoe->id,
+                'img_path' => basename($previewLargeFile),
+                'category_id' => '3'
+            ]);
+
             $shoe->shoe_img()->save($shoe_img);
-        }else{
-            //IMG PREVIEW A
-            $previewAFile=$req->file('previewA')->store('public');
+        }
+        //IMG PREVIEW A
+        if (isset($req->previewA)) {
+            $previewAFile = $req->file('previewA')->store('public');
 
             $shoe_imgA = new Shoe_img([
-                'shoe_id'=>$shoe->id, 
-                'img_path'=>basename($previewAFile), 
-                'category_id' => '1' 
-                ]);
-                
-            $shoe->shoe_img()->save($shoe_imgA);
+                'shoe_id' => $shoe->id,
+                'img_path' => basename($previewAFile),
+                'category_id' => '1'
+            ]);
 
-            //IMG PREVIEW B
-            $previewBFile=$req->file('previewB')->store('public');
+            $shoe->shoe_img()->save($shoe_imgA);
+        }
+        //IMG PREVIEW B
+        if (isset($req->previewB)) {
+            $previewBFile = $req->file('previewB')->store('public');
 
             $shoe_imgB = new Shoe_img([
-                'shoe_id'=>$shoe->id, 
-                'img_path'=>basename($previewBFile), 
-                'category_id' => '2' 
-                ]);
-                
+                'shoe_id' => $shoe->id,
+                'img_path' => basename($previewBFile),
+                'category_id' => '2'
+            ]);
+
             $shoe->shoe_img()->save($shoe_imgB);
         }
-        
+
         return view('backend.backendVerProducto', compact("shoe"));
     }
 
@@ -172,7 +174,7 @@ class ShoeController extends Controller
         $this->validate($req, $rules); */
 
         $datos = [
-            "id"=> $req['id'],
+            "id" => $req['id'],
             "name" => $req["name"],
             "description_es" => $req["description_es"],
             "description_en" => $req["description_en"],
@@ -194,10 +196,10 @@ class ShoeController extends Controller
         $shoe = Shoe::find($req['id']);
         $shoe->update($datos);
 
-        $shoe_img=Shoe_img::where('shoe_id','=',$shoe->id)->get();
+        $shoe_img = Shoe_img::where('shoe_id', '=', $shoe->id)->get();
 
-        $updateOK=1;
-        
+        $updateOK = 1;
+
         return view('backend.backendVerProducto', compact('shoe', 'updateOK', 'shoe_img'));
     }
 
@@ -224,72 +226,73 @@ class ShoeController extends Controller
         //
     }
 
-    public function editarProductPreview(Request $req, $id){
+    public function editarProductPreview(Request $req, $id)
+    {
         $shoe = Shoe::find($id);
-        
-        foreach ($shoe->shoe_img as $img) {
-            if (in_array($img->category_id, ['1','2','3'])){
-                $img->delete();
-            }
-        }
 
-        if ($req->previewLargeCheck == 1){
-            $previewLargeFile=$req->file('previewLarge')->store('public');
+        //imagenes
+
+        if (isset($req->previewLarge)) {
+            $previewLargeFile = $req->file('previewLarge')->store('public');
 
             $shoe_img = new Shoe_img([
-                'shoe_id'=>$shoe->id, 
-                'img_path'=>basename($previewLargeFile), 
-                'category_id' => '3' 
-                ]);
-                
+                'shoe_id' => $shoe->id,
+                'img_path' => basename($previewLargeFile),
+                'category_id' => '3'
+            ]);
+
             $shoe->shoe_img()->save($shoe_img);
-        }else{
-            //IMG PREVIEW A
-            $previewAFile=$req->file('previewA')->store('public');
+        }
+        //IMG PREVIEW A
+        if (isset($req->previewA)) {
+            $previewAFile = $req->file('previewA')->store('public');
 
             $shoe_imgA = new Shoe_img([
-                'shoe_id'=>$shoe->id, 
-                'img_path'=>basename($previewAFile), 
-                'category_id' => '1' 
-                ]);
-                
-            $shoe->shoe_img()->save($shoe_imgA);
+                'shoe_id' => $shoe->id,
+                'img_path' => basename($previewAFile),
+                'category_id' => '1'
+            ]);
 
-            //IMG PREVIEW B
-            $previewBFile=$req->file('previewB')->store('public');
+            $shoe->shoe_img()->save($shoe_imgA);
+        }
+        //IMG PREVIEW B
+        if (isset($req->previewB)) {
+            $previewBFile = $req->file('previewB')->store('public');
 
             $shoe_imgB = new Shoe_img([
-                'shoe_id'=>$shoe->id, 
-                'img_path'=>basename($previewBFile), 
-                'category_id' => '2' 
-                ]);
-                
+                'shoe_id' => $shoe->id,
+                'img_path' => basename($previewBFile),
+                'category_id' => '2'
+            ]);
+
             $shoe->shoe_img()->save($shoe_imgB);
         }
-        return redirect()->action('BackendController@verProducto', [$shoe->id]);
+
+        return redirect('/backend/editarProductPreview/'.$shoe->id);
     }
 
-    public function cargaImgsProducts(Request $req, $id){
+    public function cargaImgsProducts(Request $req, $id)
+    {
         $shoe = Shoe::find($id);
 
         //dd($req->file('shoe_img'));
 
-        foreach($req->file('shoe_img') as $file)
-            {
-                $newImg = $file->store("public");
+        foreach ($req->file('shoe_img') as $file) {
+            $newImg = $file->store("public");
 
-                $shoe_img = new Shoe_img(['shoe_id'=>$shoe->id, 'img_path'=>basename($newImg)]);
-                
-                $shoe->shoe_img()->save($shoe_img);
-            }
-        
-        return redirect('/backend/verProducto/'.$id.'#shoeimg');
+            $shoe_img = new Shoe_img(['shoe_id' => $shoe->id, 'img_path' => basename($newImg)]);
+
+            $shoe->shoe_img()->save($shoe_img);
+        }
+
+        return redirect('/backend/verProducto/' . $id . '#shoeimg');
     }
-    
-    public function guardarColor(Request $req, $id){
+
+    public function guardarColor(Request $req, $id)
+    {
         $shoe = Shoe::find($id);
-        $color = new Color(['name'=>$req->name, 'color'=>$req->color]);
+        $color = new Color(['name' => $req->name, 'color' => $req->color]);
         $shoe->color()->save($color);
-        return redirect('/backend/verProducto/'.$id.'#color'); 
+        return redirect('/backend/verProducto/' . $id . '#color');
     }
 }

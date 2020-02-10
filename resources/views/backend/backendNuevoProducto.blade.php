@@ -50,19 +50,9 @@ Nuevo Zapato
                     <input id="previewB" type="file" name="previewB" class="form-control mb-3"
                         value="{{ old('previewB')}}">
 
-                    <div class="col-md-6 mb-3">
-                        <input id="previewLargeCheck" type="checkbox" class="custom-control-input"
-                            name="previewLargeCheck"
-                            value="{{old('previewLargeCheck') ? old('previewLargeCheck') : '1'}}" onclick="habilitar()">
-                        <label class="custom-control-label" for="previewLargeCheck">Imagen larga</label>
-                        {!! $errors->first('previewLarge','<div class="alert alert-danger">:message</div>')!!}
-                    </div>
-                    {!! $errors->first('preview_img','<div class="alert alert-danger">:message</div>')!!}
-
-
+                    <label for="previewLarge">Imagen larga</label>
                     <input id="previewLarge" type="file" name="previewLarge" value="{{ old('previewLarge')}}"
-                        class="form-control mb-3" disabled>
-                </div>
+                        class="form-control mb-3">
 
                 <hr class="mb-4">
 

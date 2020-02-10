@@ -12,29 +12,64 @@ class Shoe extends Model
     public $table = 'shoes';
     public $guarded = [];
 
-    public function shoe_img(){
+    public function shoe_img()
+    {
         return $this->hasMany('App\Shoe_img', 'shoe_id');
     }
-    
-    public function stock(){
-        return $this->hasMany('App\Stock','shoe_id');
+
+    public function stock()
+    {
+        return $this->hasMany('App\Stock', 'shoe_id');
     }
 
-    public function color(){
-        return $this->hasMany('App\Color','shoe_id');
+    public function color()
+    {
+        return $this->hasMany('App\Color', 'shoe_id');
     }
 
-    public function preview(){
-        $previewFiles = [];
+    public function previewLarge()
+    {
+        $previewLarge = $this->shoe_img()->where('category_id', '=', 3)->first();
 
-        foreach ($this->shoe_img as $img){
-            if (in_array($img->category_id, ['1','2','3'])){
-                $preview['type'] = $img->category_id;
-                $preview['path'] = $img->img_path;
-                array_push($previewFiles, $preview);
-            }
+        if (is_null($previewLarge)){
+            return null;
+        }else{
+            return $previewLarge;
         }
+    }
 
-        return $previewFiles;
+    public function previewSmall()
+    {
+        $previewA = $this->shoe_img()->where('category_id', '=', 1)->first();
+        
+        $previewB = $this->shoe_img()->where('category_id', '=', 2)->first();
+        
+        if (is_null($previewA)&&is_null($previewB)){
+            return null;
+        }else{
+            return [$previewA, $previewB];
+        }
+    }
+
+    public function previewA()
+    {
+        $previewA = $this->shoe_img()->where('category_id', '=', 1)->first();
+
+        if (is_null($previewA)){
+            return null;
+        }else{
+            return $previewA;
+        }
+    }
+
+    public function previewB()
+    {
+        $previewB = $this->shoe_img()->where('category_id', '=', 2)->first();
+
+        if (is_null($previewB)){
+            return null;
+        }else{
+            return $previewB;
+        }
     }
 }

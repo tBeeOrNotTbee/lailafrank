@@ -85,6 +85,7 @@ class Shoe_imgController extends Controller
 
     public function eliminar($idimg, $idShoe){
         Shoe_img::destroy($idimg);
-        return redirect('/backend/verProducto/'.$idShoe.'#shoeimg');
+        //return redirect('/backend/verProducto/'.$idShoe.'#shoeimg');
+        return redirect()->back();
     }
 }

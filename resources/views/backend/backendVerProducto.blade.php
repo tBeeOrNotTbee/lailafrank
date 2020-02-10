@@ -62,28 +62,16 @@ Vista - {{$shoe['name']}}
         </div>
         <div class="col-12 col-md-6">
             <div class="card mb-3" style="width: 18rem;">
-                <?php
-                    $preview = $shoe->preview();
-                ?>
-                @if (in_array($preview[0]['type'], ['1', '2']))
-                <?php foreach ($preview as $previewImg) {
-                            if ($previewImg['type'] == 1) {
-                                $previewA = $previewImg['path'];
-                            } else {
-                                $previewB = $previewImg['path'];
-                            }   
-                        }
-                     ;?>
+                
                 <div class="p-3">
                     <div class="shoe-img-preview">
-                        <img src="/storage/{{ $previewA }}" class="img-fluid" alt="">
-                        <img src="/storage/{{ $previewB }}" class="img-top img-fluid" alt="">
+                        <?php $previews = $shoe->previewSmall();?>
+                        @isset($previews)
+                        <img src="/storage/{{$previews[0]->img_path }}" class="img-fluid" alt="">
+                        <img src="/storage/{{$previews[1]->img_path }}" class="img-top img-fluid" alt="">    
+                        @endisset
                     </div>
                 </div>
-                @else
-                <img src="/storage/{{ $preview[0]['path'] }}" class="img-thumbnail" alt="Imagen de vista previa">
-
-                @endif
 
                 <div class="card-body">
                     <p class="card-text">Foto de vista previa.</p>
