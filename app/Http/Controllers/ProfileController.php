@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use Illuminate\Support\Facades\Auth;
 
+use App\Newsletter;
+
 use App\User;
 
 class ProfileController extends Controller
@@ -35,10 +37,20 @@ class ProfileController extends Controller
         return view('shopMisFavoritos');
     }
 
+
     public function newsletter()
     {
-        return view('shopNewsletter');
+        $subs  = Newsletter::all();
+        $email_list = [];
+
+        foreach($subs as $sub){
+            array_push($email_list, $sub->email);
+        }
+        
+        return view('shopNewsletter', compact('email_list', 'subs'));
     }
+
+
 
     public function addressnew()
     {
