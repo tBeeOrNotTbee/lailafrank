@@ -125,9 +125,9 @@
         <div class="newsletter-input">
             <form id="newsletterForm" action="/backend/newsletter" method="post">
                 @csrf
-                <input class="input-line" name="email" type="email" class="form-control" placeholder="Ingresá tu email" aria-label="Recipient's email" aria-describedby="basic-addon2">
+                <input name="email" type="email" class="input-line monserrat form-control" placeholder="Ingresá tu email" aria-label="Recipient's email" aria-describedby="basic-addon2">
                 <div class="input-group-append">
-                    <button class="button-line roboto-light camel"  type="submit">Ok</button>
+                    <button class="button-line roboto-light camel" type="submit">Ok</button>
                 </div>
             </form>
         </div>
