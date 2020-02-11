@@ -3,17 +3,19 @@
 @section('content')
 <div class="row">
     <div class="col-12 noPad">
-        <div class="carousel slide" data-ride="carousel" interval="0">
+        <div class="carousel slide" id="carousel" data-ride="carousel" interval="0">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="d-block w-100 carusel-img c1"></div>
-                </div>
-                <!-- <div class="carousel-item">
-                    <div class="d-block w-100 carusel-img c2"></div>
+                    <div class="d-block w-100 carusel-img">
+                        <video id="video" type="video/mp4" class="" src="{{url('public/img/carousel/LailaVideo.mp4')}}" autoplay>Tu navegador no puede reproducir el video </video>
+                    </div>
                 </div>
                 <div class="carousel-item">
-                    <div class="d-block w-100 carusel-img c3"></div>
-                </div> -->
+                    <div class="d-block w-100 carusel-img c1"></div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-block w-100 carusel-img c1"></div>
+                </div>
             </div>
         </div>
     </div>

@@ -6,6 +6,18 @@ document.getElementById("equis").onclick = function () {
     document.getElementById("advert").style.display = "none";
 }
 
+
+$(document).ready(function() {
+    $("#video").on('play', function(e){
+        setTimeout(function () {
+            $('.carousel').carousel('pause');
+        }, 500);
+/*         $('carousel').carousel('pause'); */
+    });
+    $('#video').on('stop pause ended', function(e){
+        $('carousel').carousel();
+    });
+});
 const newsletterForm = document.getElementById("newsletterForm");
 newsletterForm.onsubmit = async (e) => {
     e.preventDefault();
