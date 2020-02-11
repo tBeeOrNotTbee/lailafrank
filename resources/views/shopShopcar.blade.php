@@ -29,7 +29,7 @@
                             <div class="w100" style="background-color: blue"></div>
                         </div>
                     </div>
-                <a href="/shopcar/remove/{{$shopcar ?? ''->id}}/{{$product->pivot->id}}" class="btn btn-link text-uppercase cero7em mt-2 red">x Quitar</a>
+                <a href="/shopcar/remove/{{$shopcar->id}}/{{$product->id}}" class="btn btn-link text-uppercase cero7em mt-2 red">x Quitar</a>
                 </div>
             </div>
             @empty

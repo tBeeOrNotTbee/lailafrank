@@ -28,7 +28,7 @@ Carrito de compras
             <td>{{$product->color->name}}</td>
             <td>$ {{$product->shoe->price}}</td>
             <td><a class="btn btn-link btn-sm" type="button"
-                    href="/shopcar/remove/{{$shopcar->id}}/{{$product->pivot->id}}">Quitar</a></td>
+                    href="/shopcar/remove/{{$shopcar->id}}/{{$product->id}}">Quitar</a></td>
         </tr>
         @endforeach
         <tr class="table-success">
