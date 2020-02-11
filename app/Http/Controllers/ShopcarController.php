@@ -170,5 +170,8 @@ class ShopcarController extends Controller
 
         return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total'));
     }
+    public function mercadopago(Request $req){
+        
+    }
 
 }
