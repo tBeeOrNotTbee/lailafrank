@@ -53,7 +53,7 @@
                         @endif
                     </div>
                     <div class="card-body text-center">
-                        <a class="card-title roboto-light black thumbnail-title" href="catalog-item.php">Nombre Feliciana</a>
+                        <a class="card-title roboto-light black thumbnail-title" href="/catalog/shoe/{{$shoes[0]->id}}">{{$shoes[0]->name}}</a>
                         <p class="card-text roboto black thumbnail-price">$10.000</p>
                         <div class="row d-flex justify-content-around">
                             <div class="show-color">

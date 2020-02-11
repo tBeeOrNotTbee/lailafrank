@@ -4,41 +4,43 @@
 <div class="col-12 col-md-7 py-md-5">
     <div class="container-fluid">
 
-        <h2 class="text-center monserrat-bold shop-title cero8em">Mis favoritos</h2>
+        <h2 class="text-center monserrat-bold shop-title cero8em">Shopcar</h2>
 
         <div class="row">
 
-            @forelse (Auth::user()->favorites as $favorite)     
+
+            @forelse ($shopcar->stock as $product)     
             <div id="product1" class="col-6 col-md-4 card border-0 rounded-0">
                 <div class="p-0 p-md-3">
                     <!-- THUMBNAIL CAROUSEL -->
                     <div class="shoe-img-preview">
-                        <?php $previews=$favorite->previewSmall();?>
+                        <?php $previews=$product->shoe->previewSmall();?>
                         <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid">
                         <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid">
                     </div>
                 </div>
                 
                 <div class="card-body text-center">
-                    <a href="/catalog/shoe/{{$favorite->id}}" class="card-title roboto-light black thumbnail-title">{{$favorite->name}}</a>
-                    <p class="card-text roboto black thumbnail-price">{{$favorite->price}}</p>
+                    <a href="/catalog/shoe/{{$product->shoe->id}}" class="card-title roboto-light black thumbnail-title">{{$product->shoe->name}}</a>
+                    <p class="card-text roboto black thumbnail-price">{{$product->shoe->price}}</p>
+                    <p class="card-text roboto black thumbnail-price">Talle: {{$product->size}}</p>
                     <div class="row d-flex justify-content-around">
                         <div class="show-color">
                             <div class="w100" style="background-color: blue"></div>
                         </div>
                     </div>
-                <a href="/favorites/change2/{{$favorite->id}}" class="btn btn-link text-uppercase cero7em mt-2 red">x Eliminar</a>
+                <a href="/shopcar/remove/{{$shopcar ?? ''->id}}/{{$product->pivot->id}}" class="btn btn-link text-uppercase cero7em mt-2 red">x Quitar</a>
                 </div>
             </div>
             @empty
-                <h5 class="monserrat cero7em">No ha seleccionado favoritos todavía.</h5>
+                <h5 class="monserrat cero7em p-4 m-4">No ha escogido un producto aún.</h5>
             @endforelse
 
         </div>
 
         <div class="w100 d-flex justify-content-between mt-5">
             <span class="mt-3 shop-link"><a href="/shop/myaccount" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">> volver</a></span>
-            <a href="#" class="button-story m-0">Compartir favoritos</a>
+            <a href="#" class="button-story m-0 cero7em">Proceder con la compra</a>
         </div>
 
     </div>

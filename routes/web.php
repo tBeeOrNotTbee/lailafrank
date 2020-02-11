@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/history', function(){return view('history');});
 Route::get('/contact', function(){return view('contacto');});
 Route::get('/catalog', 'HomeController@catalog');
+Route::get('/catalog/shoe/{shoeId}', 'HomeController@productDetail');
 
 
 ////// RUTAS ESTATICAS FOOTER /////
@@ -41,9 +42,10 @@ Route::get('/shop/myaccount/addresses/new', 'ProfileController@addressnew')->mid
 Route::get('/shop/myaccount/purchases', 'ProfileController@purchases')->middleware('auth');
 Route::get('/shop/myaccount/favorites', 'ProfileController@favorites')->middleware('auth');
 Route::get('/shop/myaccount/newsletter', 'ProfileController@newsletter')->middleware('auth');
-Route::get('/favorites/change/{shoeId}', 'FavoritesController@changeState')->middleware('auth');
-Route::get('/favorites/change2/{shoeId}', 'FavoritesController@changeState2')->middleware('auth');
-
+Route::get('/favorites/change/{shoeId}', 'FavoritesController@changeState');
+Route::get('/favorites/change2/{shoeId}', 'FavoritesController@changeState2');
+Route::post('/shop/shopcar/add', 'ShopcarController@add2');
+Route::get('/shop/shopcar', 'ProfileController@shopcar')->middleware('auth');
 
 ////// RUTAS BACKTEND /////
 Route::get('/backend', function(){

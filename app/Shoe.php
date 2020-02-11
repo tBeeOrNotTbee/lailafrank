@@ -28,11 +28,13 @@ class Shoe extends Model
         return $this->hasMany('App\Color', 'shoe_id');
     }
 
-    public function category(){
+    public function category()
+    {
         return $this->belongsTo('App\Shoe_category', 'category_id');
     }
 
-    public function favorites(){
+    public function favorites()
+    {
         return $this->belongsToMany('App\User', 'favorites', "shoe_id", "user_id");
     }
 
@@ -40,9 +42,9 @@ class Shoe extends Model
     {
         $previewLarge = $this->shoe_img()->where('category_id', '=', 3)->first();
 
-        if (is_null($previewLarge)){
+        if (is_null($previewLarge)) {
             return null;
-        }else{
+        } else {
             return $previewLarge;
         }
     }
@@ -50,12 +52,12 @@ class Shoe extends Model
     public function previewSmall()
     {
         $previewA = $this->shoe_img()->where('category_id', '=', 1)->first();
-        
+
         $previewB = $this->shoe_img()->where('category_id', '=', 2)->first();
-        
-        if (is_null($previewA)&&is_null($previewB)){
+
+        if (is_null($previewA) && is_null($previewB)) {
             return null;
-        }else{
+        } else {
             return [$previewA, $previewB];
         }
     }
@@ -64,9 +66,9 @@ class Shoe extends Model
     {
         $previewA = $this->shoe_img()->where('category_id', '=', 1)->first();
 
-        if (is_null($previewA)){
+        if (is_null($previewA)) {
             return null;
-        }else{
+        } else {
             return $previewA;
         }
     }
@@ -75,27 +77,26 @@ class Shoe extends Model
     {
         $previewB = $this->shoe_img()->where('category_id', '=', 2)->first();
 
-        if (is_null($previewB)){
+        if (is_null($previewB)) {
             return null;
-        }else{
+        } else {
             return $previewB;
         }
     }
 
     public function isFavorite()
     {
-        $userId = Auth::user()->id;
-
-        $favoritesShoes = Auth::user()->favorites()->get();
-
         $state = false;
 
-        foreach ($favoritesShoes as $favorite) {
-            if ($favorite->id == $this->id) {
-                $state = true;
+        if (Auth::user()) {
+            $favoritesShoes = Auth::user()->favorites()->get();
+
+            foreach ($favoritesShoes as $favorite) {
+                if ($favorite->id == $this->id) {
+                    $state = true;
+                }
             }
         }
-
         return $state;
     }
 }

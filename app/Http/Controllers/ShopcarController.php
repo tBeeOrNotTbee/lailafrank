@@ -4,10 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Shoe;
 use App\Stock;
 use App\Shopcar;
 use App\Address;
 use App\Custom\Oca;
+use App\OrdersOutOfStock;
 
 class ShopcarController extends Controller
 {
@@ -75,8 +77,67 @@ class ShopcarController extends Controller
     {
         $shopcar = Shopcar::find($shopcar_id);
 
-        $shopcar->stock()->wherePivot('id', '=', $stock_id)->detach();
+        $shopcar->stock($stock_id)->detach();
 
         return back();
     }
+
+    public function add2(Request $req)
+    {
+        if (Auth::user()) {
+            $user = Auth::user();
+
+            $stock = Shoe::find($req->shoeId)->stock()->where('size', '=',$req->size)->first();
+
+            if (is_null($stock)) {
+                /** Graba en OrdersOutOfStock el pedido rechazado */
+                $ordersOutOfStock = new OrdersOutOfStock;
+
+                $ordersOutOfStock->create([
+                    'user_id' => $user->id,
+                    'shoe_id' => $req->shoeId,
+                    'size'=>$req->size
+                ]);
+
+                $state = ['state' => false];
+                return json_encode($state);
+            }
+
+            $shopcar = Shopcar::where('ordered', '=', '0')
+                ->where('user_id', '=', $user->id)
+                ->take(1)
+                ->first();
+
+            if (is_null($shopcar)) {
+                //debe crearlo
+                $shopcar = $user->shopcar()->create([
+                    'user_id' => $user->id
+                ]);
+            }
+
+            //continua proceso
+            $shopcar->stock()->attach($stock->id);
+            $state = ['state' => true];
+            return json_encode($state);
+        }else{
+            $state = ['state' => 'notLogged'];
+            return json_encode($state);
+        }
+    }
+
+    public function add3($shoeId, $size)
+    {
+        $user = Auth::user();
+        /** Graba en OrdersOutOfStock el pedido rechazado */
+        $ordersOutOfStock = new OrdersOutOfStock;
+
+        $ordersOutOfStock->create([
+            'user_id' => $user->id,
+            'shoe_id' => $shoeId,
+            'size'=>$size
+        ]);
+
+        $printi = Shoe::find($shoeId)->stock()->where('size', '=', $size)->first();
+        return json_encode($printi);
+        }
 }

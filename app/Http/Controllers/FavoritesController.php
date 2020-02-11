@@ -9,15 +9,22 @@ class FavoritesController extends Controller
 {
     public function changeState($shoeId)
     {
-        $user = Auth::user();
-        $shoe = Shoe::find($shoeId);
-
-        $user->favorites()->toggle($shoeId);
-
-        if ($shoe->isFavorite() == true){
-            return json_encode($state=true);
+        if (Auth::user()) {
+            $user = Auth::user();
+            $shoe = Shoe::find($shoeId);
+            
+            $user->favorites()->toggle($shoeId);
+            
+            if ($shoe->isFavorite() == true){
+                $state = ['state'=>true];
+                return json_encode($state);
+            }else{
+                $state = ['state'=>false];
+                return json_encode($state);
+            }
         }else{
-            return json_encode($state=false);
+            $state = ['state'=>'notLogged'];
+            return json_encode($state);
         }
     }
 

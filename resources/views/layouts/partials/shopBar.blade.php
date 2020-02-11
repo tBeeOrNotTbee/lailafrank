@@ -16,6 +16,7 @@
                 <div class="card-body">
 
                     <ul class="list-group list-group-flush shop-links">
+                        <li class="list-group-item border-0 p-1 noBk"><a href="/shop/shopcar" class="grey {{Request::is('shop/shopcar') ? 'shop-link-active' : ''}}">Shopcar</a></li>
                         <li class="list-group-item shop-bk"><a href="/shop/myaccount" class="grey {{Request::is('shop/myaccount') ? 'shop-link-active' : ''}}">Mi
                                 cuenta</a></li>
                         <li class="list-group-item shop-bk"><a href="/shop/myaccount/edit" class="grey {{Request::is('shop/myaccount/edit') ? 'shop-link-active' : ''}}">Editar
@@ -47,8 +48,8 @@
 <div class="d-none d-md-block col-md-3 shop-bk">
 
     <ul class="list-group list-group-flush shop-links shop-links-desk">
-        <li class="list-group-item border-0 p-1 noBk"><a href="/shop/myaccount" class="grey {{Request::is('shop/myaccount') ? 'shop-link-active' : ''}}">Mi
-                cuenta</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/shop/shopcar" class="grey {{Request::is('shop/shopcar') ? 'shop-link-active' : ''}}">Shopcar</a></li>
+        <li class="list-group-item border-0 p-1 noBk"><a href="/shop/myaccount" class="grey {{Request::is('shop/myaccount') ? 'shop-link-active' : ''}}">Mi cuenta</a></li>
         <li class="list-group-item border-0 p-1 noBk"><a href="/shop/myaccount/edit" class="grey {{Request::is('shop/myaccount/edit') ? 'shop-link-active' : ''}}">Editar cuenta</a></li>
         <li class="list-group-item border-0 p-1 noBk"><a href="/shop/myaccount/addresses" class="grey {{Request::is('shop/myaccount/addresses') ? 'shop-link-active' : ''}}">Mis direcciones</a>
         </li>

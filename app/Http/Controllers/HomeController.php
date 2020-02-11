@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        /* $this->middleware('auth'); */
     }
 
     /**
@@ -38,5 +38,11 @@ class HomeController extends Controller
     {
         $shoes = Shoe::all();
         return view('catalog', compact('shoes'));
+    }
+
+    public function productDetail($shoeId)
+    {
+        $shoe = Shoe::find($shoeId);
+        return view('catalog-item', compact('shoe'));
     }
 }

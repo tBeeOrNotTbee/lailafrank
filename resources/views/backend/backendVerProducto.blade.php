@@ -122,8 +122,8 @@ Vista - {{$shoe['name']}}
 <form class="form-inline form-group" method="POST" action="/backend/guardarColor/{{$shoe->id}}">
     @csrf
     <h5>Agregar color:</h5>
-    <input type="text" class="form-control ml-2 form-control-sm" name="name" placeholder="Nombre">
-    <input type="color" name="color" class="ml-2 form-control-sm">
+    <input type="text" class="form-control ml-2 form-control-sm" name="name" placeholder="Nombre" required>
+    <input type="color" name="color" class="ml-2 form-control-sm" required>
     <button type="submit" class="btn btn-sm btn-outline-primary ml-2">Guardar</button>
 </form>
 
