@@ -76,9 +76,12 @@ class ShopcarController extends Controller
     public function removeStock($shopcar_id, $stock_id)
     {
         $shopcar = Shopcar::find($shopcar_id);
+        $stock = Stock::find($stock_id);
 
-        $shopcar->stock($stock_id)->detach();
+        $shopcar->stock()->toggle($stock);
 
+        //dd($shopcar->stock($stock_id));
+        /* ->detach() */
         return back();
     }
 

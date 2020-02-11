@@ -2,11 +2,9 @@
     document.getElementById('advert').style.display = "none";
 } */
 
-document.getElementById("equis").onclick = function () {
-    document.getElementById("advert").style.display = "none";
-}
-
-
+document.getElementById("equis").onclick = function() { 
+    document.getElementById("advert").style.display = "none"; 
+} 
 $(document).ready(function() {
     $("#video").on('play', function(e){
         setTimeout(function () {

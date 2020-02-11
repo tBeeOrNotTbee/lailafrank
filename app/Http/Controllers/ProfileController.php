@@ -94,7 +94,8 @@ class ProfileController extends Controller
 
         if (is_null($shopcar) || $shopcar->stock->isEmpty()) {
             //dd($shopcar->stock);
-            return view('shopShopcar', compact('shopcar'));
+            
+            return view('shopShopcar', ['vacio'=>'ok']);
         }
         //dd($shopcar);
         $stocks = $shopcar->stock;
