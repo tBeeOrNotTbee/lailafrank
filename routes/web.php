@@ -46,6 +46,7 @@ Route::get('/favorites/change/{shoeId}', 'FavoritesController@changeState');
 Route::get('/favorites/change2/{shoeId}', 'FavoritesController@changeState2');
 Route::post('/shop/shopcar/add', 'ShopcarController@add2');
 Route::get('/shop/shopcar', 'ProfileController@shopcar')->middleware('auth');
+Route::get('/shop/shopcar/checkout', 'ShopcarController@forcheckout')->middleware('auth');
 
 ////// RUTAS BACKTEND /////
 Route::get('/backend', function(){

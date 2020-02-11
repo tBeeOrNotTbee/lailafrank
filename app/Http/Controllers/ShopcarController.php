@@ -142,5 +142,26 @@ class ShopcarController extends Controller
 
         $printi = Shoe::find($shoeId)->stock()->where('size', '=', $size)->first();
         return json_encode($printi);
+    }
+
+    public function forcheckout ()
+    {
+        $user = Auth::user();
+
+        $shopcar = Shopcar::where('ordered', '=', '0')
+            ->where('user_id', '=', $user->id)
+            ->take(1)
+            ->first();
+
+        if (is_null($shopcar) || $shopcar->stock->isEmpty()) {
+            //dd($shopcar->stock);
+            return view('shopShopcar', compact('shopcar'));
         }
+        $stocks = $shopcar->stock;
+
+        $addresses = Address::where('user_id', '=', $user->id)->get();
+
+        return view('shopCheckout', compact('shopcar', 'stocks', 'addresses'));
+    }
+
 }

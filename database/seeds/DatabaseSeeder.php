@@ -18,7 +18,6 @@ class DatabaseSeeder extends Seeder
         // Los usuarios necesitarán los roles previamente generados
         $this->call(UserTableSeeder::class);
         
-        
         DB::table('places')->insert(['place'=>'Depósito']);
         DB::table('places')->insert(['place'=>'Showroom']);
         
@@ -32,6 +31,10 @@ class DatabaseSeeder extends Seeder
         DB::table('shoe_categories')->insert(['name'=>'Stilettos']);
         DB::table('shoe_categories')->insert(['name'=>'Flats']);
         DB::table('shoe_categories')->insert(['name'=>'Tango']);
+<<<<<<< Updated upstream
+=======
+        
+>>>>>>> Stashed changes
         factory(Shoe::class)->times(6)->create();
     }
 }
