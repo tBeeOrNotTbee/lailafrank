@@ -46,8 +46,10 @@ Route::get('/favorites/change/{shoeId}', 'FavoritesController@changeState');
 Route::get('/favorites/change2/{shoeId}', 'FavoritesController@changeState2');
 Route::post('/shop/shopcar/add', 'ShopcarController@add2');
 Route::get('/shop/shopcar', 'ProfileController@shopcar')->middleware('auth');
-Route::get('/shop/shopcar/checkout', 'ShopcarController@forcheckout')->middleware('auth');
-
+Route::post('/shop/shopcar/checkout', 'ShopcarController@forcheckout')->middleware('auth');
+Route::post('/shop/discount', 'DiscountController@check')->middleware('auth');
+Route::get('/shop/discount/{discount}', 'DiscountController@check2')->middleware('auth');
+Route::post('/shop/confirm', 'ShopcarController@mercadopago')->middleware("auth");
 ////// RUTAS BACKTEND /////
 Route::get('/backend', function(){
     return view('backend.backendHome');

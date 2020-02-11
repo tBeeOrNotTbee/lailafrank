@@ -1,7 +1,7 @@
 @extends('layouts.shopLayout')
 @section('title', 'Checkout')
 @section('contentShop')
-<form class="col-12 col-md-7 py-4">
+<form action="/shop/confirm" class="col-12 col-md-7 py-4">
     <h2 class="monserrat-bold shop-title cero8em text-center text-md-left">Mis compras</h2>
     <p class="monserrat grey2 cero8em text-center text-md-left">Datos de la compra/ Nro. 5800284197</p>
 
@@ -43,7 +43,7 @@
                     <td class="border-0" colspan="2">&nbsp;</td>
                     <th colspan="2" class="shop-bk2 border-0 shop-border pr-0 mr-0 w100 d-flex justify-content-between">
                         <span>TOTAL</span>
-                        <span>$2680.00</span>
+                        <span>${{$total}}</span>
                     </th>
                 </tr>
             </tbody>
@@ -53,28 +53,29 @@
     <div class="container-fluid mt-3">
         <div class="row justify-content-md-between">
 
-            <div class="col-10 col-md-6 mb-4 mx-auto p-md-0">
-                <div class="card shop-bk border-0 h100x">
-                    <div class="card-body d-flex flex-column justify-content-around">
-                        <h5 class="card-title monserrat shop-card-title grey2 cero8em">Dirección de facturación</h5>
-                        <p class="card-text monserrat shop-card-text grey2 cero7em my-0">ARCHIRA 4896, PISO 1, OF 5.</p>
-                        <p class="card-text monserrat shop-card-text grey2 cero7em mt-0 mb-3">Ciudad Autónoma Buenos Aires, 1431</p>
+            
+            @forelse (Auth::user()->address as $address)
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card shop-bk border-0 h100x">
+                        <div class="card-body d-flex flex-column justify-content-around">
+                            <h5 class="card-title monserrat shop-card-title grey2 cero8em">Dirección de envío</h5>
+                            <p class="card-text monserrat shop-card-text grey2 cero7em my-0">{{$address->cardLineOne()}}</p>
+                            <p class="card-text monserrat shop-card-text grey2 cero7em my-0">{{$address->cardLineTwo()}}</p>
+                            <p class="card-text monserrat shop-card-text grey2 cero7em my-0">{{$address->cardLineThree()}}</p></p>
+                            <p class="card-text monserrat shop-card-text grey2 cero7em my-0">T: {{$address->telephone}}//{{$address->cellphone}}</p>
+                            <div class="w-100 d-flex justify-content-end">
+                                <a href="shopEditarDireccion.php" class="shop-card-text monserrat text-uppercase grey2 cero7em">
+                                    <i class="fas fa-pencil-alt"></i> Editar</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-
-            <div class="col-10 col-md-6 mb-4 mx-auto">
-                <div class="card shop-bk border-0 h100x">
-                    <div class="card-body d-flex flex-column justify-content-around">
-                        <h5 class="card-title monserrat shop-card-title grey2 cero8em">Dirección de envío predeterminada</h5>
-                        <p class="card-text monserrat shop-card-text grey2 cero7em my-0">ARCHIRA 4896, PISO 1, OF 5.</p>
-                        <p class="card-text monserrat shop-card-text grey2 cero7em mt-0 mb-3">Ciudad Autónoma Buenos Aires, 1431</p>
-                    </div>
-                </div>
-            </div>
+            @empty
+                <p>No posee direciones para mostrar.</p>
+            @endforelse
 
         </div>
     </div>
+    <button class="" type="submit">Confirmar</button>
 </form>
 @endsection

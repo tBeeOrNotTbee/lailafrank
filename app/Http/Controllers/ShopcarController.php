@@ -46,7 +46,7 @@ class ShopcarController extends Controller
             ->first();
 
         if (is_null($shopcar) || $shopcar->stock->isEmpty()) {
-            //dd($shopcar->stock);
+        //dd($shopcar->stock);
             return view('backend.backendVerCarrito', ['vacio' => 'ok']);
         }
         //dd($shopcar);
@@ -144,24 +144,31 @@ class ShopcarController extends Controller
         return json_encode($printi);
     }
 
-    public function forcheckout ()
+    public function forcheckout (Request $req)
     {
+        
+        
+        
         $user = Auth::user();
-
+        
         $shopcar = Shopcar::where('ordered', '=', '0')
             ->where('user_id', '=', $user->id)
             ->take(1)
             ->first();
 
-        if (is_null($shopcar) || $shopcar->stock->isEmpty()) {
-            //dd($shopcar->stock);
-            return view('shopShopcar', compact('shopcar'));
-        }
+        
         $stocks = $shopcar->stock;
+        $total = 0;
+        foreach ($stocks as $product) {
+            $total += $product->shoe->price;
 
-        $addresses = Address::where('user_id', '=', $user->id)->get();
+        }
+        //FALTA RESTAR CUPON
+        //FALTA COSTO DE ENVIO
 
-        return view('shopCheckout', compact('shopcar', 'stocks', 'addresses'));
+        $addresses = Address::find($req->address_id);
+
+        return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total'));
     }
 
 }

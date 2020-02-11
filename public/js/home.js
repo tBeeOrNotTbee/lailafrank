@@ -141,3 +141,37 @@ function addToCar() {
     });
 
 }
+
+
+/** Comprobar cupon de descuento */
+function checkDiscount() {
+    let discountForm = document.getElementById('discountForm');
+    event.preventDefault();
+    let discountData = new FormData(discountForm);
+
+    
+/*     let nostock = document.getElementById('nostock');
+    nostock.classList = "d-none"
+    let added = document.getElementById('added');
+    nostock.classList = "d-none"
+    let spinner = document.getElementById('spinner');
+    spinner.classList = "spinner-border spinner-border-sm text-light" */
+    
+    fetch('/shop/discount', {
+        method: 'POST',
+        body: discountData
+    }).then((response) => {  
+        return response.json()
+    }).then((response) => {
+        console.log(response);
+        
+        if (response.discount == true) {
+            console.log('Existe cupon')
+            
+        } else if (response.discount == false) {
+            console.log('No existe cupon')
+            
+        }
+    });
+
+}

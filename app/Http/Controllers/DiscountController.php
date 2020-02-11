@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Discount;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\DB;
+
+
 
 class DiscountController extends Controller
 {
@@ -19,7 +22,7 @@ class DiscountController extends Controller
             "number" => $req["number"],
             "type" => $req["type"],
             "amount" => $req["amount"],
-            "active" => $req["active"]
+            "active" => 1
         ];
 
         $discount = new Discount($datos);
@@ -58,5 +61,27 @@ class DiscountController extends Controller
         $discount->update(['active'=>$active]);
         
         return json_encode($res);
+    }
+
+    public function check(Request $req)
+    {
+        /* $discounts = DB::table('discounts')->where(['number'=> $req->discount, 'active'=>'1'])->get(); */
+        $discounts = Discount::where('number', $req->discount)->where('active', '1')->get();
+        if($discounts->isEmpty()){
+            return json_encode(["discount" => false]);
+        }else{
+            return json_encode(["discount" => true]);
+        }
+    }
+
+    public function check2($discount)
+    {
+        $discounts = Discount::where('number', $discount)->where('active', '1')->get();
+        dd($discounts);
+        if($discounts->isEmpty()){
+            return json_encode(["discount" => false]);
+        }else{
+            return json_encode(["discount" => true]);
+        }
     }
 }

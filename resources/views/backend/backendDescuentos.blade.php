@@ -53,7 +53,7 @@ Cupones de descuento
                 <td>{{$discount->type}}</td>
                 <td>{{$discount->amount}}</td>
                 <td><input type="checkbox" id="check{{$discount->id}}" name="active" value="1" onclick="onoff({{$discount->id}})"
-                        {{($discount->active == 1) ? 'checked' : ''}}></td>
+                        {{($discount->active == 1) ? 'checked' : '1'}}></td>
                 <td>
                     <button type="submit" class="btn btn-sm btn-outline-danger">Borrar</button>
                 </td>

@@ -34,19 +34,50 @@
                 </div>
             </div>
             @empty
-            <h5 class="monserrat cero7em p-4 m-4">No ha escogido un producto aún.</h5>
             @endforelse
-            <div class="w100 d-flex justify-content-between mt-5">
-                <span class="mt-3 shop-link"><a href="/shop/myaccount" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">> volver</a></span>
-                <a href="/shop/shopcar/checkout" class="button-story m-0 cero7em">Proceder con la compra</a>
-            </div>
 
         </div>
-        @else
-        <h5 class="monserrat cero7em p-4 m-4">No ha escogido un producto aún.</h5>
-        @endif
+        
+        <form method="post" class="monserrat cero7em mb-3" id="discountForm">
+            @csrf
+            <input type="text" class="input-line w-75 form-control noBk rounded-0 monserrat cero8em" placeholder="Cupón de descuento" name="discount" value="{{old('discount') ? old('discount') : ""}}" >
+               {{--  {!!$errors->first('discount', '<div class="alert alert-danger">:message</div>')!!} --}}
+            <button onclick="checkDiscount()">Chequear</button>
+        </form>
+        
+        <form action="/shop/shopcar/checkout/" method="post" class="monserrat mt-5 cero8em ">
+            @csrf
+                        
+            <h3 class="monserrat cero8em ">Dirección de envio</h3>
+            
+            <a href="/shop/myaccount/addresses/new" class="btn cero7em btn-link">Nueva dirección</a>
+        
+            <div class="form-check">
+            <input class="form-check-input" type="radio" name="address_id" id="exampleRadios2" value="showroom">
+                <label class="form-check-label" for="exampleRadios2">
+                    Retiro en sucursal (Sin costo)
+                </label>
+            </div>
 
-            <h2 class="monserrat mt-5 mb-4 cero8em">¡Tu carrito está vacío!</h2>
+            @foreach ($addresses as $address)
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="address_id" id="exampleRadios1" value="{{$address->id}}">
+                <label class="form-check-label" for="exampleRadios1">
+                <p>{{$address->country}} - {{$address->state}} - {{$address->city}} - {{$address->street}} - {{$address->number}}</p>
+                </label>
+            </div>
+            @endforeach
+            <div class="w100 d-flex justify-content-between mt-5">
+                <span class="mt-3 shop-link"><a href="/shop/myaccount" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">> volver</a></span>
+                <button type="submit" class="button-story m-0 cero7em">Proceder con la compra</button>
+            </div>
+            <input type="hidden" name="discount_type" value="$">
+            <input type="hidden" name="discount_quantity" value="0">
+        </form>
+
+        
+        @else
+        <h2 class="monserrat mt-5 mb-4 cero8em">¡Tu carrito está vacío!</h2>
         @endif
     </div>
 </div>
