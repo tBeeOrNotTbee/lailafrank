@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+require __DIR__ .  '/vendor/autoload.php';
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Shoe;
@@ -11,6 +13,7 @@ use App\Address;
 use App\Custom\Oca;
 use App\Custom\Helper;
 use App\OrdersOutOfStock;
+use App\Payment_Order;
 use MercadoPago\Item;
 use MercadoPago\MerchantOrder;
 use MercadoPago\Payer;
@@ -183,19 +186,37 @@ class ShopcarController extends Controller
 
         $total = round($total, 2);
 
-        return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
+        //COMENZAR CON CREACION DE PAYMENT_ORDER Y PASAJE DE DATA A MP
+        
+        $item = new Item();
+        $payment = new Payment_Order();
+        $payment([
+            "user_id" => $user->id,
+            "shopcar_id" => $shopcar->id,
+            "address_id" => $req->address_id,
+
+        ]);
+        $payment->save();
+
+        //ITEM A VENDER
+
+        $item->id = $payment->id;
+        $item->title = "Laila Frank Shoes" ;
+        $item->quantity = 1;
+        $item->currency_id = "ARS";
+        $item->unit_price = $total;
+
+        //PREFERENCIAS A ENVIAR
+        $preference = new Preference();
+        $preference->items = [$item];
+        $preference->external_reference = $payment->id;
+        $preference->save();
+
+        return view('shopCheckout', compact('preference','shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
     }
 
-    public function mercadopago(Request $request)
-    {
-        $item = new MercadoPago\Item();
-        $item-> = $req-> ;
-        $item-> = $req-> ;
-        $item-> = $req-> ;
-        $item-> = $req-> ;
-    }
-
-    public function createOrder(PreOrder $preOrder, Request $request)
+    
+  /*   public function createOrder(PreOrder $preOrder, Request $request)
     {
         $allowedPaymentMethods = config('payment-methods.enabled');
 
@@ -222,5 +243,5 @@ class ShopcarController extends Controller
         $method = new \App\PaymentMethods\MercadoPago;
 
         return $method->setupPaymentAndGetRedirectURL($order);
-    }
+    } */
 }

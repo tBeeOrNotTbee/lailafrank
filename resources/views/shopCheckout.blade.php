@@ -88,4 +88,10 @@
         <button class="button-story m-0 cero7em" type="submit">Confirmar</button>
     </div>
 </form>
+<form action="/procesar-pago" method="POST">
+  <script
+   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+   data-preference-id="<?php echo $preference->id; ?>">
+  </script>
+</form>
 @endsection
