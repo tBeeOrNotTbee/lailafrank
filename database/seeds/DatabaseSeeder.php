@@ -33,5 +33,19 @@ class DatabaseSeeder extends Seeder
         DB::table('shoe_categories')->insert(['name'=>'Tango']);
         
         factory(Shoe::class)->times(6)->create();
+
+        DB::table('addresses')->insert([
+            'user_id'=>'user_id',
+            'name'=> 'Showroom',
+            'surname'=>'surname',
+            'street'=>'street',
+            'number'=>'number',
+            'floor'=>'floor',
+            'apartment'=>'apartment',
+            'city'=>'Capital Federal',
+            'state'=>'Buenos Aires',
+            'post_code' =>'post_code',
+            'country'=>'Argentina'
+        ]);
     }
 }

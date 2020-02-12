@@ -24,7 +24,7 @@ class CreatePaymentOrdersTable extends Migration
             
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('shopcar_id')->references('id')->on('shopcars');
-            $table->foreign('address_id')->references('id')->on('addressess');
+            $table->foreign('address_id')->references('id')->on('addresses');
         });
     }
 

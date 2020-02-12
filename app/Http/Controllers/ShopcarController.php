@@ -186,7 +186,7 @@ class ShopcarController extends Controller
         return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
     }
 
-    public function mercadopago(Request $request)
+    /* public function mercadopago(Request $request)
     {
         $item = new MercadoPago\Item();
         $item-> = $req-> ;
@@ -222,5 +222,5 @@ class ShopcarController extends Controller
         $method = new \App\PaymentMethods\MercadoPago;
 
         return $method->setupPaymentAndGetRedirectURL($order);
-    }
+    } */
 }
