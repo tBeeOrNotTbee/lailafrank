@@ -11,6 +11,12 @@ use App\Address;
 use App\Custom\Oca;
 use App\Custom\Helper;
 use App\OrdersOutOfStock;
+use MercadoPago\Item;
+use MercadoPago\MerchantOrder;
+use MercadoPago\Payer;
+use MercadoPago\Payment;
+use MercadoPago\Preference;
+use MercadoPago\SDK;
 
 use function App\Custom\discountProcess;
 
@@ -49,7 +55,7 @@ class ShopcarController extends Controller
             ->first();
 
         if (is_null($shopcar) || $shopcar->stock->isEmpty()) {
-        //dd($shopcar->stock);
+            //dd($shopcar->stock);
             return view('backend.backendVerCarrito', ['vacio' => 'ok']);
         }
         //dd($shopcar);
@@ -93,7 +99,7 @@ class ShopcarController extends Controller
         if (Auth::user()) {
             $user = Auth::user();
 
-            $stock = Shoe::find($req->shoeId)->stock()->where('size', '=',$req->size)->first();
+            $stock = Shoe::find($req->shoeId)->stock()->where('size', '=', $req->size)->first();
 
             if (is_null($stock)) {
                 /** Graba en OrdersOutOfStock el pedido rechazado */
@@ -102,7 +108,7 @@ class ShopcarController extends Controller
                 $ordersOutOfStock->create([
                     'user_id' => $user->id,
                     'shoe_id' => $req->shoeId,
-                    'size'=>$req->size
+                    'size' => $req->size
                 ]);
 
                 $state = ['state' => false];
@@ -125,7 +131,7 @@ class ShopcarController extends Controller
             $shopcar->stock()->attach($stock->id);
             $state = ['state' => true];
             return json_encode($state);
-        }else{
+        } else {
             $state = ['state' => 'notLogged'];
             return json_encode($state);
         }
@@ -140,28 +146,27 @@ class ShopcarController extends Controller
         $ordersOutOfStock->create([
             'user_id' => $user->id,
             'shoe_id' => $shoeId,
-            'size'=>$size
+            'size' => $size
         ]);
 
         $printi = Shoe::find($shoeId)->stock()->where('size', '=', $size)->first();
         return json_encode($printi);
     }
 
-    public function forcheckout (Request $req)
+    public function forcheckout(Request $req)
     {
         $user = Auth::user();
-        
+
         $shopcar = Shopcar::where('ordered', '=', '0')
             ->where('user_id', '=', $user->id)
             ->take(1)
             ->first();
 
-        
+
         $stocks = $shopcar->stock;
         $total = 0;
         foreach ($stocks as $product) {
             $total += $product->shoe->price;
-
         }
 
         //CUPON DE DESCUENTO
@@ -181,9 +186,41 @@ class ShopcarController extends Controller
         return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
     }
 
-    public function mercadopago(Request $req)
+    public function mercadopago(Request $request)
     {
-        
+        $item = new MercadoPago\Item();
+        $item-> = $req-> ;
+        $item-> = $req-> ;
+        $item-> = $req-> ;
+        $item-> = $req-> ;
     }
 
+    public function createOrder(PreOrder $preOrder, Request $request)
+    {
+        $allowedPaymentMethods = config('payment-methods.enabled');
+
+        $request->validate([
+            'payment_method' => [
+                'required',
+                Rule::in($allowedPaymentMethods),
+            ],
+            'terms' => 'accepted',
+        ]);
+
+        $order = $this->setUpOrder($preOrder, $request);
+
+        $this->notify($order);
+        $url = $this->generatePaymentGateway(
+            $request->get('payment_method'),
+            $order
+        );
+        return redirect()->to($url);
+    }
+
+    protected function generatePaymentGateway($paymentMethod, Order $order) : string
+    {
+        $method = new \App\PaymentMethods\MercadoPago;
+
+        return $method->setupPaymentAndGetRedirectURL($order);
+    }
 }

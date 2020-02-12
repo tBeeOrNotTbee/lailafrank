@@ -10,7 +10,6 @@
     "require": {
         "php": "^7.2",
         "barryvdh/laravel-cors": "^0.11.4",
-        "doctrine/dbal": "v2.4.2",
         "fideloper/proxy": "^4.0",
         "fortawesome/font-awesome": "^5.11",
         "ixudra/curl": "^6.18",
@@ -18,6 +17,7 @@
         "laravel/framework": "^6.2",
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
+        "mercadopago/dx-php": "^1.8",
         "twbs/bootstrap": "4.3.1"
     },
     "require-dev": {
