@@ -66,22 +66,24 @@ class DiscountController extends Controller
     public function check(Request $req)
     {
         /* $discounts = DB::table('discounts')->where(['number'=> $req->discount, 'active'=>'1'])->get(); */
-        $discounts = Discount::where('number', $req->discount)->where('active', '1')->get();
-        if($discounts->isEmpty()){
+        $discount = Discount::where('number', $req->discount)->where('active', '1')->limit(1)->get();
+        if($discount->isEmpty()){
             return json_encode(["discount" => false]);
         }else{
-            return json_encode(["discount" => true]);
+            $res = ["discount" => true, "type"=>$discount[0]->type, "quantity"=>$discount[0]->amount];
+            return json_encode($res);
         }
     }
 
     public function check2($discount)
     {
-        $discounts = Discount::where('number', $discount)->where('active', '1')->get();
-        dd($discounts);
-        if($discounts->isEmpty()){
+        $discount = Discount::where('number', $discount)->where('active', '1')->limit(1)->get();
+        /* dd($discount); */
+        if($discount->isEmpty()){
             return json_encode(["discount" => false]);
         }else{
-            return json_encode(["discount" => true]);
+            $res = ["discount" => true, "type"=>$discount[0]->type, "quantity"=>$discount[0]->amount];
+            return json_encode($res);
         }
     }
 }

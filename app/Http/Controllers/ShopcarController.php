@@ -9,7 +9,10 @@ use App\Stock;
 use App\Shopcar;
 use App\Address;
 use App\Custom\Oca;
+use App\Custom\Helper;
 use App\OrdersOutOfStock;
+
+use function App\Custom\discountProcess;
 
 class ShopcarController extends Controller
 {
@@ -146,9 +149,6 @@ class ShopcarController extends Controller
 
     public function forcheckout (Request $req)
     {
-        
-        
-        
         $user = Auth::user();
         
         $shopcar = Shopcar::where('ordered', '=', '0')
@@ -163,14 +163,26 @@ class ShopcarController extends Controller
             $total += $product->shoe->price;
 
         }
-        //FALTA RESTAR CUPON
+
+        //CUPON DE DESCUENTO
+        $discounter = Helper::discountProcess($req->discount_quantity, $req->discount_type, $total);
+
+        $total = $discounter[0];
+        $discount = $discounter[1];
+
         //FALTA COSTO DE ENVIO
+
+        $costoEnvio = Address::sendingCost($req->address_id);
 
         $addresses = Address::find($req->address_id);
 
-        return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total'));
+        $total = round($total, 2);
+
+        return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
     }
-    public function mercadopago(Request $req){
+
+    public function mercadopago(Request $req)
+    {
         
     }
 

@@ -39,4 +39,9 @@ class Address extends Model
     {
         return $this->state.', '.$this->country;
     }
+
+    public static function sendingCost($id)
+    {
+        return 0;
+    }
 }

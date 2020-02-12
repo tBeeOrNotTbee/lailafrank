@@ -38,21 +38,23 @@
 
         </div>
         
-        <form method="post" class="monserrat cero7em mb-3" id="discountForm">
+        <form method="post" class="monserrat cero8em mb-3" id="discountForm">
             @csrf
-            <input type="text" class="input-line w-75 form-control noBk rounded-0 monserrat cero8em" placeholder="Cupón de descuento" name="discount" value="{{old('discount') ? old('discount') : ""}}" >
+            <input type="text" class="input-line form-control noBk rounded-0 monserrat cero8em w-25" placeholder="Cupón de descuento" name="discount" value="{{old('discount') ? old('discount') : ""}}" >
                {{--  {!!$errors->first('discount', '<div class="alert alert-danger">:message</div>')!!} --}}
-            <button onclick="checkDiscount()">Chequear</button>
+            <button onclick="checkDiscount()" class="noBk border rounded-0 shop-card-text monserrat text-uppercase grey2 cero7em p-3 mx-2">> Comprobar</button>
         </form>
+        <p id="dValid" class="d-none"> Descuento habilitado! </p>
+        <p id="dInvalid" class="d-none"> Código incorrecto o cupón no válido </p>
         
-        <form action="/shop/shopcar/checkout/" method="post" class="monserrat mt-5 cero8em ">
+        <form id="shopcarForm" action="/shop/shopcar/checkout/" method="post" class="monserrat mt-5 cero8em">
             @csrf
                         
-            <h3 class="monserrat cero8em ">Dirección de envio</h3>
+            <h3 class="monserrat unoem">Dirección de envio</h3>
             
-            <a href="/shop/myaccount/addresses/new" class="btn cero7em btn-link">Nueva dirección</a>
+            <a href="/shop/myaccount/addresses/new" class="btn unoem btn-link">Nueva dirección</a>
         
-            <div class="form-check">
+            <div class="form-check monserrat unoem">
             <input class="form-check-input" type="radio" name="address_id" id="exampleRadios2" value="showroom">
                 <label class="form-check-label" for="exampleRadios2">
                     Retiro en sucursal (Sin costo)
@@ -60,7 +62,7 @@
             </div>
 
             @foreach ($addresses as $address)
-            <div class="form-check">
+            <div class="form-check monserrat unoem">
                 <input class="form-check-input" type="radio" name="address_id" id="exampleRadios1" value="{{$address->id}}">
                 <label class="form-check-label" for="exampleRadios1">
                 <p>{{$address->country}} - {{$address->state}} - {{$address->city}} - {{$address->street}} - {{$address->number}}</p>

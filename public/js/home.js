@@ -112,7 +112,7 @@ function addToCar() {
     let nostock = document.getElementById('nostock');
     nostock.classList = "d-none"
     let added = document.getElementById('added');
-    nostock.classList = "d-none"
+    added.classList = "d-none"
     let spinner = document.getElementById('spinner');
     spinner.classList = "spinner-border spinner-border-sm text-light"
 
@@ -150,12 +150,11 @@ function checkDiscount() {
     let discountData = new FormData(discountForm);
 
     
-/*     let nostock = document.getElementById('nostock');
-    nostock.classList = "d-none"
-    let added = document.getElementById('added');
-    nostock.classList = "d-none"
-    let spinner = document.getElementById('spinner');
-    spinner.classList = "spinner-border spinner-border-sm text-light" */
+    let dValid = document.getElementById('dValid');
+    dValid.classList = "d-none"
+    let dInvalid = document.getElementById('dInvalid');
+    dInvalid.classList = "d-none"
+    let shopcarForm = document.getElementById('shopcarForm')
     
     fetch('/shop/discount', {
         method: 'POST',
@@ -164,13 +163,19 @@ function checkDiscount() {
         return response.json()
     }).then((response) => {
         console.log(response);
-        
+
         if (response.discount == true) {
             console.log('Existe cupon')
+            discountForm.classList="d-none"
+            dValid.classList="alert alert-success noBk rounded-0"
+            //rellenar formulario
+            shopcarForm.discount_type.value = response.type
+            shopcarForm.discount_quantity.value = response.quantity
             
         } else if (response.discount == false) {
             console.log('No existe cupon')
-            
+            //mostrar fallo
+            dInvalid.classList="alert alert-warning noBk rounded-0"
         }
     });
 
