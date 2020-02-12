@@ -60,7 +60,7 @@ class MercadoPago
         $preference->save();
 
         if (config('payment-methods.use_sandbox')) {
-            return $preference->sandbox_init_point;
+            return redirect($preference->sandbox_init_point);
         }
 
         return $preference->init_point;

@@ -243,7 +243,7 @@ class ShopcarController extends Controller
         $preference->external_reference = $payment->id;
         $preference->save();
         if (config('payment-methods.use_sandbox')) {
-            return $preference->sandbox_init_point;
+            return redirect($preference->sandbox_init_point);
         }
 
         $preference->init_point;
