@@ -236,7 +236,6 @@ class ShopcarController extends Controller
             "street_number" => 1004,
             "zip_code" => "11020"
         );
-
         //PREFERENCIAS A ENVIAR
         $preference = new Preference();
         $preference->items = [$item];
@@ -246,7 +245,7 @@ class ShopcarController extends Controller
             return redirect($preference->sandbox_init_point);
         }
 
-        $preference->init_point;
+        /* $preference->init_point; */
         return view('shopCheckout', compact('preference','shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
     }
 
