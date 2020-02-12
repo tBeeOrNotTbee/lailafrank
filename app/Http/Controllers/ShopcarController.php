@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+/* require __DIR__ .  '/vendor/autoload.php'; */
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Shoe;
@@ -11,6 +13,7 @@ use App\Address;
 use App\Custom\Oca;
 use App\Custom\Helper;
 use App\OrdersOutOfStock;
+use App\Payment_Order;
 use MercadoPago\Item;
 use MercadoPago\MerchantOrder;
 use MercadoPago\Payer;
@@ -183,19 +186,72 @@ class ShopcarController extends Controller
 
         $total = round($total, 2);
 
-        return view('shopCheckout', compact('shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
+        //COMENZAR CON CREACION DE PAYMENT_ORDER Y PASAJE DE DATA A MP
+        SDK::setClientId(
+            config("payment-methods.mercadopago.client")
+        );
+        SDK::setClientSecret(
+            config("payment-methods.mercadopago.secret")
+        );
+
+        $item = new Item();
+        if($req->address_id == "showroom"){
+            $address_id = 1;
+        }else {
+            $address_id = $req->address_id;
+        }
+        $payment = new Payment_Order([
+            "user_id" => $user->id,
+            "shopcar_id" => $shopcar->id,
+            "address_id" => $address_id,
+
+        ]);
+        
+        $payment->save();
+
+        //ITEM A VENDER
+
+        $item->id = $payment->id;
+        $item->title = "Laila Frank Shoes" ;
+        $item->quantity = 1;
+        $item->currency_id = "ARS";
+        $item->unit_price = $total;
+
+        //PAYER DATA
+        $payer = new Payer();
+        $payer->name = $user->name;
+        $payer->surname = $user->surname;
+        $payer->email = $user->email;
+        /* $payer->date_created = date(); */
+        /* $payer->phone = array(
+            "area_code" => "",
+            "number" => "949 128 866"
+        ); */
+        /* $payer->identification = array(
+            "type" => "DNI",
+            "number" => "12345678"
+        ); */
+        $payer->address = array(
+            "street_name" => "Cuesta Miguel Armendáriz",
+            "street_number" => 1004,
+            "zip_code" => "11020"
+        );
+
+        //PREFERENCIAS A ENVIAR
+        $preference = new Preference();
+        $preference->items = [$item];
+        $preference->external_reference = $payment->id;
+        $preference->save();
+        if (config('payment-methods.use_sandbox')) {
+            return $preference->sandbox_init_point;
+        }
+
+        $preference->init_point;
+        return view('shopCheckout', compact('preference','shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
     }
 
-    /* public function mercadopago(Request $request)
-    {
-        $item = new MercadoPago\Item();
-        $item-> = $req-> ;
-        $item-> = $req-> ;
-        $item-> = $req-> ;
-        $item-> = $req-> ;
-    }
-
-    public function createOrder(PreOrder $preOrder, Request $request)
+    
+  /*   public function createOrder(PreOrder $preOrder, Request $request)
     {
         $allowedPaymentMethods = config('payment-methods.enabled');
 
