@@ -13,17 +13,18 @@ class CreatePaymentOrdersTable extends Migration
      */
     public function up()
     {
-        Schema::create('payment__orders', function (Blueprint $table) {
+        Schema::create('payment_orders', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->timestamps();
             $table->softDeletes();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('shopcar_id');
-            $table->unsignedBigInteger('shipping_method_id');
+            $table->unsignedBigInteger('address_id');
+            $table->string('state');
             
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('shopcar_id')->references('id')->on('shopcars');
-            $table->foreign('shipping_method_id')->references('id')->on('shipping_methods');
+            $table->foreign('address_id')->references('id')->on('addressess');
         });
     }
 
@@ -34,6 +35,6 @@ class CreatePaymentOrdersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payment__orders');
+        Schema::dropIfExists('payment_orders');
     }
 }
