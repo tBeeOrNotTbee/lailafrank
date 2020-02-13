@@ -22,10 +22,13 @@
                 <div class="card-body text-center">
                     <a href="/catalog/shoe/{{$favorite->id}}" class="card-title roboto-light black thumbnail-title">{{$favorite->name}}</a>
                     <p class="card-text roboto black thumbnail-price">{{$favorite->price}}</p>
-                    <div class="row d-flex justify-content-around">
-                        <div class="show-color">
-                            <div class="w100" style="background-color: blue"></div>
+                    <div class="row d-flex justify-content-center">
+                        @forelse ($favorite->color as $color)
+                        <div class="show-color ml-3">
+                            <div class="w100" style="background:{{$color->color}}"></div>
                         </div>
+                        @empty  
+                        @endforelse
                     </div>
                 <a href="/favorites/change2/{{$favorite->id}}" class="btn btn-link text-uppercase cero7em mt-2 red">x Eliminar</a>
                 </div>

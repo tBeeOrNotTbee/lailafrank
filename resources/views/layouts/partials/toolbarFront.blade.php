@@ -7,10 +7,10 @@
                 aria-label="Login">
                 <i class="fas fa-user camel"></i>
             </a>
-            <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="#" aria-label="Shopcart">
+            <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="shop/shopcar" aria-label="Shopcart">
                 <i class="fas fa-shopping-bag camel"></i>
             </a>
-            <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="shopMisFavoritos.php"
+            <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="/shop/myaccount/favorites"
                 aria-label="My favorites">
                 <i class="fas fa-heart rosa"></i>
             </a>
@@ -22,7 +22,7 @@
         <div class="demo-panel-header">
 
             <div class="d-none d-md-block col-12 mt-4 text-center">
-                <img src="../img/logo_shop.png" class="mx-auto" alt="">
+                <img src="{{asset('img/logo_shop.png')}}" class="mx-auto" alt="">
             </div>
 
             @guest

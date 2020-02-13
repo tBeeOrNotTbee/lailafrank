@@ -1,5 +1,5 @@
 <!-- SHOP MENU RESPONSIVE -->
-<div class="col-12 mt-4 mb-3 d-block d-md-none">
+<div class="col-12 mt-4 mb-5 d-block d-md-none">
     <div id="accordion">
         <div class="card border-0">
             <div class="card-header noPad border-0 noBk w100 text-center" id="headingThree">
@@ -34,7 +34,7 @@
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
-                        </fo    
+                        </form>  
                     </ul>
 
                 </div>

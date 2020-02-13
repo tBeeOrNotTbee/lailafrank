@@ -2,6 +2,8 @@
 @section('title', 'Catalog Item')
 @section('content')
 
+@include('layouts.partials.advert')
+
 <div class="row mt-7 pb-3 mb-3">
 
     <div class="col-10 col-md-7 mx-auto mx-md-0 mb-5 d-none d-md-flex">
@@ -55,9 +57,13 @@
             <div class="col-12">
                 <h5 class="monserrat grey2 my-3 catalog-item-title2 text-center text-md-left">COLORES DISPONIBLES</h5>
                 <div class="row d-flex justify-content-center justify-content-md-start">
+                    @forelse ($shoe->color as $color)
                     <div class="show-color ml-3">
-                        <div class="w100" style="background-color: grey"></div>
+                        <div class="w100" style="background:{{$color->color}}"></div>
                     </div>
+                    @empty
+                        
+                    @endforelse
                 </div>
 
             </div>
@@ -96,7 +102,8 @@
                     </p>
 
                     <div class="d-none" id="added" role="alert">
-                        Agregado al <a href="/shop/shopcar">carrito</a>!
+                        Agregado al carrito! <br>
+                        Click <a href="/shop/shopcar">aquí</a> para continuar el proceso de compra.
                     </div>
 
                 <div class="d-none row my-4 d-md-flex flex-column flex-md-row justify-content-center justify-content-md-between px-3">

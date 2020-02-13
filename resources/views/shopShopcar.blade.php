@@ -25,12 +25,15 @@
                     <a href="/catalog/shoe/{{$product->shoe->id}}" class="card-title roboto-light black thumbnail-title">{{$product->shoe->name}}</a>
                     <p class="card-text roboto black thumbnail-price">{{$product->shoe->price}}</p>
                     <p class="card-text roboto black thumbnail-price">Talle: {{$product->size}}</p>
-                    <div class="row d-flex justify-content-around">
-                        <div class="show-color">
-                            <div class="w100" style="background-color: blue"></div>
+                    <div class="row d-flex justify-content-center">
+                        @forelse ($product->shoe->color as $color)
+                        <div class="show-color ml-3">
+                            <div class="w100" style="background:{{$color->color}}"></div>
                         </div>
+                        @empty  
+                        @endforelse
                     </div>
-                    <a href="/shopcar/remove/{{$shopcar->id}}/{{$product->id}}" class="btn btn-link text-uppercase cero7em mt-2 red">x Quitar</a>
+                    <a href="/shopcar/remove/{{$shopcar->id}}/{{$product->id}}" class="btn btn-link text-uppercase cero7em mt-2 red" onclick="return confirm('Desea remover el producto?')">x Quitar</a>
                 </div>
             </div>
             @empty

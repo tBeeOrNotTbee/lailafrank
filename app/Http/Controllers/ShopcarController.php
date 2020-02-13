@@ -241,6 +241,10 @@ class ShopcarController extends Controller
         $preference->items = [$item];
         $preference->external_reference = $payment->id;
         $preference->save();
+
+        //DESCONTAR DEL STOCK EL PRODUCTO
+        //STOCK->QUANTITY
+
         if (config('payment-methods.use_sandbox')) {
             return redirect($preference->sandbox_init_point);
         }

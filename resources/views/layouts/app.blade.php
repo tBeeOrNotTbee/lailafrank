@@ -25,7 +25,6 @@
         <main class="page-content ml--100 ml_lg--0 ml_md--0 ml_sm--0">
             <!-- Contenido Principal -->
             <div class="container-fluid">
-                @include('layouts.partials.advert')
 
 
                 <!-- CONTENIDO PRINCIPAL -->

@@ -23,6 +23,7 @@ Route::get('/history', function(){return view('history');});
 Route::get('/contact', function(){return view('contacto');});
 Route::get('/catalog', 'HomeController@catalog');
 Route::get('/catalog/shoe/{shoeId}', 'HomeController@productDetail');
+///feedback
 
 
 ////// RUTAS ESTATICAS FOOTER /////

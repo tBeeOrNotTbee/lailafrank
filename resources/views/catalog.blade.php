@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Catalog')
 @section('content')
+@include('layouts.partials.advert')
 
 <div class="row catalog-row">
     <div class="col-12 col-md-6">
@@ -55,10 +56,13 @@
                     <div class="card-body text-center">
                         <a class="card-title roboto-light black thumbnail-title" href="/catalog/shoe/{{$shoes[0]->id}}">{{$shoes[0]->name}}</a>
                         <p class="card-text roboto black thumbnail-price">$10.000</p>
-                        <div class="row d-flex justify-content-around">
-                            <div class="show-color">
-                                <div class="w100" style="background-color: blue"></div>
+                        <div class="row d-flex justify-content-center">
+                            @forelse ($shoes[0]->color as $color)
+                            <div class="show-color ml-3">
+                                <div class="w100" style="background:{{$color->color}}"></div>
                             </div>
+                            @empty  
+                            @endforelse
                         </div>
                     </div>
                 </div>

@@ -1,6 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Home')
 @section('content')
+@include('layouts.partials.advert')
 <div class="row">
     <div class="col-12 noPad">
         <div class="carousel slide" id="carousel" data-ride="carousel" interval="0">
@@ -23,8 +24,8 @@
 
 <div class="row mt-7">
     <div class=" col-12 text-center">
-        <h2 class="hastag smooth-stone">#shoesforunconventionalwomen</h2>
-        <p class="monserrat mt-2 grey slogan">Creemos que las mujeres merecen tener el calzado que <br>
+        <h2 class="hastag smooth-stone">#unconventionalwomen</h2>
+        <p class="monserrat mt-4 grey slogan">Creemos que las mujeres merecen tener el calzado que <br>
             desean cuando lo desean, no importa que talla sean.</p>
     </div>
 </div>
@@ -94,7 +95,7 @@
         <h3 class="smooth-stone grey w100 text-center text-md-left mt-md-3">Historia</h3>
         <h2 class="monserrat-bold">Estamos motivadas<br>
             por el <span>deseo y un ideal</span>.</h2>
-        <p class="monserrat grey">Todos los integrantes de este equipo compartimos el
+        <p class="monserrat grey w-100 w-md-50">Todos los integrantes de este equipo compartimos el
             deseo de
             hacerles realidad el sueño a esas mujeres que no pueden adquirir en forma
             espontánea el calzado que desean. <br><br>

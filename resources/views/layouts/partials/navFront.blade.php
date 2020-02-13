@@ -5,7 +5,7 @@
             <div class="header-top order-2 order-md-1">
                 <div class="branding">
                     <a href="/" class="logo-res">
-                        <img src="../img/logo.png" class="img-fluid" alt="logo">
+                        <img src="{{asset('img/logo.png')}}" class="img-fluid" alt="logo">
                     </a>
                 </div>
                 <!-- Start MEnu -->
@@ -20,9 +20,8 @@
                 <div class="header-social-neworks">
                     <div class="inner">
                         <!-- REDES SOCIALES -->
-                        <a href="#"><i class="fab fa-instagram grey"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f grey"></i></a>
-                        <a href="#"><i class="fab fa-twitter grey"></i></a>
+                        <a href="https://www.instagram.com/lailafrankshoes/"><i class="fab fa-instagram grey"></i></a>
+                        <a href="https://www.facebook.com/lailafrankshoes/"><i class="fab fa-facebook-f grey"></i></a>
                     </div>
                 </div>
             </div>
@@ -46,12 +45,12 @@
                         href="login.php" aria-label="Login">
                         <i class="fas fa-user camel"></i>
                     </a>
-                    <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="#"
+                    <a class="hint--bounce hint--left hint--black primary-color-hover-important mx-2" href="/shop/shopcar"
                         aria-label="Shopcar">
                         <i class="fas fa-shopping-bag camel"></i>
                     </a>
                     <a class="hint--bounce hint--left hint--black primary-color-hover-important"
-                        href="shopMisFavoritos.php" aria-label="My favourites">
+                        href="/shop/myaccount/favorites" aria-label="My favourites">
                         <i class="fas fa-heart rosa"></i>
                     </a>
                 </div>
@@ -86,9 +85,8 @@
 
                 <a class="roboto-condensed white newsletter-title" href="#">
                     <h4 class="py-3 mb-2 mt-2">
-                        <a href="#"><i class="fab fa-instagram white"></i></a>
-                        <a href="#"><i class="fab fa-facebook-f white mx-3"></i></a>
-                        <a href="#"><i class="fab fa-twitter white"></i></a>
+                        <a href="https://www.instagram.com/lailafrankshoes/"><i class="fab fa-instagram white"></i></a>
+                        <a href="https://www.facebook.com/lailafrankshoes/"><i class="fab fa-facebook-f white mx-3"></i></a>
                     </h4>
                 </a>
             </div>
@@ -105,29 +103,28 @@
         <div class="mobileheader">
             <div class="logo">
                 <a href="#" class="logo-res">
-                    <img src="../img/logo.png" style="width: auto!important;" alt="Logo">
+                    <img src="{{asset('img/logo.png')}}" style="width: auto!important;" alt="Logo">
                 </a>
             </div>
             <a class="mobile-close" href="#"></a>
         </div>
         <div class="menu-content text-center">
-            <a class="roboto-condensed white newsletter-title" href="historia.php">
+            <a class="roboto-condensed white newsletter-title" href="/history">
                 <h5 class="py-3 mb-2 mt-5">HISTORIA</h5>
             </a>
 
-            <a class="roboto-condensed white newsletter-title py-3 my-3" href="catalog.php">
+            <a class="roboto-condensed white newsletter-title py-3 my-3" href="/catalog">
                 <h5 class="py-3 my-2">CATALOGO</h5>
             </a>
 
-            <a class="roboto-condensed white newsletter-title py-3 my-3" href="contacto.php">
+            <a class="roboto-condensed white newsletter-title py-3 my-3" href="/contact">
                 <h5 class="py-3 my-2">CONTACTO</h5>
             </a>
 
             <a class="roboto-condensed white newsletter-title" href="#">
                 <h6 class="py-3 mb-2 mt-2">
-                    <a href="#"><i class="fab fa-instagram white"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f white mx-3"></i></a>
-                    <a href="#"><i class="fab fa-twitter white"></i></a>
+                    <a href="https://www.instagram.com/lailafrankshoes/"><i class="fab fa-instagram white"></i></a>
+                    <a href="https://www.facebook.com/lailafrankshoes/"><i class="fab fa-facebook-f white mx-3"></i></a>
                 </h6>
             </a>
         </div>
