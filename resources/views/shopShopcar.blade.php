@@ -58,7 +58,7 @@
             <a href="/shop/myaccount/addresses/new" class="btn unoem btn-link">Nueva dirección</a>
         
             <div class="form-check monserrat unoem">
-            <input class="form-check-input" type="radio" name="address_id" id="exampleRadios2" value="showroom">
+                <input class="form-check-input" type="radio" name="address_id" id="exampleRadios2" value="1" required>
                 <label class="form-check-label" for="exampleRadios2">
                     Retiro en sucursal (Sin costo)
                 </label>
@@ -66,7 +66,7 @@
 
             @foreach ($addresses as $address)
             <div class="form-check monserrat unoem">
-                <input class="form-check-input" type="radio" name="address_id" id="exampleRadios1" value="{{$address->id}}">
+                <input class="form-check-input" type="radio" name="address_id" id="exampleRadios1" value="{{$address->id}}" required>
                 <label class="form-check-label" for="exampleRadios1">
                 <p>{{$address->country}} - {{$address->state}} - {{$address->city}} - {{$address->street}} - {{$address->number}}</p>
                 </label>
@@ -78,6 +78,7 @@
             </div>
             <input type="hidden" name="discount_type" value="$">
             <input type="hidden" name="discount_quantity" value="0">
+            <input type="hidden" name="discount_id" value="0">
         </form>
 
         

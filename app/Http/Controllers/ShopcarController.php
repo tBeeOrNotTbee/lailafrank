@@ -181,8 +181,8 @@ class ShopcarController extends Controller
         //FALTA COSTO DE ENVIO
 
         $costoEnvio = Address::sendingCost($req->address_id);
-
-        $addresses = Address::find($req->address_id);
+        
+        $address = Address::find($req->address_id);
 
         $total = round($total, 2);
 
@@ -195,16 +195,15 @@ class ShopcarController extends Controller
         );
 
         $item = new Item();
-        if($req->address_id == "showroom"){
+        /* if($req->address_id == "showroom"){
             $address_id = 1;
         }else {
             $address_id = $req->address_id;
-        }
+        } */
         $payment = new Payment_Order([
             "user_id" => $user->id,
             "shopcar_id" => $shopcar->id,
-            "address_id" => $address_id,
-
+            "address_id" => $req->address_id,
         ]);
         
         $payment->save();
@@ -231,23 +230,31 @@ class ShopcarController extends Controller
             "type" => "DNI",
             "number" => "12345678"
         ); */
+
         $payer->address = array(
-            "street_name" => $addresses->street,
-            "street_number" => $addresses->number,
-            "zip_code" => $addresses->post_code
+            "street_name" => $address->street,
+            "street_number" => $address->number,
+            "zip_code" => $address->post_code
         );
+        
         //PREFERENCIAS A ENVIAR
         $preference = new Preference();
         $preference->items = [$item];
         $preference->payer = $payer;
         $preference->external_reference = $payment->id;
 
-        /* Decidir si usar las rutas de redirect 
-        $preference->back_urls = [
+        //Decidir si usar las rutas de redirect 
+        /* $preference->back_urls = [
             "success" => route('checkout.thanks'),
             "pending" => route('checkout.pending'),
             "failure" => route('checkout.error'),
         ]; */
+
+        $preference->back_urls = [
+            "success" => '/HOME',
+            "pending" => '/HOME',
+            "failure" => '/HOME',
+        ];
 
         $preference->auto_return = "approved"; //DEVUELVE AL sitio en todos los casos, puede ser on APPROVED
 /*         $preference->notification_url = route('/mp/notificacion'); //Por ahora no se usa */
@@ -262,7 +269,7 @@ class ShopcarController extends Controller
         }
 
         /* $preference->init_point; */
-        return view('shopCheckout', compact('preference','shopcar', 'stocks', 'addresses', 'total', 'discount', 'costoEnvio'));
+        return view('shopCheckout', compact('preference','shopcar', 'stocks', 'address', 'total', 'discount', 'costoEnvio', 'payment'));
     }
 
     

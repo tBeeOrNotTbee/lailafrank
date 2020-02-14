@@ -150,6 +150,7 @@ function checkDiscount() {
             //rellenar formulario
             shopcarForm.discount_type.value = response.type
             shopcarForm.discount_quantity.value = response.quantity
+            shopcarForm.discount_id.value = response.discount_id
             
         } else if (response.discount == false) {
             console.log('No existe cupon')

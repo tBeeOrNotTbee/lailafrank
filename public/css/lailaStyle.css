@@ -396,6 +396,22 @@ video{
   -moz-transition: all 0.2s linear;
 }
 
+.mp-form button{
+  box-sizing: content-box!important;
+  display: inline-block!important;
+  text-decoration: none!important;
+  color: white!important;
+  text-transform: uppercase!important;
+  background-color: #86dccf!important;
+  border: 2px solid #d18783!important;
+  padding: 5px 20px!important;
+  font-size: 0.8em!important;
+  font-weight: bold!important;
+  transition: all 0.2s linear!important;
+  -moz-transition: all 0.2s linear!important;
+  border-radius: 0!important;
+}
+
 .button-story:hover {
   text-decoration: none;
   color: white;

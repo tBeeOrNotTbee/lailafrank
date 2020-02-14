@@ -1,9 +1,9 @@
 @extends('layouts.shopLayout')
 @section('title', 'Checkout')
 @section('contentShop')
-<form action="/shop/confirm" class="col-12 col-md-7 py-4">
+<div class="col-12 col-md-7 py-4">
     <h2 class="monserrat-bold shop-title cero8em text-center text-md-left">Mis compras</h2>
-    <p class="monserrat grey2 cero8em text-center text-md-left">Datos de la compra/ Nro. 5800284197</p>
+    <p class="monserrat grey2 cero8em text-center text-md-left">Datos de la compra/ Nro. {{$payment->id}}</p>
 
     <div class="shop-bk px-3 py-1">
         <table class="table greyBk cero7em shop-bk moserrat">
@@ -56,9 +56,7 @@
 
     <div class="container-fluid mt-3">
         <div class="row justify-content-md-between">
-
-
-            @forelse (Auth::user()->address as $address)
+            
             <div class="col-12 col-md-6 mb-4">
                 <div class="card shop-bk border-0 h100x">
                     <div class="card-body d-flex flex-column justify-content-around">
@@ -70,28 +68,19 @@
                         </p>
                         <p class="card-text monserrat shop-card-text grey2 cero7em my-0">T:
                             {{$address->telephone}}//{{$address->cellphone}}</p>
-                        <div class="w-100 d-flex justify-content-end">
-                            <a href="shopEditarDireccion.php"
-                                class="shop-card-text monserrat text-uppercase grey2 cero7em">
-                                <i class="fas fa-pencil-alt"></i> Editar</a>
-                        </div>
                     </div>
                 </div>
             </div>
-            @empty
-            <p>No posee direciones para mostrar.</p>
-            @endforelse
 
         </div>
     </div>
     <div class="w-100 d-flex justify-content-center justify-content-md-end">
-        <button class="button-story m-0 cero7em" type="submit">Confirmar</button>
+        <form action="/procesar-pago" class="mp-form" method="POST">
+            <script
+                     src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                     data-preference-id="<?php echo $preference->id; ?>">
+            </script>
+        </form>
     </div>
-</form>
-<form action="/procesar-pago" method="POST">
-  <script
-   src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-   data-preference-id="<?php echo $preference->id; ?>">
-  </script>
-</form>
+</div>
 @endsection

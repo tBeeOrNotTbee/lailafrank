@@ -37,14 +37,14 @@ class DatabaseSeeder extends Seeder
         DB::table('addresses')->insert([
             'user_id'=> 1,
             'name'=> 'Showroom',
-            'surname'=>'surname',
-            'street'=>'street',
-            'number'=>'number',
+            'surname'=>'Laila Frank',
+            'street'=>'3 de Febreo',
+            'number'=>'1390',
             'floor'=>'floor',
-            'apartment'=>'apartment',
+            'apartment'=>'Planta baja E',
             'city'=>'Capital Federal',
             'state'=>'Buenos Aires',
-            'post_code' =>'post_code',
+            'post_code' =>'C1428AHD',
             'country'=>'Argentina'
         ]);
     }

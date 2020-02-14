@@ -78,7 +78,7 @@ class DiscountController extends Controller
             if ($register->isEmpty()){
                 return json_encode(["discount" => false]);
             }else{
-                $res = ["discount" => true, "type"=>$discount[0]->type, "quantity"=>$discount[0]->amount];
+                $res = ["discount" => true, "type"=>$discount[0]->type, "quantity"=>$discount[0]->amount, "discount_id"=>$discount[0]->id];
                 return json_encode($res);
             }
         }
