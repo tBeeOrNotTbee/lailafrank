@@ -24,7 +24,7 @@ class MercadoPago
     }
 
 
-    public function setupPaymentAndGetRedirectURL(Order $order)
+    public function setupPaymentAndGetRedirectURL( $order)
     {
         # Create a preference object
         $preference = new Preference();

@@ -232,14 +232,26 @@ class ShopcarController extends Controller
             "number" => "12345678"
         ); */
         $payer->address = array(
-            "street_name" => "Cuesta Miguel Armendáriz",
-            "street_number" => 1004,
-            "zip_code" => "11020"
+            "street_name" => $addresses->street,
+            "street_number" => $addresses->number,
+            "zip_code" => $addresses->post_code
         );
         //PREFERENCIAS A ENVIAR
         $preference = new Preference();
         $preference->items = [$item];
+        $preference->payer = $payer;
         $preference->external_reference = $payment->id;
+
+        /* Decidir si usar las rutas de redirect 
+        $preference->back_urls = [
+            "success" => route('checkout.thanks'),
+            "pending" => route('checkout.pending'),
+            "failure" => route('checkout.error'),
+        ]; */
+
+        $preference->auto_return = "approved"; //DEVUELVE AL sitio en todos los casos, puede ser on APPROVED
+/*         $preference->notification_url = route('/mp/notificacion'); //Por ahora no se usa */
+
         $preference->save();
 
         //DESCONTAR DEL STOCK EL PRODUCTO
