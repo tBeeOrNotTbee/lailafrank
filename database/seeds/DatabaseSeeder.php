@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
         factory(Shoe::class)->times(6)->create();
 
         DB::table('addresses')->insert([
-            'user_id'=>'user_id',
+            'user_id'=> 1,
             'name'=> 'Showroom',
             'surname'=>'surname',
             'street'=>'street',

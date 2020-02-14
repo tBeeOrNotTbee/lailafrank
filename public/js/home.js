@@ -1,19 +1,21 @@
-/* function closeAdvert(){
+function closeAdvert(){
     document.getElementById('advert').style.display = "none";
-} */
+}
 
 document.getElementById("equis").onclick = function() { 
     document.getElementById("advert").style.display = "none"; 
 } 
 const carousel = document.getElementById("carousel");
 const video = document.getElementById("video");
+video.load();
+video.play();
 video.onplay = (event) =>{
-    /* $('#carousel').carousel('pause'); */
+    $('.carousel').carousel('pause'); 
     console.log('anda')
-}
+
 video.onended = (e) => {
     console.log('paro')
-   /*  $('#carousel').carousel(); */
+    $('.carousel').carousel();
 }
 /* $(document).ready(function() {
     $("#video").autoplay = true;
@@ -41,43 +43,6 @@ newsletterForm.onsubmit = async (e) => {
     location.reload();
     alert("Subscripción exitosa");
 };
-/* const unsubscribeForm = document.getElementById("unsubscribe");
-unsubscribeForm.onsubmit = alert("Ya no estás en nuestra lista"); */
-
-
-
-
-/* Envío de FORM con Jquery y AJAX
-//AJAX post con JQuery. Mandar la data del Newsletter via POST a una ruta del backend sin actualizar.
-
-// Attach a submit handler to the form
-function suscribirNewsletter() {
-
-    $("#newsletterForm").submit(function (event) {
-        
-        // Stop form from submitting normally
-        event.preventDefault();
-        
-        // Get some values from elements on the page:
-        var $form = $(this),
-        term = $form.find("input[name='email']").val(),
-        url = $form.attr("action");
-        
-        // Send the data using post
-        var posting = $.post(url, { s: term });
-        
-        // Put the results in a div
-        posting.done( () => {
-            alert("Te suscribiste con éxito");
-
-        });
-        posting.fail( () =>{
-            console.error();
-            alert("Hubo un error");
-        });
-    });
-} */
-
 
 /* FAVORITOS */
 function favoriteAction(shoeId) {

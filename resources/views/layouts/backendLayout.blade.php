@@ -110,6 +110,12 @@
                                 Carrito de compras 
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link {{ Request::is('backend/contact/') ? 'active' : '' }}" href="/backend/contact">
+                                Mensajes de clientes 
+                            </a>
+                        </li>
+                        
                 </div>
             </aside>
             <!--=============================================-->

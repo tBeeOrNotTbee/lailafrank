@@ -37,44 +37,36 @@
 
 <div class="row mx-auto mb-4 p-3">
 
-    <form class="form-row mx-auto col-lg-10" method="post">
+    <form class="form-row mx-auto col-lg-10" action="" method="post">
+        @csrf
         <div class="form-row col-lg-12">
             <div class="form-group col-12 col-md-6">
-                <input type="text" class="form-control" id="inputNombre" placeholder="NOMBRE">
+                <input required type="text" class="form-control" name="name" id="inputNombre" placeholder="NOMBRE">
             </div>
             <div class="form-group col-12 col-md-6">
-                <input type="text" class="form-control" id="inputPassword4" placeholder="APELLIDO">
+                <input required type="text" class="form-control" name="surname" id="inputSurname" placeholder="APELLIDO">
             </div>
         </div>
         <div class="form-row col-lg-12">
             <div class="form-group col-12 col-md-6">
-                <input type="email" class="form-control" id="inputEmail" placeholder="EMAIL">
+                <input required type="email" class="form-control" name="email" id="inputEmail" placeholder="EMAIL">
             </div>
             <div class="form-group col-12 col-md-6">
-                <input type="tel" class="form-control" id="inputTelefono" placeholder="TELEFONO">
+                <input required type="tel" class="form-control" name="phone" id="inputTelefono" placeholder="TELEFONO">
             </div>
         </div>
 
         <div class="form-row col-md-12">
             <div class="form-group col-12 col-md-6">
-                <label for="tema">Elegí tu tema</label>
-                <select id="compraOnline" class="form-control custom-select">
-                    <option>Compra online</option>
-                    <option>...</option>
-                </select>
+                <label for="tema">Asunto</label>
+                <input required name="about" class="form-control" type="text">
             </div>
-            <div class="form-group col-12 col-md-6">
-                <label for="estadoPedido">Tipo de consulta</label>
-                <select id="estadoPedido" class="form-control custom-select">
-                    <option>Estado de mi pedido</option>
-                    <option>...</option>
-                </select>
-            </div>
+            
         </div>
 
         <div class="form-row col-lg-12 p-2">
             <label for="exampleFormControlTextarea1">Mensaje</label>
-            <textarea class="form-control" id="areaMensaje" rows="10"></textarea>
+            <textarea required name="description" class="form-control" id="areaMensaje" rows="10"></textarea>
         </div>
         <div class="form-row col-3 mx-auto mt-5">
             <button type="submit" class="button-story w100">ENVIAR</button>

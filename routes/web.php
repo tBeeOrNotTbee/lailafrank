@@ -21,6 +21,7 @@ Route::get('/',function(){return view('home');});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/history', function(){return view('history');});
 Route::get('/contact', function(){return view('contacto');});
+Route::post('/contact', 'BackendController@create_contact');
 Route::get('/catalog', 'HomeController@catalog');
 Route::get('/catalog/shoe/{shoeId}', 'HomeController@productDetail');
 ///feedback
@@ -102,3 +103,5 @@ Route::get('/backend/discount/onoff/{discountId}/{active}', 'DiscountController@
 Route::post('/backend/newsletter', 'NewsletterController@add');
 Route::get('backend/newsletter', 'NewsletterController@index');
 Route::delete('backend/newsletter', 'NewsletterController@destroy');
+
+Route::get('backend/contact', 'BackendController@show_contacts');

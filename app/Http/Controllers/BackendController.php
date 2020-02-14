@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 use App\Shoe;
 use App\Shoe_img;
 use App\Color;
-use App\Http\Controllers\Stock;
+use App\Contact;
+use App\Stock;
 use App\Discount;
 
 use Illuminate\Http\Request;
@@ -89,4 +90,22 @@ public function discounts (){
     $discounts = Discount::all();
     return view('backend.backendDescuentos', compact('discounts'));
 }
+public function create_contact(Request $request){
+    $datos = [
+        "name" => $request["name"],
+        "surname" => $request["surname"],
+        "email" => $request["email"],
+        "phone" => $request["phone"],
+        "about" => $request["about"],
+        "description" => $request["description"]
+    ];
+    $contact = new Contact($datos);
+    $contact->save();
+    return view('contacto');
+}
+public function show_contacts(){
+    $contacts = Contact::all();
+    return view('backend.backendContacto', compact('contacts'));
+}
+
 }
