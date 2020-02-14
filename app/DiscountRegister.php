@@ -19,4 +19,4 @@ class DiscountRegister extends Model
         return $this->belongsTo('App\Discount','user_id');
     }
 }
-}
+

@@ -11,7 +11,7 @@
     <div class="col-12 col-md-2 text-center mt-5">
         <i class="fas fa-map-marker-alt"></i>
         <h2>Showroom</h2>
-        <p>3 de Febrero 1930<br>plata baja E</p>
+        <p>3 de Febrero 1930<br>planta baja E</p>
     </div>
     <div class="col-12 col-md-2 text-center mt-3">
         <i class="fas fa-phone-alt"></i>

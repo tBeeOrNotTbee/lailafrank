@@ -16,7 +16,7 @@
     <h2 id="sloganHistoria" class="monserrat-bold text-center"><span>Amor por lo que hacemos.</span></h2>
 </div>
 <section class="row d-flex justify-content-center">
-    <div class="col-12 col-md-10">
+    <div class="col-10 col-md-8">
         <p id="history-P" class="monserrat history-fontcolor">LK nace en el año 2012 y se diferencia en el mercado por ser una marca con
             sello de autor. Esto quiere decir que trabajamos en cada diseño como piezas
             únicas, la confección es artesanal y con profundo respeto y cuidado del medio
