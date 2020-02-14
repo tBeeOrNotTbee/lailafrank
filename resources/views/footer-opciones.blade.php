@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Payments')
 @section('content')
-<div class="row mb-md-5">
+<div class="row mb-md-5 justify-content-center justify-content-md-start">
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>OPCIONES DE PAGO</h1>
     </div>
     @include('layouts.partials.navfooter')
-    <div class="col-12 col-md-7 py-4 cero7em">
+    <div class="col-10 col-md-7 py-4 cero7em">
         <p class="monserrat grey"> <b class="black">Tarjetas de crédito:</b> <br><br>
 
             Visa: 1 cuota sin interés <br>
@@ -29,20 +29,6 @@
             Tarjetas de crédito que no estén emitidas en la República Argentina solo podrán realizar el pago en 1 cuota sin interés <br>
             PayPal <br>
         </p>
-    </div>
-    <div class="col-12 d-md-none">
-        <div class="row justify-content-center" style="clear:both">
-            <div class="col-12 newsletter">
-                <img src="../img/logoLK.png" alt="Logo Laila Frank">
-                <h2 class="newsletter-title roboto-condensed grey text-center">Suscribite <br class="d-block d-md-none"> al newsletter</h2>
-                <div class="newsletter-input">
-                    <input type="text" class="input-line monserrat form-control" placeholder="Ingresá tu email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="button-line roboto-light camel" type="button">Ok</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 @endsection

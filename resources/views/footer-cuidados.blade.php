@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Tips')
 @section('content')
-<div class="row mb-md-5">
+<div class="row mb-md-5 justify-content-center justify-content-md-start">
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>CUIDADO DEL CALZADO</h1>
     </div>
     @include('layouts.partials.navfooter')
-    <div class="col-12 col-md-7 py-4 cero7em">
+    <div class="col-10 col-md-7 py-4 cero7em">
         <h4 class="monserrat black ">TIP 1</h4>
         <p class="monserrat grey mb-4">Si tus zapatos son nuevos úsalos poco a poco para que cojan la forma del pie y no te hagan rozaduras. No es recomendable usar el mismo par de zapatos todos los días, es necesario que respire, se airee y recupere la forma.</p>
         <h4 class="monserrat black">TIP 2</h4>
@@ -36,7 +36,7 @@
     <div class="col-12 d-md-none">
         <div class="row justify-content-center" style="clear:both">
             <div class="col-12 newsletter">
-                <img src="../img/logoLK.png" alt="Logo Laila Frank">
+                <img src="{{asset('img/logoLK.png')}}" alt="Logo Laila Frank">
                 <h2 class="newsletter-title roboto-condensed grey text-center">Suscribite <br class="d-block d-md-none"> al newsletter</h2>
                 <div class="newsletter-input">
                     <input type="text" class="input-line monserrat form-control" placeholder="Ingresá tu email" aria-label="Recipient's username" aria-describedby="basic-addon2">

@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('title', 'Mail')
 @section('content')
-<div class="row mb-md-5">
+<div class="row mb-md-5 justify-content-center justify-content-md-start">
     <div class="col-12 text-center roboto-condensed grey newsletter-title py-3 my-3 justify-content-center">
         <h1>TIEMPOS Y COSTOS DE ENVÍO</h1>
     </div>
     @include('layouts.partials.navfooter')
-    <div class="col-12 col-md-7 py-4">
+    <div class="col-10 col-md-7 py-4">
         <p class="monserrat grey cero7em"><b class="black">Todas las opciones de envío dentro de Argentina son sin cargo. </b> <br><br>
             Los envíos al exterior superiores a IMPORTE PRETENDIDO U$D (dólares estadounidenses) son sin cargo.
             En caso de haber solicitado un pedido por una compra inferior a ese importe, deberás comunicarte al ….TEL O escribirnos al …..MAIL de lunes a viernes de HORARIO DE ATENCION para que se te cotice el envío y los cargos aduaneros</p> <br><br>
@@ -89,20 +89,6 @@
         </div>
         <p class="monserrat black cero7em">* Al momento de retiro por la Tienda, se solicitará la tarjeta con la que se abonó dicha compra y el DNI del titular de la misma</p>
         <p class="monserrat black cero7em">** Para compras superiores a $USD ...</p>
-    </div>
-    <div class="col-12 d-md-none">
-        <div class="row justify-content-center" style="clear:both">
-            <div class="col-12 newsletter">
-                <img src="../img/logoLK.png" alt="Logo Laila Frank">
-                <h2 class="newsletter-title roboto-condensed grey text-center">Suscribite <br class="d-block d-md-none"> al newsletter</h2>
-                <div class="newsletter-input">
-                    <input type="text" class="input-line monserrat form-control" placeholder="Ingresá tu email" aria-label="Recipient's username" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                        <button class="button-line roboto-light camel" type="button">Ok</button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 @endsection

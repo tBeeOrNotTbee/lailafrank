@@ -14,7 +14,9 @@ video.onplay = (event) =>{
 }
 video.onended = (e) => {
     console.log('paro')
-    $('.carousel').carousel();
+    $('.carousel').carousel({
+        interval: 5000
+      });
 }
 /* $(document).ready(function() {
     $("#video").autoplay = true;

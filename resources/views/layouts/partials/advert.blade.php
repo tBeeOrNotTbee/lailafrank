@@ -1,4 +1,4 @@
-<div class="row advert justify-content-between align-items-center" id="advert">
+<div class="row d-none advert justify-content-between align-items-center" id="advert">
     <div class="col-1 d-none d-sm-block">
     </div>
 
@@ -16,6 +16,6 @@
     </div>
 
     <div class="col-1 noPad">
-        <a id="equis" class="col mr-3" onclick="closeAdvert()">X</a>
+        <a id="equis" class="col mr-3">X</a>
     </div>
 </div>

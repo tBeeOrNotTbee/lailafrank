@@ -4,10 +4,10 @@
 
 <div class="row">
     <div class="col-12 noPad">
-        <div class="carousel slide" id="carousel" data-ride="carousel" interval="0">
+        <div class="carousel slide" id="carousel" data-ride="carousel" data-interval="96000">
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <div class="d-block w-100 carusel-img">
+                    <div class="d-block w-100">
                         <video id="video" type="video/mp4" class="" src="{{asset('/img/carousel/lailaFrankIntro.mp4')}}" autoplay="autoplay" muted >Tu navegador no puede reproducir el video </video>
                     </div>
                 </div>
@@ -34,19 +34,19 @@
 <!-- CATALOGO DESKTOP -->
 
 <div class="d-none d-md-flex row-catalog mt-7">
-    <div class="catalog-img-large bk-cover" style="background-image: url(../img/catalog/sandals_desktop.png);">
-        <a href="/catalog" class="catalog-text roboto">
+    <div class="catalog-img-large bk-cover" style="background-image: url({{asset('/img/catalog/sandals_desktop.png')}});">
+        <a href="catalog.php" class="catalog-text roboto">
             <span class="inside">sandals</span>
         </a>
     </div>
     <div class="col d-flex flex-colum catalog-colum" style=" height: 605px; flex-direction: column; justify-content: space-between;">
-        <div class="catalog-img-box bk-cover" style="background-image: url(../img/catalog/stilettos_desktop.png);">
-            <a href="/catalog" class="catalog-text roboto">
+        <div class="catalog-img-box bk-cover" style="background-image: url({{asset('/img/catalog/stilettos_desktop.png')}});">
+            <a href="catalog.php" class="catalog-text roboto">
                 <span class="inside">stilettos</span>
             </a>
         </div>
-        <div class="catalog-img-box bk-cover" style="background-image: url(../img/catalog/flats_desktop.png);">
-            <a href="/catalog" class="catalog-text roboto">
+        <div class="catalog-img-box bk-cover" style="background-image: url({{asset('/img/catalog/flats_desktop.png')}});">
+            <a href="catalog.php" class="catalog-text roboto">
                 <span class="inside">flats</span>
             </a>
         </div>
@@ -54,13 +54,13 @@
 </div>
 
 <div class="d-none d-md-flex row-catalog">
-    <div class="catalog-img-box-40 bk-cover" style="background-image: url(../img/catalog/tango_desktop.png);">
-        <a href="/catalog" class="catalog-text roboto">
+    <div class="catalog-img-box-40 bk-cover" style="background-image: url({{asset('/img/catalog/tango_desktop.png')}});">
+        <a href="catalog.php" class="catalog-text roboto">
             <span class="inside">tango</span>
         </a>
     </div>
-    <div class="catalog-img-box-55 bk-cover" style="background-image: url(../img/catalog/boots_desktop.png);">
-        <a href="/catalog" class="catalog-text roboto">
+    <div class="catalog-img-box-55 bk-cover" style="background-image: url({{asset('/img/catalog/boots_desktop.png')}});">
+        <a href="catalog.php" class="catalog-text roboto">
             <span class="inside">boots</span>
         </a>
     </div>
@@ -70,19 +70,19 @@
 
 <div class="row mt-7 d-md-none">
     <div class="col-12 mt-3">
-        <a href="/catalog"><img class="img-fluid" src="../img/catalog/sandals_mobile.png" alt="sandals"></a>
+        <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/sandals_mobile.png')}}" alt="sandals"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="/catalog"><img class="img-fluid" src="../img/catalog/stilettos_mobile.png" alt="stilettos"></a>
+        <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/stilettos_mobile.png')}}" alt="stilettos"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="/catalog"><img class="img-fluid" src="../img/catalog/flats_mobile.png" alt="flats"></a>
+        <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/flats_mobile.png')}}" alt="flats"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="/catalog"><img class="img-fluid" src="../img/catalog/tango_mobile.png" alt="tango"></a>
+        <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/tango_mobile.png')}}" alt="tango"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="/catalog"><img class="img-fluid" src="../img/catalog/boots_mobile.png" alt="boots"></a>
+        <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/boots_mobile.png')}}" alt="boots"></a>
     </div>
 </div>
 <!-- CATALOGO -->
@@ -123,17 +123,13 @@
 
 <div class="row justify-content-center" style="clear:both">
     <div class="col-12 newsletter">
-        <img src="../img/logoLK.png" alt="Logo Laila Frank">
+        <img src="{{asset('img/logoLK.svg')}}" style="width: 2.5em" alt="Logo Laila Frank">
         <h2 class="newsletter-title roboto-condensed grey text-center">Suscribite <br class="d-block d-md-none"> al newsletter</h2>
-        <div class="newsletter-input">
-            <form id="newsletterForm" action="/backend/newsletter" method="post">
+            <form id="newsletterForm d-flex flex-row align-bottom col-12" action="/backend/newsletter" method="post">
                 @csrf
-                <input name="email" type="email" class="input-line monserrat form-control" placeholder="Ingresá tu email" aria-label="Recipient's email" aria-describedby="basic-addon2">
-                <div class="input-group-append">
-                    <button class="button-line roboto-light camel" type="submit">Ok</button>
-                </div>
+                <input name="email" type="email" class="input-line monserrat form-control m-0 cero8em py-0 noBK" style="width: 60%!important" placeholder="Ingresá tu email" required>
+                <button class="button-line roboto-light camel m-0 cero8em h-100 py-0 noBK" type="submit">Ok</button>
             </form>
-        </div>
     </div>
 </div>
 
