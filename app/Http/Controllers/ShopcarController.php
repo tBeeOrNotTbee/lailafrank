@@ -195,11 +195,7 @@ class ShopcarController extends Controller
         );
 
         $item = new Item();
-        /* if($req->address_id == "showroom"){
-            $address_id = 1;
-        }else {
-            $address_id = $req->address_id;
-        } */
+
         $payment = new Payment_Order([
             "user_id" => $user->id,
             "shopcar_id" => $shopcar->id,
