@@ -19,8 +19,10 @@ class CreateShopcarsTable extends Migration
             $table->softDeletes();
             $table->unsignedBigInteger('user_id');
             $table->integer('ordered')->default('0');
+            $table->unsignedBigInteger('address_id')->nullable();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('address_id')->references('id')->on('addressess');
         });
     }
 

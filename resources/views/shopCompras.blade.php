@@ -18,25 +18,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">5800284197</th>
-                <td>11/09/19</td>
-                <td class=" d-none d-md-block">Flor Bonavera</td>
-                <td>$5650.00</td>
-                <td class="text-italic d-none d-md-block">Entregado</td>
+            @forelse ($payment_orders as $payment)
+                <tr>
+                <th scope="row">{{$payment->id}}</th>
+                <td>{{$payment->created_at}}</td>
+                <td class=" d-none d-md-block">{{$payment->shopcar->address->name}}</td>
+                <td>{{$payment->}}$5650.00</td>
+                <td class="text-italic d-none d-md-block">{{$payment->}}Entregado</td>
                 <td><span class="mt-3 shop-link"><a href="shopDetalleCompra.php" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">> ver</a></span></td>
             </tr>
-            <tr>
-                <th scope="row">5800284197</th>
-                <td>11/09/19</td>
-                <td class=" d-none d-md-block">Flor Bonavera</td>
-                <td>$2680.00</td>
-                <td class="text-italic d-none d-md-block">Entregado</td>
-                <td><span class="mt-3 shop-link"><a href="shopDetalleCompra.php" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">> ver</a></span></td>
-            </tr>
+            @empty
+                <p class="monserrat cero7em">No posee compras</p>
+            @endforelse
+            
         </tbody>
     </table>
 </div>
-
-<div class="w100 mt-7"></div>
 @endsection

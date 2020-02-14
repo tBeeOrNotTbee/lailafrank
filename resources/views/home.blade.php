@@ -68,20 +68,20 @@
 
 <!-- CATALOGO MOBILE -->
 
-<div class="row mt-7 d-md-none">
-    <div class="col-12 mt-3">
+<div class="row mt-7 d-md-none justify-content-center">
+    <div class="col-12 mt-3 text-center">
         <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/sandals_mobile.png')}}" alt="sandals"></a>
     </div>
-    <div class="col-12 mt-3">
+    <div class="col-12 mt-3 text-center">
         <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/stilettos_mobile.png')}}" alt="stilettos"></a>
     </div>
-    <div class="col-12 mt-3">
+    <div class="col-12 mt-3 text-center">
         <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/flats_mobile.png')}}" alt="flats"></a>
     </div>
-    <div class="col-12 mt-3">
+    <div class="col-12 mt-3 text-center">
         <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/tango_mobile.png')}}" alt="tango"></a>
     </div>
-    <div class="col-12 mt-3">
+    <div class="col-12 mt-3 text-center">
         <a href="catalog.php"><img class="img-fluid" src="{{asset('/img/catalog/boots_mobile.png')}}" alt="boots"></a>
     </div>
 </div>

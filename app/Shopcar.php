@@ -24,4 +24,9 @@ class Shopcar extends Model
     {
         return $this->belongsTo('App\User', 'user_id');
     }
+
+    public function address ()
+    {
+        return $this->hasMany('App\User', 'address_id');
+    }
 }
