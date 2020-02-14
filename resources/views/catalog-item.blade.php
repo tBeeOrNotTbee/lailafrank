@@ -2,8 +2,6 @@
 @section('title', 'Catalog Item')
 @section('content')
 
-@include('layouts.partials.advert')
-
 <div class="row mt-7 pb-3 mb-3">
 
     <div class="col-10 col-md-7 mx-auto mx-md-0 mb-5 d-none d-md-flex">

@@ -17,19 +17,25 @@
 </div>
 <section class="row d-flex justify-content-center">
     <div class="col-12 col-md-10">
-        <p id="history-P" class="monserrat history-fontcolor"><b class="black"> LAILA FRANK</b> nace en el año 2012, concebida como marca con sello de autor:
-            Brindando calzados de diseños sofisticados conocidos como diseños de linea “Timeless”, con procedimientos de confección artesanal respetando las políticas de cuidado del medio ambiente
-
-            Los calzados LK identifican a una mujer como un ser único y especial y pretenden ser una extensión de su femineidad. Es por eso que de cada diseño que se realiza se presenta una colección limitada, acompañando de esta forma a una mujer con personalidad que valora que el diseño la acompañe en su vestir diario <br><br>
-
-            LK en el año 2015 obtuvo el emblema de <b class="black"> “Marca País” </b>, brindado por el Ministerio de Turismo como representante de Calzado de diseño frente al mundo
-
-            En el año 2016 Obtuvo el <b class="black">Sello del Buen diseño</b> que le otorgo el Ministerio de Industria
-
-            En el año 2017 fue seleccionada por <b>“Fashion United”</b> como una de las diez marcas de calzado Argentino seleccionadas por el público internacional por su originalidad en el diseño, su trabajo artesanal y la calidad de sus materiales <br><br>
-
-            En el transcurso de estos años LK trabajo dentro de la curva tradicional de calzado y a partir del año 2019 se volcó a la fabricación de calzados en la curva que abarca calzados desde el talle 31 a 35 y 41 a 45 manteniendo su estilo de diseño y confección que hasta el momento la represento <br>
-        </p>
+        <p id="history-P" class="monserrat history-fontcolor">LK nace en el año 2012 y se diferencia en el mercado por ser una marca con
+            sello de autor. Esto quiere decir que trabajamos en cada diseño como piezas
+            únicas, la confección es artesanal y con profundo respeto y cuidado del medio
+            ambiente. Creamos calzados de diseños sofisticados conocidos como diseños de
+            linea “Timeless”. <br> <br>
+            LK reconoce a cada mujer como un ser único y especial y entiende que el
+            calzado puede aportar personalidad y fuerza a su femineidad. Cada diseño forma
+            parte de una colección limitada de producción única, ideal para las mujeres que
+            valoran el estilo y el diseño como un arte incluso en su vestir diario.<br> <br>
+            Durante nuestro recorrido, LK fue reconocida por el emblema <b class="black"> “Marca País” </b>
+            (2015) brindado por el Ministerio de Turismo como representante de Calzado de
+            Diseño frente al mundo; por el sello <b class="black">Buen Diseño</b> (2016) que le otorgó el
+            Ministerio de Industria; y en 2017 la marca fue seleccionada por Fashion United
+            como una de las diez marcas de calzado argentino seleccionadas por el público
+            internacional por su originalidad en el diseño, su trabajo artesanal y la calidad de
+            sus materiales.<br> <br>
+            Comenzamos trabajando en la curva tradicional de calzado y desde el año 2019
+            nos volcamos a las franjas del talle 31 a 35 y 41 a 45, con el objetivo de lograr
+            que un calzado único, de diseño y confección artesanal sea inclusivo.<br> </p>
     </div>
 </section>
 

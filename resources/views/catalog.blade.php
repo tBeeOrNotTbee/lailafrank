@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Catalog')
 @section('content')
-@include('layouts.partials.advert')
+
 
 <div class="row catalog-row">
     <div class="col-12 col-md-6">

@@ -1,18 +1,17 @@
-function closeAdvert(){
+/* function closeAdvert(){
     document.getElementById('advert').style.display = "none";
-}
-
+} */
+/* 
 document.getElementById("equis").onclick = function() { 
     document.getElementById("advert").style.display = "none"; 
-} 
-const carousel = document.getElementById("carousel");
+}  */
 const video = document.getElementById("video");
 video.load();
 video.play();
 video.onplay = (event) =>{
     $('.carousel').carousel('pause'); 
     console.log('anda')
-
+}
 video.onended = (e) => {
     console.log('paro')
     $('.carousel').carousel();

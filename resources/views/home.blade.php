@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('title', 'Home')
 @section('content')
-@include('layouts.partials.advert')
+
 <div class="row">
     <div class="col-12 noPad">
         <div class="carousel slide" id="carousel" data-ride="carousel" interval="0">
@@ -26,7 +26,7 @@
     <div class=" col-12 text-center">
         <h2 class="hastag smooth-stone">#unconventionalwomen</h2>
         <p class="monserrat mt-4 grey slogan">Creemos que las mujeres merecen tener el calzado que <br>
-            desean cuando lo desean, no importa que talla sean.</p>
+            desean cuando lo desean, no importa que talla sean, ni cómo lo lleven.</p>
     </div>
 </div>
 
@@ -95,12 +95,12 @@
         <h3 class="smooth-stone grey w100 text-center text-md-left mt-md-3">Historia</h3>
         <h2 class="monserrat-bold">Estamos motivadas<br>
             por el <span>deseo y un ideal</span>.</h2>
-        <p class="monserrat grey col-12 col-md-7 noPad">Todos los integrantes de este equipo compartimos el
-            deseo de
-            hacerles realidad el sueño a esas mujeres que no pueden adquirir en forma
-            espontánea el calzado que desean. <br><br>
-            Trabajamos para incorporar a esas mujeres a la moda, a que puedan decidir,
-            darles alternativas, ponderarlas.</p>
+        <p class="monserrat grey col-12 col-md-7 noPad">Todo nuestro equipo sueña con cada mujer, compartimos ese 
+            deseo de hacer accesible e inclusivo un calzado de diseño, zapatos únicos, sofisticados y de
+            fabricación artesanal <br><br>
+            Trabajamos para incorporar a esas mujeres que son exluídas por sus talles al
+            circuito de la moda. Queremos brindar darles alternativas, que puedan elegir por
+            deseo y no por descarte. Ponderar su decisición.</p>
         <a href="history" class="button-story mx-auto ml-md-0">ver historia</a>
     </div>
 </section>
