@@ -35,18 +35,18 @@
 
 <div class="d-none d-md-flex row-catalog mt-7">
     <div class="catalog-img-large bk-cover" style="background-image: url(../img/catalog/sandals_desktop.png);">
-        <a href="catalog.php" class="catalog-text roboto">
+        <a href="/catalog" class="catalog-text roboto">
             <span class="inside">sandals</span>
         </a>
     </div>
     <div class="col d-flex flex-colum catalog-colum" style=" height: 605px; flex-direction: column; justify-content: space-between;">
         <div class="catalog-img-box bk-cover" style="background-image: url(../img/catalog/stilettos_desktop.png);">
-            <a href="catalog.php" class="catalog-text roboto">
+            <a href="/catalog" class="catalog-text roboto">
                 <span class="inside">stilettos</span>
             </a>
         </div>
         <div class="catalog-img-box bk-cover" style="background-image: url(../img/catalog/flats_desktop.png);">
-            <a href="catalog.php" class="catalog-text roboto">
+            <a href="/catalog" class="catalog-text roboto">
                 <span class="inside">flats</span>
             </a>
         </div>
@@ -55,12 +55,12 @@
 
 <div class="d-none d-md-flex row-catalog">
     <div class="catalog-img-box-40 bk-cover" style="background-image: url(../img/catalog/tango_desktop.png);">
-        <a href="catalog.php" class="catalog-text roboto">
+        <a href="/catalog" class="catalog-text roboto">
             <span class="inside">tango</span>
         </a>
     </div>
     <div class="catalog-img-box-55 bk-cover" style="background-image: url(../img/catalog/boots_desktop.png);">
-        <a href="catalog.php" class="catalog-text roboto">
+        <a href="/catalog" class="catalog-text roboto">
             <span class="inside">boots</span>
         </a>
     </div>
@@ -70,19 +70,19 @@
 
 <div class="row mt-7 d-md-none">
     <div class="col-12 mt-3">
-        <a href="catalog.php"><img class="img-fluid" src="../img/catalog/sandals_mobile.png" alt="sandals"></a>
+        <a href="/catalog"><img class="img-fluid" src="../img/catalog/sandals_mobile.png" alt="sandals"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="catalog.php"><img class="img-fluid" src="../img/catalog/stilettos_mobile.png" alt="stilettos"></a>
+        <a href="/catalog"><img class="img-fluid" src="../img/catalog/stilettos_mobile.png" alt="stilettos"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="catalog.php"><img class="img-fluid" src="../img/catalog/flats_mobile.png" alt="flats"></a>
+        <a href="/catalog"><img class="img-fluid" src="../img/catalog/flats_mobile.png" alt="flats"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="catalog.php"><img class="img-fluid" src="../img/catalog/tango_mobile.png" alt="tango"></a>
+        <a href="/catalog"><img class="img-fluid" src="../img/catalog/tango_mobile.png" alt="tango"></a>
     </div>
     <div class="col-12 mt-3">
-        <a href="catalog.php"><img class="img-fluid" src="../img/catalog/boots_mobile.png" alt="boots"></a>
+        <a href="/catalog"><img class="img-fluid" src="../img/catalog/boots_mobile.png" alt="boots"></a>
     </div>
 </div>
 <!-- CATALOGO -->
