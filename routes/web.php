@@ -26,6 +26,10 @@ Route::get('/catalog', 'HomeController@catalog');
 Route::get('/catalog/shoe/{shoeId}', 'HomeController@productDetail');
 ///feedback
 
+///RUTAS DE REDIRECCION TRAS COMPRAS
+Route::get('/backend/mp/success','MercadoPagoController@success')->name('mp.success');
+Route::get('/backend/mp/fail', 'MercadoPagoController@fail')->name('mp.fail');
+Route::get('/backend/mp/pending', 'MercadoPagoController@pending')->name('mp.pending');
 
 ////// RUTAS ESTATICAS FOOTER /////
 Route::get('/info/cambios', function(){return view('footer-cambios');});

@@ -244,29 +244,24 @@ class ShopcarController extends Controller
         $preference->external_reference = $payment->id;
 
         //Decidir si usar las rutas de redirect 
-        /* $preference->back_urls = [
-            "success" => route('checkout.thanks'),
-            "pending" => route('checkout.pending'),
-            "failure" => route('checkout.error'),
-        ]; */
-
         $preference->back_urls = [
-            "success" => '/HOME',
-            "pending" => '/HOME',
-            "failure" => '/HOME',
-        ];
+            "success" => route('mp.success'),
+            "pending" => route('mp.pending'),
+            "failure" => route('mp.fail'),
+        ]; 
 
-        $preference->auto_return = "approved"; //DEVUELVE AL sitio en todos los casos, puede ser on APPROVED
+           //$preference->auto_return = "all"; //DEVUELVE AL sitio en todos los casos, puede ser on APPROVED
 /*         $preference->notification_url = route('/mp/notificacion'); //Por ahora no se usa */
-
-        $preference->save();
+            $preference->save();
+            
 
         //DESCONTAR DEL STOCK EL PRODUCTO
         //STOCK->QUANTITY
 
-        if (config('payment-methods.use_sandbox')) {
+        /* if (config('payment-methods.use_sandbox')) {
+           
             return redirect($preference->sandbox_init_point);
-        }
+        } */
 
         /* $preference->init_point; */
         return view('shopCheckout', compact('preference','shopcar', 'stocks', 'address', 'total', 'discount', 'costoEnvio', 'payment'));

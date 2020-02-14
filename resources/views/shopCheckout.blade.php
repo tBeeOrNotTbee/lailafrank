@@ -81,6 +81,7 @@
                      data-preference-id="<?php echo $preference->id; ?>">
             </script>
         </form>
+        <a href="{{$preference->sandbox_init_point}}">sandbox</a>
     </div>
 </div>
 @endsection
