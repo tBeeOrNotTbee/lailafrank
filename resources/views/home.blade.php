@@ -8,7 +8,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <div class="d-block w-100 carusel-img">
-                        <video id="video" type="video/mp4" class="" src="{{asset('/img/carousel/lailaFrankIntro.mp4')}}" autoplay >Tu navegador no puede reproducir el video </video>
+                        <video id="video" type="video/mp4" class="" src="{{asset('/img/carousel/lailaFrankIntro.mp4')}}" autoplay="autoplay" muted >Tu navegador no puede reproducir el video </video>
                     </div>
                 </div>
                 <div class="carousel-item">
