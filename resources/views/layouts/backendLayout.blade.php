@@ -24,7 +24,9 @@
     <!--=============================================-->
     <!--======              NAV                ======-->
     <nav id="backnav" class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-        <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">Zapatería</a>
+        <a href="/" class="logo-res">
+            <img src="{{asset('img/logo.svg')}}" class="img-fluid m-3" style="max-height: 50px" alt="logo">
+        </a>
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();

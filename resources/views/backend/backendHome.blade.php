@@ -1,5 +1,5 @@
 @extends("layouts.backendLayout")
 
 @section("mainBackend")
-    <h2>HOLA!!</h2>
+    <h2>Panel de administración</h2>
 @endsection

@@ -60,7 +60,7 @@
                         <button type="submit" class="btn button-story rounded-0">{{ __('Ingresar') }}</button>
 
                         <div class="w100 d-flex justify-content-end">
-                            <span class="mt-3 shop-link"><a href="#" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">> volver</a></span>
+                            <span class="mt-3 shop-link"><a href="{{ URL::previous() }}" class="shop-card-text monserrat text-uppercase grey2 cero7em" style="font-size: 0.8em">> volver</a></span>
                         </div>
 
                     </form>
@@ -71,7 +71,7 @@
 </div>
 @endsection
 
-<!-- VIEJO REGISTER
+{{-- <!-- VIEJO REGISTER
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -144,4 +144,4 @@
             </div>
         </div>
     </div>
-</div> -->
+</div> --> --}}

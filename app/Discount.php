@@ -12,4 +12,9 @@ class Discount extends Model
     use SoftDeletes;
 
     public $guarded = [];
+
+    public function shopcar ()
+    {
+        return $this->hasMany(Shopcar::class, 'discount_id');
+    }
 }

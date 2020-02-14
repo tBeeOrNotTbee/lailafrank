@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Discount;
+use App\DiscountRegister;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 
@@ -67,11 +69,18 @@ class DiscountController extends Controller
     {
         /* $discounts = DB::table('discounts')->where(['number'=> $req->discount, 'active'=>'1'])->get(); */
         $discount = Discount::where('number', $req->discount)->where('active', '1')->limit(1)->get();
+
+        
         if($discount->isEmpty()){
             return json_encode(["discount" => false]);
         }else{
-            $res = ["discount" => true, "type"=>$discount[0]->type, "quantity"=>$discount[0]->amount];
-            return json_encode($res);
+            $register = DiscountRegister::where('discount_id', $discount[0]->id)->where('user_id', Auth::user()->id)->get();
+            if ($register->isEmpty()){
+                return json_encode(["discount" => false]);
+            }else{
+                $res = ["discount" => true, "type"=>$discount[0]->type, "quantity"=>$discount[0]->amount];
+                return json_encode($res);
+            }
         }
     }
 

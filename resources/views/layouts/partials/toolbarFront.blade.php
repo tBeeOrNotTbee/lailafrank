@@ -22,7 +22,7 @@
         <div class="demo-panel-header">
 
             <div class="d-none d-md-block col-12 mt-4 text-center">
-                <img src="{{asset('img/logo_shop.png')}}" class="mx-auto" alt="">
+                <img src="{{asset('img/logo_shop.png')}}" class="mx-auto my-3" alt="">
             </div>
 
             @guest
@@ -77,10 +77,6 @@
             @else
             @include('layouts.partials.optionsLogged')
             @endguest
-        </div>
-        <div class="demo-quick-option-list">
-
-
         </div>
     </div>
     <!-- End Quick Link -->

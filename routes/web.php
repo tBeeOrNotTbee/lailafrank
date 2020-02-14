@@ -51,6 +51,9 @@ Route::post('/shop/shopcar/checkout', 'ShopcarController@forcheckout')->middlewa
 Route::post('/shop/discount', 'DiscountController@check')->middleware('auth');
 Route::get('/shop/discount/{discount}', 'DiscountController@check2')->middleware('auth');
 Route::post('/shop/confirm', 'ShopcarController@mercadopago')->middleware("auth");
+Route::get('/feedback', function(){return view('feedback');})->middleware("auth");
+Route::post('/feedback', 'FeedbackController@store')->middleware("auth");
+
 ////// RUTAS BACKTEND /////
 Route::get('/backend', function(){
     return view('backend.backendHome');

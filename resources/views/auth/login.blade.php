@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="d-none d-md-block col-12 mt-4 text-center">
-        <img src="../img/logo_shop.png" class="" alt="">
+        <img src="{{asset('/img/logo_shop.png')}}" class="" alt="">
     </div>
     <h1 class="d-inline d-md-none roboto-light text-uppercase mx-auto text-center mt-4">Acceso <br> clientes</h1>
 </div>

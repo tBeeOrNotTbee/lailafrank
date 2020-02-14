@@ -104,6 +104,11 @@ class User extends Authenticatable
         return $this->belongsToMany('App\Shoe', 'favorites', "user_id", "shoe_id");
     }
 
+    public function feedback ()
+    {
+        return $this->hasMany(Feedback::class, 'user_id');
+    }
+
     public function fullName(){
         return $this->name.' '.$this->surname;
     }

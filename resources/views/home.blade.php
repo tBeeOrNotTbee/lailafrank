@@ -95,7 +95,7 @@
         <h3 class="smooth-stone grey w100 text-center text-md-left mt-md-3">Historia</h3>
         <h2 class="monserrat-bold">Estamos motivadas<br>
             por el <span>deseo y un ideal</span>.</h2>
-        <p class="monserrat grey w-100 w-md-50">Todos los integrantes de este equipo compartimos el
+        <p class="monserrat grey col-12 col-md-7 noPad">Todos los integrantes de este equipo compartimos el
             deseo de
             hacerles realidad el sueño a esas mujeres que no pueden adquirir en forma
             espontánea el calzado que desean. <br><br>
