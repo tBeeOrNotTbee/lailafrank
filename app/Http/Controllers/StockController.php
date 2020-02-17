@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Stock;
 use App\Shoe;
 use App\Place;
+use App\Shopcar;
 use Illuminate\Http\Request;
 
 class StockController extends Controller
@@ -111,5 +112,31 @@ class StockController extends Controller
     public function borrarStock(Request $req){
         Stock::destroy($req->id);
         return redirect('/backend/verProducto/'.$req->shoe_id.'#stock');
+    }
+
+    public function finalCheck($idShopcar)
+    {
+        $shopcar = Shopcar::find($idShopcar);
+        
+        $stocker = [];
+        foreach ($shopcar->stock as $stock) {
+            if ($stock->quantity>=1){
+                $stock->quantity --;
+                $stock->save();
+                array_push($stocker, true);
+            }else{
+                $shopcar->stock()->detach($stock);
+                array_push($stocker, false);
+            }
+        }
+        
+        /* dd($shopcar->stock); */
+        
+        if (in_array(false, $stocker)) {            
+            return json_encode($state=false);
+        } else {
+            return json_encode($state=true);
+        }
+        
     }
 }

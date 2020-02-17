@@ -75,10 +75,10 @@
         </div>
     </div>
     <div class="w-100 d-flex justify-content-center justify-content-md-end">
-        <form action="/procesar-pago" class="mp-form" method="POST">
+        <form action="/procesar-pago" class="mp-form" method="POST" id="mpform" onsubmit="preventMercadoPago()">
             <script
-                     src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
-                     data-preference-id="<?php echo $preference->id; ?>">
+                src="https://www.mercadopago.com.ar/integrations/v1/web-payment-checkout.js"
+                data-preference-id="<?php echo $preference->id; ?>">
             </script>
         </form>
         <a href="{{$preference->sandbox_init_point}}">sandbox</a>

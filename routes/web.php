@@ -109,3 +109,7 @@ Route::get('backend/newsletter', 'NewsletterController@index');
 Route::delete('backend/newsletter', 'NewsletterController@destroy');
 
 Route::get('backend/contact', 'BackendController@show_contacts');
+
+
+//STOCK
+Route::get('/shop/stock/finalcheck/{idShopcar}', 'StockController@finalCheck')->middleware('auth');

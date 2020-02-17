@@ -7,7 +7,7 @@
                 aria-label="Login">
                 <i class="fas fa-user camel"></i>
             </a>
-            <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="shop/shopcar" aria-label="Shopcart">
+            <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="/shop/shopcar" aria-label="Shopcart">
                 <i class="fas fa-shopping-bag camel"></i>
             </a>
             <a class="hint--bounce hint--left hint--black primary-color-hover-important" href="/shop/myaccount/favorites"
