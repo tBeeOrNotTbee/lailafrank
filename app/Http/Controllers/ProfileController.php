@@ -8,6 +8,7 @@ use App\Newsletter;
 use App\User;
 use App\Shopcar;
 use App\Address;
+use App\Payment_Order;
 
 class ProfileController extends Controller
 {
@@ -34,7 +35,8 @@ class ProfileController extends Controller
 
     public function purchases()
     {
-        return view('shopCompras');
+        $payment_orders = Payment_Order::where('user_id', Auth::user()->id);
+        return view('shopCompras',compact('payment_orders'));
     }
 
     public function favorites()
