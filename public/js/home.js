@@ -160,3 +160,9 @@ function checkDiscount() {
     });
 
 }
+
+function preventMercadoPago()
+{
+    let shopcar = document.getElementById('mpform');
+    shopcar.preventDefault();
+}

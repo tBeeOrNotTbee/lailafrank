@@ -102,27 +102,27 @@ class ShopcarController extends Controller
         if (Auth::user()) {
             $user = Auth::user();
 
-            $stock = Shoe::find($req->shoeId)->stock()->where('size', '=', $req->size)->first();
-
+            $stock = Shoe::find($req->shoeId)->stock()->where('size', '=', $req->size)->where('quantity','>=',1)->first();
             if (is_null($stock)) {
                 /** Graba en OrdersOutOfStock el pedido rechazado */
                 $ordersOutOfStock = new OrdersOutOfStock;
-
+                
                 $ordersOutOfStock->create([
                     'user_id' => $user->id,
                     'shoe_id' => $req->shoeId,
                     'size' => $req->size
-                ]);
-
-                $state = ['state' => false];
-                return json_encode($state);
-            }
-
-            $shopcar = Shopcar::where('ordered', '=', '0')
+                    ]);
+                    
+                    $state = ['state' => false];
+                    return json_encode($state);
+                }
+                
+                $shopcar = Shopcar::where('ordered', '=', '0')
                 ->where('user_id', '=', $user->id)
                 ->take(1)
                 ->first();
-
+                
+                
             if (is_null($shopcar)) {
                 //debe crearlo
                 $shopcar = $user->shopcar()->create([
@@ -199,7 +199,8 @@ class ShopcarController extends Controller
         $payment = new Payment_Order([
             "user_id" => $user->id,
             "shopcar_id" => $shopcar->id,
-            "address_id" => $req->address_id,
+            "total_amount" => $total,
+            "address_id" => $req->address_id
         ]);
         
         $payment->save();

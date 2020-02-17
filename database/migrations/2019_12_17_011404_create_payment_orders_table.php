@@ -20,6 +20,7 @@ class CreatePaymentOrdersTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('shopcar_id');
             $table->unsignedBigInteger('address_id');
+            $table->float('total_amount', 15,2)->nullable();
             $table->string('state')->nullable();
             
             $table->foreign('user_id')->references('id')->on('users');
