@@ -282,7 +282,7 @@ class ShoeController extends Controller
         foreach ($req->file('shoe_img') as $file) {
             $newImg = $file->store("public");
 
-            $shoe_img = new Shoe_img(['shoe_id' => $shoe->id, 'img_path' => basename($newImg)]);
+            $shoe_img = new Shoe_img(['shoe_id' => $shoe->id, 'img_path' => basename($newImg), 'category_id' => 4]);
 
             $shoe->shoe_img()->save($shoe_img);
         }

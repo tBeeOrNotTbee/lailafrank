@@ -43,6 +43,7 @@ class HomeController extends Controller
     public function productDetail($shoeId)
     {
         $shoe = Shoe::find($shoeId);
-        return view('catalog-item', compact('shoe'));
+        $imgs = $shoe->shoe_img()->where('category_id', '=', 4)->get();
+        return view('catalog-item', compact('shoe', 'imgs'));
     }
 }

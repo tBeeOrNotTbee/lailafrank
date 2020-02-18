@@ -19,7 +19,7 @@ class Payment_Order extends Model
         return $this->belongsTo('App\Shopcar', 'shopcar_id');
     }
 
-    public function shippingMethod ()
+    public function address()
     {
         return $this->belongsTo('App\Address', 'address_id');
     }

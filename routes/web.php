@@ -109,6 +109,7 @@ Route::get('/backend/discount/onoff/{discountId}/{active}', 'DiscountController@
 Route::post('/backend/newsletter', 'NewsletterController@add');
 Route::get('backend/newsletter', 'NewsletterController@index');
 Route::delete('backend/newsletter', 'NewsletterController@destroy');
+Route::get('/backend/pedido/{paymentId}', 'BackendController@showPayment')->middleware('auth', 'role:admin');
 
 Route::get('backend/contact', 'BackendController@show_contacts');
 

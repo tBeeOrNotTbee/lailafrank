@@ -11,8 +11,11 @@
             </div>
         </div>
         <div class="sp-wrap gallery m-0">
-            <a href="../img/shoe_1.jpg"><img class="w100" src="../img/shoe_1.jpg" alt=""></a>
-            <a href="../img/shoe_2.jpg"><img class="w100" src="../img/shoe_2.jpg" alt=""></a>
+            @forelse ($imgs as $img)
+                <a href="/storage/{{$img->img_path}}"><img class="w100" src="/storage/{{$img->img_path}}"></a>
+            @empty
+                <P>No hay imagenes para mostrar</P>
+            @endforelse
         </div>
     </div>
 
@@ -23,12 +26,15 @@
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
             </ol>
             <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img class="d-block w-100" src="../img/shoe_1.jpg" alt="First slide">
-                </div>
-                <div class="carousel-item">
-                    <img class="d-block w-100" src="../img/shoe_2.jpg" alt="Second slide">
-                </div>
+                @forelse ($imgs as $img)
+                    <div class="carousel-item  @if ($loop->first)
+                        active
+                    @endif ">
+                    <a href="/storage/{{$img->img_path}}"><img class="w100" src="/storage/{{$img->img_path}}"></a>
+                    </div>
+                @empty
+                    <P>No hay imagenes para mostrar</P>
+                @endforelse
             </div>
         </div>
     </div>

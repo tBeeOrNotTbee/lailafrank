@@ -32,7 +32,7 @@ class DatabaseSeeder extends Seeder
         DB::table('shoe_categories')->insert(['name'=>'Flats']);
         DB::table('shoe_categories')->insert(['name'=>'Tango']);
         
-        factory(Shoe::class)->times(6)->create();
+        /* factory(Shoe::class)->times(6)->create(); */
 
         DB::table('addresses')->insert([
             'user_id'=> 1,

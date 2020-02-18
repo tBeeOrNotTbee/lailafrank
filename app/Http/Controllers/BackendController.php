@@ -7,13 +7,15 @@ use App\Color;
 use App\Contact;
 use App\Stock;
 use App\Discount;
-
+use App\Payment_Order;
 use Illuminate\Http\Request;
 
 class BackendController extends Controller
 {
 public function pedidos(){
-    return view('backend.backendPedidos');
+    $payments = Payment_Order::all();
+    
+    return view('backend.backendPedidos', compact('payments'));
 }
 
 public function productos(){
@@ -106,6 +108,12 @@ public function create_contact(Request $request){
 public function show_contacts(){
     $contacts = Contact::all();
     return view('backend.backendContacto', compact('contacts'));
+}
+
+public function showPayment($paymentId)
+{
+    $payment = Payment_Order::find($paymentId);
+    return view('backend.backendPedidoDetalle', compact('payment'));
 }
 
 }

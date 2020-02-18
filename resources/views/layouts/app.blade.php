@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="{{asset('css/brook.css')}}">
     <link rel="stylesheet" href="{{asset('css/lailaStyle.css')}}">
     <link rel="stylesheet" href="{{asset('css/catalog.css')}}">
+    <link rel="stylesheet" href="{{asset('css/smoothproducts.css')}}">
+    
     <title>@yield('title')</title>
 </head>
 
@@ -45,6 +47,14 @@
     <script src="{{asset('js/main.js')}}"></script>
     <script src="{{asset('js/home.js')}}"></script>
     <script src="{{asset('js/jquery.instagramFeed.min.js')}}"></script>
+    <script src="{{asset('js/smoothproducts.min.js')}}"></script>
+
+    <script type="text/javascript">
+        /* wait for images to load */
+        $(window).on("load", function() {
+          $('.sp-wrap').smoothproducts();
+        });
+      </script>
 
     <script type="text/javascript">
         (function($) {
