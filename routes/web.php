@@ -16,13 +16,15 @@ use App\Http\Controllers\FavoritesController;
 
 Auth::routes();
 
+Route::get('/register', 'RegisterController@showRegistrationForm')->middleware('auth');
+
 ////// RUTAS FRONTEND /////
 Route::get('/',function(){return view('home');});
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/history', function(){return view('history');});
 Route::get('/contact', function(){return view('contacto');});
 Route::post('/contact', 'BackendController@create_contact');
-Route::get('/catalog', 'HomeController@catalog');
+Route::get('/catalog', 'HomeController@catalog')->middleware('auth');
 Route::get('/catalog/shoe/{shoeId}', 'HomeController@productDetail');
 ///feedback
 
