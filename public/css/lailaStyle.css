@@ -694,6 +694,18 @@ h3#botonCompra{
     text-align: center;
   }
 }
+/* MODAL */
+@media (max-width: 740px){
+  #modal-dialog{
+    width: 100vw;
+  }
+}
+@media (min-width:740px){
+  #modal-dialog{
+    width: 75vw !important;
+  }
+}
+/* FIN MODAL */
 /* FIN CATALOG ITEM */
 
 /* Historia */
