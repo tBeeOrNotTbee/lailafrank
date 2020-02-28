@@ -78,7 +78,7 @@ class MercadoPagoController extends Controller
                 break;
         }
         if($payment->status == "approved"){
-            $last_payment_order->state = $payment->status;
+            $last_payment_order->state = "acreditado";
             return true;
         }else if($payment->status == "rejected" || $payment->status == "cancelled"){
             $this->mpfail($shopcar);
