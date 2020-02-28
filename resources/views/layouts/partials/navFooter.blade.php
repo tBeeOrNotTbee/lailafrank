@@ -18,7 +18,7 @@
                         <li class="list-group-item noBk"><a href="/info/envio" class="grey {{Request::is('info/envio') ? 'shop-link-active' : ''}}">TIEMPO Y COSTO DE ENVÍO</a></li>
                         <li class="list-group-item noBk"><a href="/info/opciones" class="grey {{Request::is('info/opciones') ? 'shop-link-active' : ''}}">FORMAS DE PAGO</a></li>
                         <li class="list-group-item noBk"><a href="/info/cuidado" class="grey {{Request::is('info/cuidado') ? 'shop-link-active' : ''}}">CUIDADO DEL CALZADO</a></li>
-                        <li class="list-group-item noBk"><a href="/info/faq" class="grey {{Request::is('info/faq') ? 'shop-link-active' : ''}}">¿NECESITAS AYUDA?</a></li>
+                        {{-- <li class="list-group-item noBk"><a href="/info/faq" class="grey {{Request::is('info/faq') ? 'shop-link-active' : ''}}">¿NECESITAS AYUDA?</a></li> --}}
                     </ul>
 
                 </div>
@@ -37,7 +37,7 @@
         <li class="list-group-item border-0 p-1 noBk"><a href="/info/envio" class="grey {{Request::is('info/envio') ? 'shop-link-active' : ''}}">TIEMPO Y COSTO DE ENVÍO</a></li>
         <li class="list-group-item border-0 p-1 noBk"><a href="/info/opciones" class="grey {{Request::is('info/opciones') ? 'shop-link-active' : ''}}">FORMAS DE PAGO</a></li>
         <li class="list-group-item border-0 p-1 noBk"><a href="/info/cuidado" class="grey {{Request::is('info/cuidado') ? 'shop-link-active' : ''}}">CUIDADO DEL CALZADO</a></li>
-        <li class="list-group-item border-0 p-1 noBk"><a href="/info/faq" class="grey {{Request::is('info/faq') ? 'shop-link-active' : ''}}">¿NECESITAS AYUDA?</a></li>
+        {{-- <li class="list-group-item border-0 p-1 noBk"><a href="/info/faq" class="grey {{Request::is('info/faq') ? 'shop-link-active' : ''}}">¿NECESITAS AYUDA?</a></li> --}}
     </ul>
 
 </div>

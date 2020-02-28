@@ -4,7 +4,7 @@
     <a href="/info/envio" class="footer-link roboto-light mt-2 rosa">Tiempo & costo de envío</a>
     <a href="/info/opciones" class="footer-link roboto-light mt-2 rosa">Formas de pago</a>
     <a href="/info/cuidado" class="footer-link roboto-light mt-2 rosa">Cuidados del calzado</a>
-    <a href="/info/faq" class="footer-link roboto-light mt-2 rosa">¿Necesitas ayuda?</a>
+    {{-- <a href="/info/faq" class="footer-link roboto-light mt-2 rosa">¿Necesitas ayuda?</a> --}}
 </ul>
 
 <footer class="row footer-info d-flex justify-content-center align-items-center">

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Catalog Item')
+@section('title', $shoe->name)
 @section('content')
 
 <div class="row mt-7 pb-3 mb-3">
@@ -120,7 +120,7 @@
                     </a>
                 </div>
                 <div class="d-md-none row my-4 mx-auto mt-5 w-75 d-flex flex-column justify-content-center">
-                    <a id="botonTalles" class="monserrat grey2 cero7em text-center" data-toggle="modal"
+                    <a id="botonTalles" href="#" class="monserrat grey2 cero7em text-center" data-toggle="modal" style="cursor: pointer!important"
                         data-target="#tallesModal">GUÍA DE TALLES</a>
                     <a onclick="addToCar()" class="button-story text-center cero7em mt-3" href="#">AGREGAR AL CARRITO <i class="fas fa-shopping-bag"></i></a>
                 </div>

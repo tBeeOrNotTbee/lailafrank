@@ -41,8 +41,8 @@
             </div>
             <div class="tool-bar-res d-md-none order-4">
                 <div class="inner">
-                    <a class="quick-option hint--bounce hint--left hint--black primary-color-hover-important"
-                        href="login.php" aria-label="Login">
+                    <a class="hint--bounce hint--left hint--black primary-color-hover-important"
+                        href="/login" aria-label="Login">
                         <i class="fas fa-user camel"></i>
                     </a>
                     <a class="hint--bounce hint--left hint--black primary-color-hover-important mx-2" href="/shop/shopcar"

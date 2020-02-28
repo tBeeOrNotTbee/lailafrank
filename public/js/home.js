@@ -163,6 +163,7 @@ function checkDiscount() {
 
 function preventMercadoPago()
 {
-    let shopcar = document.getElementById('mpform');
+    let shopcar = document.getElementsByClassName('mercadopago-button');
     shopcar.preventDefault();
+    console.log('detuvo?');
 }

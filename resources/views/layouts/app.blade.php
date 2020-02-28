@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{asset('css/catalog.css')}}">
     <link rel="stylesheet" href="{{asset('css/smoothproducts.css')}}">
     
-    <title>@yield('title')</title>
+    <title>Laila Frank | @yield('title')</title>
 </head>
 
 <body>

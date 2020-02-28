@@ -14,11 +14,11 @@
             <div id="product1" class="col-6 col-md-4 card border-0 rounded-0">
                 <div class="p-0 p-md-3">
                     <!-- THUMBNAIL CAROUSEL -->
-                    <div class="shoe-img-preview">
+                    <a class="shoe-img-preview" href="/catalog/shoe/{{$product->shoe->id}}">
                         <?php $previews = $product->shoe->previewSmall(); ?>
-                        <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid">
-                        <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid">
-                    </div>
+                        <img src="/public/{{$previews[0]->img_path}}" class="img-fluid">
+                        <img src="/public/{{$previews[1]->img_path}}" class="img-top img-fluid">
+                    </a>
                 </div>
 
                 <div class="card-body text-center">
@@ -50,7 +50,7 @@
         <p id="dValid" class="d-none"> Descuento habilitado! </p>
         <p id="dInvalid" class="d-none"> Código incorrecto o cupón no válido </p>
         
-        <form id="shopcarForm" action="/shop/shopcar/checkout/" method="post" class="monserrat mt-5 cero8em">
+        <form id="shopcarForm" action="/shop/shopcar/checkout" method="POST" class="monserrat mt-5 cero8em">
             @csrf
                         
             <h3 class="monserrat unoem">Dirección de envio</h3>

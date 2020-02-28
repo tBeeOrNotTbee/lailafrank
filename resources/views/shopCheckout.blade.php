@@ -21,7 +21,7 @@
 
                 <tr>
                     <td scope="row" class="p-0 shop-shoe-img"><img
-                            src="/storage/{{$product->shoe->previewA()->img_path}}" class="col-12 img-fluid p-0 w100"
+                            src="/public/{{$product->shoe->previewA()->img_path}}" class="col-12 img-fluid p-0 w100"
                             alt=""></td>
                     <td class="align-middle">Zapato {{$product->shoe->name}}</td>
                     <td class="align-middle">{{$product->size}}</td>

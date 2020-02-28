@@ -13,8 +13,8 @@ use Illuminate\Http\Request;
 class BackendController extends Controller
 {
 public function pedidos(){
-    $payments = Payment_Order::all();
-    
+    $payments = Payment_Order::where('ordered','1');
+    //$payments = Payment_Order::all();
     return view('backend.backendPedidos', compact('payments'));
 }
 

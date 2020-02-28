@@ -62,33 +62,31 @@
                     <tr>
                         <th class="monserrat" scope="row">Países limítrofes</th>
                         <td class="monserrat">24 a 48 hs</td>
-                        <td class="monserrat">$ 0**</td>
+                        <td class="monserrat">$ 0</td>
                     </tr>
                     <tr>
                         <th scope="row">EEUU y Canadá</th>
                         <td>24 a 48 hs</td>
-                        <td>$ 0**</td>
+                        <td>$ 0</td>
                     </tr>
                     <tr>
                         <th scope="row">Resto de América</th>
                         <td>48 a 72 hs</td>
-                        <td>$ 0** </td>
+                        <td>$ 0 </td>
                     </tr>
                     <tr>
                         <th scope="row">Europa</th>
                         <td>72 a 96 hs</td>
-                        <td>$ 0** </td>
+                        <td>$ 0 </td>
                     </tr>
                     <tr>
                         <th scope="row">Asia y Resto del mundo</th>
                         <td>96 a 120 hs</td>
-                        <td>$ 0** </td>
+                        <td>$ 0 </td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        <p class="monserrat black cero7em">* Al momento de retiro por la Tienda, se solicitará la tarjeta con la que se abonó dicha compra y el DNI del titular de la misma</p>
-        <p class="monserrat black cero7em">** Para compras superiores a $USD ...</p>
     </div>
 </div>
 @endsection

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Catalog')
+@section('title', 'Catalogo')
 @section('content')
 
 
@@ -10,7 +10,8 @@
                 <img class="img-fluid pl-4 pr-4" src="{{asset('/img/say_hello.png')}}" alt="Say hello to your new favourites">
                 <div id="product2L1" class="card border-0 rounded-0 thumbnail-big">
                     <?php $previewLarge = $shoes[0]->previewLarge(); ?>
-                    <div class="img-catalog mt-4 mb-3 bk-cover" style="background: url(/storage/{{$previewLarge->img_path}})"></div>
+                    {{-- <div class="img-catalog mt-4 mb-3 bk-cover" style="background: url(/storage/{{$previewLarge->img_path}})"></div> --}}
+                    <a class="img-catalog mt-4 mb-3 bk-cover" href="/catalog/shoe/{{$shoes[0]->id}} style="background: url(/public/{{$previewLarge->img_path}})"></a>
                     <div class="row d-flex justify-content-end" style="padding: 0 1.9rem;">
                         <i class="far fa-heart" style="margin-right: 0!important"></i>
                     </div>
@@ -44,11 +45,13 @@
                 <div id="product1" class="col-6 card border-0 rounded-0">
                     <div class="p-3">
                         <!-- THUMBNAIL CAROUSEL -->
-                        <div class="shoe-img-preview">
+                        <a class="shoe-img-preview" href="/catalog/shoe/{{$shoes[$i]->id}}">
                             <?php $previews=$shoes[$i]->previewSmall();?>
-                            <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid" alt="">
-                            <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid" alt="">
-                        </div>
+                            {{-- <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid" alt=""> --}}
+                            <img src="/public/{{$previews[0]->img_path}}" class="img-fluid" alt="">
+                            {{-- <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid" alt=""> --}}
+                            <img src="/public/{{$previews[1]->img_path}}" class="img-top img-fluid" alt="">
+                        </a>
                     </div>
                     <div class="row d-flex justify-content-end" style="padding: 0 1.9rem;">
                         {{-- Favorito --}}
@@ -95,13 +98,15 @@
                 
                 @for ($i = 5; $i <= 8; $i++)
                 <div id="product1" class="col-6 card border-0 rounded-0">
-                    <div class="p-3">
+                    <a class="p-3">
                         <!-- THUMBNAIL CAROUSEL -->
-                        <div class="shoe-img-preview">
+                        <a class="shoe-img-preview" href="/catalog/shoe/{{$shoes[$i]->id}}">
                             <?php $previews=$shoes[$i]->previewSmall();?>
-                            <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid" alt="">
-                            <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid" alt="">
-                        </div>
+                            {{-- <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid" alt=""> --}}
+                            <img src="/public/{{$previews[0]->img_path}}" class="img-fluid" alt="">
+                            {{-- <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid" alt=""> --}}
+                            <img src="/public/{{$previews[1]->img_path}}" class="img-top img-fluid" alt="">
+                        </a>
                     </div>
                     <div class="row d-flex justify-content-end" style="padding: 0 1.9rem;">
                         {{-- Favorito --}}
@@ -141,7 +146,8 @@
                 <img class="img-fluid pl-4 pr-4" src="{{asset('/img/must_have.png')}}" alt="Must have">
                 <div id="product2L1" class="card border-0 rounded-0 thumbnail-big">
                     <?php $previewLarge2 = $shoes[9]->previewLarge(); ?>
-                    <div class="img-catalog mt-4 mb-3 bk-cover" style="background: url(/storage/{{$previewLarge2->img_path}})"></div>
+                    {{-- <a href="/catalog/shoe/{{$shoes[9]->id}}" class="img-catalog mt-4 mb-3 bk-cover" style="background: url(/storage/{{$previewLarge2->img_path}})"></a> --}}
+                    <a href="/catalog/shoe/{{$shoes[9]->id}}" class="img-catalog mt-4 mb-3 bk-cover" style="background: url(/public/{{$previewLarge2->img_path}})"></a>
                     <div class="row d-flex justify-content-end" style="padding: 0 1.9rem;">
                         <i class="far fa-heart" style="margin-right: 0!important"></i>
                     </div>

@@ -43,8 +43,8 @@ Cupones de descuento
         </tr>
     </thead>
     <tbody>
-        @if (count($contacts) > 0)
-        @foreach ($contacts as $discount)
+        @if (count($discounts) > 0)
+        @foreach ($discounts as $discount)
         <tr>
             <form action="/backend/discount/destroy/" method="post">
                 @csrf

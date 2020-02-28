@@ -26,6 +26,7 @@ Route::get('/contact', function(){return view('contacto');});
 Route::post('/contact', 'BackendController@create_contact');
 Route::get('/catalog', 'HomeController@catalog')->middleware('auth');
 Route::get('/catalog/shoe/{shoeId}', 'HomeController@productDetail');
+Route::get('/zapatos-de-autor', function(){return redirect('/home');});
 ///feedback
 
 ///RUTAS DE REDIRECCION TRAS COMPRAS
@@ -48,6 +49,7 @@ Route::post('/shop/myaccount/edit', 'ProfileController@updateAccount')->middlewa
 Route::get('/shop/myaccount/addresses', 'ProfileController@addresses')->middleware('auth');
 Route::get('/shop/myaccount/addresses/new', 'ProfileController@addressnew')->middleware('auth');
 Route::get('/shop/myaccount/purchases', 'ProfileController@purchases')->middleware('auth');
+Route::get('/shop/myaccount/purchased/{id}', 'ProfileController@purchased')->middleware('auth');
 Route::get('/shop/myaccount/favorites', 'ProfileController@favorites')->middleware('auth');
 Route::get('/shop/myaccount/newsletter', 'ProfileController@newsletter')->middleware('auth');
 Route::get('/favorites/change/{shoeId}', 'FavoritesController@changeState');
@@ -110,6 +112,7 @@ Route::post('/backend/newsletter', 'NewsletterController@add');
 Route::get('backend/newsletter', 'NewsletterController@index');
 Route::delete('backend/newsletter', 'NewsletterController@destroy');
 Route::get('/backend/pedido/{paymentId}', 'BackendController@showPayment')->middleware('auth', 'role:admin');
+Route::post('/backend/pedido/update', 'PaymentOrderController@update')->middleware('auth', 'role:admin');
 
 Route::get('backend/contact', 'BackendController@show_contacts');
 

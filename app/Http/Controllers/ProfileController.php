@@ -35,8 +35,18 @@ class ProfileController extends Controller
 
     public function purchases()
     {
-        $payment_orders = Payment_Order::where('user_id', Auth::user()->id);
-        return view('shopCompras',compact('payment_orders'));
+        //$payment_orders = Payment_Order::where('user_id', Auth::user()->id)->get();
+        $shopcars = Shopcar::where('user_id', Auth::user()->id)->where('ordered', '=', 1)->get();
+
+        $payments_orders = [];
+        foreach ($shopcars as $shopcar) {
+            $payment = Payment_Order::find($shopcar->id);
+            array_push($payments_orders, $payment);
+        }
+        /* $payments_orders = Payment_Order::with(['shopcar' => function($q){
+            $q->where('ordered', '=', 1);
+        }])->where('user_id', Auth::user()->id)->get(); */
+        return view('shopCompras',compact('payments_orders'));
     }
 
     public function favorites()
@@ -120,5 +130,11 @@ class ProfileController extends Controller
         /* FIN INTEGRACION OCA */
 
         return view('shopShopcar', compact('shopcar', 'stocks', 'addresses'));
+    }
+
+    public function purchased($id)
+    {
+        $payment = Payment_Order::find($id);
+        return view('shopDetalleCompra', compact('payment'));
     }
 }
