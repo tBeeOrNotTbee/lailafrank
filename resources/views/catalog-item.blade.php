@@ -12,7 +12,7 @@
         </div>
         <div class="sp-wrap gallery m-0">
             @forelse ($imgs as $img)
-                <a href="/storage/{{$img->img_path}}"><img class="w100" src="/storage/{{$img->img_path}}"></a>
+                <a href="/public/{{$img->img_path}}"><img class="w100" src="/public/{{$img->img_path}}"></a>
             @empty
                 <P>No hay imagenes para mostrar</P>
             @endforelse
@@ -30,7 +30,7 @@
                     <div class="carousel-item  @if ($loop->first)
                         active
                     @endif ">
-                    <a href="/storage/{{$img->img_path}}"><img class="w100" src="/storage/{{$img->img_path}}"></a>
+                    <a href="/public/{{$img->img_path}}"><img class="w100" src="/public/{{$img->img_path}}"></a>
                     </div>
                 @empty
                     <P>No hay imagenes para mostrar</P>
@@ -56,8 +56,7 @@
             </div>
 
         </div>
-        <div class="row mt-3">
-
+        {{-- <div class="row mt-3">
             <div class="col-12">
                 <h5 class="monserrat grey2 my-3 catalog-item-title2 text-center text-md-left">COLORES DISPONIBLES</h5>
                 <div class="row d-flex justify-content-center justify-content-md-start">
@@ -69,9 +68,8 @@
                         
                     @endforelse
                 </div>
-
             </div>
-        </div>
+        </div> --}}
 
         <!-- Grilla de talles -->
         <div class="row my-4">
