@@ -12,7 +12,7 @@ class MercadoPagoController extends Controller
 {
     public function success(Request $req){
         $last_payment_order = Payment_Order::find($req->external_reference);
-        $payment = Payment_Order::where('user_id', Auth::user()->id);
+        $payment = Payment_Order::where('user_id', Auth::user()->id)->get();
         $shopcar = Shopcar::find($last_payment_order->shopcar_id);
         $address = Address::find($last_payment_order->address_id);
         $success = true;
@@ -35,7 +35,7 @@ class MercadoPagoController extends Controller
 
     public function pending(Request $req){
         $last_payment_order = Payment_Order::find($req->external_reference);
-        $payment = Payment_Order::where('user_id', Auth::user()->id);
+        $payment = Payment_Order::where('user_id', Auth::user()->id)->get();
         $shopcar = Shopcar::find($last_payment_order->shopcar_id);
         $address = Address::find($last_payment_order->address_id);
         $pending = true;
