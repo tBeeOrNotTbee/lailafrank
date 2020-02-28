@@ -119,3 +119,6 @@ Route::get('backend/contact', 'BackendController@show_contacts');
 
 //STOCK
 Route::get('/shop/stock/finalcheck/{idShopcar}', 'StockController@finalCheck')->middleware('auth');
+
+// MERCADO PAGO IPN ROUTE
+Route::post('/mp/notificacion', 'MercadoPagoController@IPNhandler');
