@@ -161,13 +161,21 @@ function checkDiscount() {
 
 }
 
-function preventMercadoPago()
+function preventMercadoPago(id)
 {
-    let shopcar = document.getElementsByClassName('mercadopago-button');
-    console.log('detuvo?');
-   // shopcar.event.preventDefault();
-}
+    var url = '/shop/stock/finalcheck/'+id;
 
-document.getElementById("mpform").addEventListener("click", function(event){
-    event.preventDefault()
-});
+    fetch(url, {
+        method: 'GET',
+    }).then((response) => {          
+        return response.json()
+    }).then((response) => {
+        if (response.state == true) {
+            console.log('Process OK')
+        } else if (response.state == false) {
+            console.log('No stock')
+            //mostrar fallo
+            window.location.replace("/shop/shopcar?quantityFail=ok");
+        }
+    });
+}

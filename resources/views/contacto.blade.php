@@ -37,6 +37,14 @@
 
 <div class="row mx-auto mb-4 p-3">
 
+    @isset($_GET['mail'])
+    <div class="alert alert-success noBk rounded-0 mx-auto text-center" role="alert">
+        <h4 class="alert-heading">Mensaje enviado!</h4>
+        <hr>
+        <p>Gracias por ponerte en contacto.</p>
+    </div>
+    @endisset
+
     <form class="form-row mx-auto col-lg-10" action="" method="post">
         @csrf
         <div class="form-row col-lg-12">

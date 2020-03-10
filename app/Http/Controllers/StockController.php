@@ -121,8 +121,6 @@ class StockController extends Controller
         $stocker = [];
         foreach ($shopcar->stock as $stock) {
             if ($stock->quantity>=1){
-                $stock->quantity --;
-                $stock->save();
                 array_push($stocker, true);
             }else{
                 $shopcar->stock()->detach($stock);
@@ -132,11 +130,24 @@ class StockController extends Controller
         
         /* dd($shopcar->stock); */
         
-        if (in_array(false, $stocker)) {            
-            return json_encode($state=false);
+        if (in_array(false, $stocker)) {
+            foreach ($shopcar->stock as $stock) {
+                if ($stock->quantity>=1){
+                    $stock->quantity --;
+                    $stock->save();
+                    array_push($stocker, true);
+                }else{
+                    $shopcar->stock()->detach($stock);
+                    array_push($stocker, false);
+                }
+            }
+
+            $state = ['state' => false];
         } else {
-            return json_encode($state=true);
+            /* Aca debe ir la logica para descontar el stock */
+            $state = ['state' => true];
         }
-        
+
+        return json_encode($state);
     }
 }

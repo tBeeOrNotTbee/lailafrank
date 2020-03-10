@@ -6,6 +6,22 @@
 
         <h2 class="text-center monserrat-bold shop-title cero8em">Shopcar</h2>
 
+        @isset($_GET['quantityFail'])
+        <div class="alert alert-danger noBk rounded-0" role="alert">
+            <h4 class="alert-heading">Error en la compra.</h4>
+            <hr>
+            <p>Uno o varios productos ya no se encuentran en stock en este momento.</p>
+        </div>
+        @endisset
+
+        @isset($_GET['mpFail'])
+        <div class="alert alert-danger noBk rounded-0" role="alert">
+            <h4 class="alert-heading">Error en la compra.</h4>
+            <hr>
+            <p>Se produjo un error durante el proceso de compra, vuelva a intenralo.</p>
+        </div>
+        @endisset
+
         @if(!isset($vacio))
         <div class="row">
 

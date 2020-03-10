@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Feedback;
-use APP\DiscountRegister;
-use APP\Discount;
+use App\DiscountRegister;
+use App\Discount;
+use App\Mail\FeedbackResponse;
+use App\Mail\SendingDiscount;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class FeedbackController extends Controller
 {
@@ -23,6 +26,8 @@ class FeedbackController extends Controller
 
         $feedback->save();
 
+        $discount = Discount::find($req->discount_id);
+        
         //Habilitar cupon
         $enablingDiscount = new DiscountRegister([
             'user_id'=>$req->user_id,
@@ -33,8 +38,11 @@ class FeedbackController extends Controller
         $enablingDiscount->save();
 
         //Enviar MAIL con el descuento
-        $discount = Discount::find($req->discount_id);
-        $discount->number;
+        Mail::to($req->mail)->queue(new SendingDiscount($feedback, $discount->number));
+
+        //Mail a Laila Frank
+        Mail::to('shoes@lailafrank.com')->queue(new FeedbackResponse($feedback));
+
 
         //retornar vista
         return view('feedbackBack');

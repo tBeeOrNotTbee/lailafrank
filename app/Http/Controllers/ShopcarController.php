@@ -248,7 +248,7 @@ class ShopcarController extends Controller
         ]; 
 
            //$preference->auto_return = "all"; //DEVUELVE AL sitio en todos los casos, puede ser on APPROVED
-/*         $preference->notification_url = route('/mp/notificacion'); //Por ahora no se usa */
+        /*$preference->notification_url = route('/mp/notificacion'); //Por ahora no se usa */
             $preference->save();
             
 

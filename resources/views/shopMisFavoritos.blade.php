@@ -14,8 +14,8 @@
                     <!-- THUMBNAIL CAROUSEL -->
                     <div class="shoe-img-preview">
                         <?php $previews=$favorite->previewSmall();?>
-                        <img src="/storage/{{$previews[0]->img_path}}" class="img-fluid">
-                        <img src="/storage/{{$previews[1]->img_path}}" class="img-top img-fluid">
+                        <img src="/public/{{$previews[0]->img_path}}" class="img-fluid">
+                        <img src="/public/{{$previews[1]->img_path}}" class="img-top img-fluid">
                     </div>
                 </div>
                 

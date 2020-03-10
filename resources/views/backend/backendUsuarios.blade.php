@@ -16,24 +16,14 @@
         </tr>
     </thead>
     <tbody>
+        @foreach ($users as $user)
         <tr>
-            <td>1</td>
-            <td><a href="/backend/editarUsuario/id">Marcelo Velazquez</a></td>
-            <td>mv@mail.com</td>
-            <td>Cliente</td>
+        <td>{{$user->id}}</td>
+        <td><a href="/backend/editarUsuario/{{$user->id}}">{{$user->fullname()}}</a></td>
+        <td>{{$user->email}}</td>
+        <td>{{$user->hasRole('admin') ? 'Administrador' : 'Cliente'}}</td>
         </tr>
-        <tr>
-            <td>2</td>
-            <td><a href="/backend/editarUsuario/id">Marcelo Velazquez</a></td>
-            <td>mv@mail.com</td> 
-            <td>Cliente</td>
-        </tr>
-        <tr>
-            <td>3</td>
-            <td><a href="/backend/editarUsuario/id">Marcelo Velazquez</a></td>
-            <td>mv@mail.com</td>
-            <td>Empleado</td>
-        </tr>
+        @endforeach
     </tbody>
 </table>
 @endsection

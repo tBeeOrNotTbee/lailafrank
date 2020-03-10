@@ -19,7 +19,7 @@
 
             <input type="text" class="input-line form-control noBk rounded-0 monserrat cero8em w-100" name="fullName" value="{{old('fullName') ? old('fullName') : Auth::user()->fullName()}}" required>
             {!!$errors->first('fullName', '<div class="alert alert-danger">:message</div>')!!}
-            <input type="text" class="input-line form-control noBk rounded-0 monserrat cero8em" placeholder="E-mail" name="mail" value="{{old('mail') ? old('mail') : Auth::user()->mail}}" required>
+            <input type="text" class="input-line form-control noBk rounded-0 monserrat cero8em" placeholder="E-mail" name="mail" value="{{old('mail') ? old('mail') : Auth::user()->email}}" required>
             {!!$errors->first('mail', '<div class="alert alert-danger">:message</div>')!!}
             <input type="text" class="input-line form-control noBk rounded-0 monserrat cero8em" placeholder="Teléfono" name="cellphone" value="{{old('cellphone') ? old('cellphone') : Auth::user()->telephone}}" required>
             {!!$errors->first('cellphone', '<div class="alert alert-danger">:message</div>')!!}

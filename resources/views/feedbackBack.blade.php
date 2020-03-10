@@ -12,7 +12,8 @@
 <div class="row mt-5 mb-5 d-flex justify-content-center">
     <div class="col-9 col-md-4 noPad overflow-hidden">
 
-        <h3 class="monserrat">¡Gracias por responder nuestra encuenta!</h3>
+        <h3 class="monserrat text-center mt-5 mb-3">¡Gracias por responder nuestra encuesta!</h3>
+        <p class="monserrat unoem text-center mb-5">Te enviaremos por mail un regalo exclusivo para vos.</p>
 
     </div>
 </div>
