@@ -46,7 +46,19 @@ class MercadoPagoController extends Controller
         $shopcar->ordered = 1;
 
         //enviar mail a cliente
-        Mail::to(Auth::user()->email)->queue(new SendingOrderToClient);
+        $shoes=[];
+
+        foreach ($shopcar->stock as $stock) {
+            array_push($shoes, $stock->shoe->name);
+        }
+
+        $data = [
+            'payment_id' =>$payment->id,
+            'shoes'=>$shoes,
+            'total'=>$payment->total_amount
+        ];
+
+        Mail::to(Auth::user()->email)->queue(new SendingOrderToClient($data));
 
         //enviar mail a lailashoes
 

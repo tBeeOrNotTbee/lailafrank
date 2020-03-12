@@ -8,18 +8,23 @@ use App\Color;
 use App\Contact;
 use App\Stock;
 use App\Discount;
+use App\Favorites;
 use App\Mail\ClientContact;
 use App\Mail\Contact as MailContact;
 use App\Payment_Order;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\Builder;
+use App\Shopcar;
 
 class BackendController extends Controller
 {
     public function pedidos()
     {
-        $payments = Payment_Order::where('ordered', '1')->get();
+        $payments = Payment_Order::whereHas('shopcar', function ($query) {
+                                        $query->where('ordered', '=', '1');
+                                    })->get();
         //$payments = Payment_Order::all();
         return view('backend.backendPedidos', compact('payments'));
     }
@@ -64,8 +69,12 @@ class BackendController extends Controller
     public function editarUsuario($id)
     {
         $user = User::find($id);
-        $favorites = $user->favorites;
-        return view('backend.backendEditarUsuario', compact('user', 'favorites'));
+        $payments = Payment_Order::where('user_id', $user->id)->
+                                    whereHas('shopcar', function ($query) {
+                                            $query->where('ordered', '=', '1');
+                                    })->get();
+                                    
+        return view('backend.backendEditarUsuario', compact('user', 'payments'));
     }
 
     public function nuevoProducto()
@@ -152,4 +161,23 @@ class BackendController extends Controller
         $payment = Payment_Order::find($paymentId);
         return view('backend.backendPedidoDetalle', compact('payment'));
     }
+
+    /* public function emailTest($id)
+    {
+        $payment = Payment_Order::find($id);
+        $shopcar = Shopcar::find($payment->shopcar_id);
+        $shoes=[];
+
+        foreach ($shopcar->stock as $stock) {
+            array_push($shoes, $stock->shoe->name);
+        }
+
+        $data = [
+            'payment_id' =>$payment->id,
+            'shoes'=>$shoes,
+            'total'=>$payment->total_amount
+        ];
+
+        return view('emails.sendingOrderToClient', compact('data'));
+    } */
 }

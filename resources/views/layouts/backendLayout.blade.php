@@ -81,21 +81,21 @@
                                 Productos 
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link {{ Request::is('backend/ventas') ? 'active' : '' }}" href="/backend/ventas">
                                 Ventas 
                             </a>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a class="nav-link {{ Request::is('backend/reporte') ? 'active' : '' }}" href="/backend/reporte">
                                 Reporte de ventas 
                             </a>
-                        </li>
-                        <li class="nav-item">
+                        </li> --}}
+                        {{-- <li class="nav-item">
                             <a class="nav-link {{ Request::is('backend/misGustos') ? 'active' : '' }}" href="/backend/misGustos">
                                 Mis Gustos 
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('backend/usuarios') ? 'active' : '' }}" href="/backend/usuarios">
                                 Usuarios 
@@ -106,11 +106,11 @@
                                 Cupones de descuento 
                             </a>
                         </li>
-                        <li class="nav-item">
+                        {{-- <li class="nav-item">
                             <a class="nav-link {{ Request::is('backend/shopcar/list/') ? 'active' : '' }}" href="/backend/shopcar/list/">
                                 Carrito de compras 
                             </a>
-                        </li>
+                        </li> --}}
                         <li class="nav-item">
                             <a class="nav-link {{ Request::is('backend/contact/') ? 'active' : '' }}" href="/backend/contact">
                                 Mensajes de clientes 

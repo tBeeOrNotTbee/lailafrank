@@ -20,11 +20,20 @@
             margin-top:1em;
             margin-bottom:1em;
         }
+
+        .discount{
+            background-color: #ffffff;
+            padding: 1em;
+            border: 1px solid #363638;
+            box-sizing: content-box;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
     </style>
     <div class="message-box">
         <img class="img-fluid" src="https://lailafrank.com/img/logo.png" style="max-width: 85px!important">
-        <h2 class="my-3">Gracias {{$datos['name']}} por comunicarte con nosotros!</h2>
-        <h4 class="my-3">Responderemos tu consulta a la brevedad</h4>
+        <h2 class="my-3">Gracias por tu compra {{$data['fullName']}}</h2>
+        <h2 class="my-3">Tu pedido {{$data['paymentId']}} Ya posee número de tracking</h2>
+        <h4 class="my-3">La empresa {{$data["correo"]}} es la encargada del envío con el id: <strong>{{$data["tracking_id"]}}</strong></h4>
     </div>
 </body>
 </html>

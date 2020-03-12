@@ -122,3 +122,6 @@ Route::get('/shop/stock/finalcheck/{idShopcar}', 'StockController@finalCheck')->
 
 // MERCADO PAGO IPN ROUTE
 Route::post('/mp/notificacion', 'MercadoPagoController@IPNhandler');
+
+//TESTING EMAILS VIEWS
+//Route::get('/payment/{id}', 'backendController@emailTest')->middleware('auth');

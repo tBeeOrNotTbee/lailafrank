@@ -9,11 +9,11 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 order-md-1">
-                <form class="needs-validation" novalidate>
+                <form class="needs-validation">
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="firstName">Nombre</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Nombre" value="Marcelo"
+                            <input type="text" class="form-control" id="firstName" placeholder="Nombre" value="{{$user->name}}"
                                 required>
                             <div class="invalid-feedback">
                                 Nombre es requerido.
@@ -21,7 +21,7 @@
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="lastName">Apellido</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="" value="Velazques"
+                            <input type="text" class="form-control" id="lastName" placeholder="Apellido" value="{{$user->surname}}"
                                 required>
                             <div class="invalid-feedback">
                                 Apellido es requerido.
@@ -32,7 +32,7 @@
                     <div class="mb-3">
                         <label for="email">Email</label>
                         <input type="email" class="form-control" id="email" placeholder="you@example.com" required
-                            value="mv@mail.com">
+                            value="{{$user->email}}">
                         <div class="invalid-feedback">
                             Please enter a valid email address for shipping updates.
                         </div>
@@ -89,39 +89,24 @@
                     <hr class="mb-4">
                     <h4>Pedidos</h4>
 
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" src="../img/zapato01.jpg" alt="Card image cap">
-                                    <div class="card-body">
-                                        <p class="card-text"><a href="#">Modelo-5</a></p>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <div class="btn-group">
-                                                <button type="button"
-                                                    class="btn btn-sm btn-outline-secondary">View</button>
-                                                <button type="button"
-                                                    class="btn btn-sm btn-outline-secondary">Edit</button>
-                                            </div>
-                                            <small class="text-muted">9 mins</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <ul class="list-group list-group-flush">
+                        @forelse ($payments as $payment)
+                    <li class="list-group-item"><a href="/backend/pedido/{{$payment->id}}">{{$payment->created_at}}</a></li>
+    
+                        @empty
+                        <li class="list-group-item"> No ha realizado pedidos </li>
+                        @endforelse
+                    </ul>
 
                     <hr class="mb-4">
                     <h4>Favortios</h4>
 
                     <div class="container">
                         <div class="row">
-
-                            {{dd(Auth::user($user->id)->favorites)}}
                             @forelse ($user->favorites as $favorite)
                             <div class="col-md-4">
                                 <div class="card mb-4 box-shadow">
-                                    <img class="card-img-top" src="/public/{{$favorite->img_path}}" alt="Card image cap">
+                                    <img class="card-img-top" src="/public/{{$favorite->img_path}}" alt="{{$favorite->name}}">
                                     <div class="card-body">
                                         <p class="card-text"><a href="#">{{$favorite->name}}</a></p>
                                     </div>
@@ -135,6 +120,8 @@
                         </div>
                     </div>
 
+                    <hr class="mb-4">
+
                     {{-- <hr class="mb-4">
                     <h4 class="mb-3">Preferencias</h4>
 
@@ -145,11 +132,10 @@
                     </div>
                     <hr class="mb-4"> --}}
 
-                    <div class="row">
+                    <div class="row mb-5">
                         <a class="btn btn-primary btn-sm rounded-0 col-4 d-inline mx-2" href="/backend/usuarios">Volver</a>
                         <button class="btn btn-warning btn-sm rounded-0 col-4 d-inline mx-2" type="submit">Guardar</button>
                     </div>
-
                 </form>
             </div>
         </div>
