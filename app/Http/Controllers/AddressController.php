@@ -35,6 +35,7 @@ class AddressController extends Controller
             "state"=>$req->state,
             "post_code"=>$req->post_code,
             "country"=>$req->country,
+            "country_id"=>$req->country_id,
             "cellphone"=>$req->cellphone
         ]);
 

@@ -20,7 +20,8 @@
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
         "mercadopago/dx-php": "1.2.1",
-        "twbs/bootstrap": "4.3.1"
+        "twbs/bootstrap": "4.3.1",
+        "alfallouji/dhl_api": "*"
     },
     "require-dev": {
         "facade/ignition": "^1.4",

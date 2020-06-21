@@ -37,4 +37,4 @@ let tarifar_envio_corporativo = function (pesoTotal, volumen, codigoPostalOrigen
         .then(response => console.log('Success:', response));
 }
 
-tarifar_envio_corporativo(1.560, 10, 1128, 1900, 1, 0, '27-31879156-1', 298450)
+tarifar_envio_corporativo(1.560, 10, 'C1428AHD', 1900, 1, 0, '27-31879156-1', 298450)

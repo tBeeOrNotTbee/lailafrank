@@ -21,7 +21,7 @@
                     <h2 class="monserrat grey2 text-uppercase font-weight-bolder cero8em mt-5">Direccion</h2>
                     <div class="form-row mt-3">
                         <div class="col-12">
-                            <select class="input-line form-control noBk rounded-0 monserrat cero8em custom-select custom-select-sm mb-3 countries w100" name="country" id="countryId">
+                            <select class="countries input-line form-control noBk rounded-0 monserrat cero8em custom-select custom-select-sm mb-3 w100" name="country" id="countryId">
                                 <option value="">Elegir país</option>
                             </select>
                             <select class="input-line form-control noBk rounded-0 monserrat cero8em custom-select custom-select-sm mb-3 states w100" name="state" id="stateId">
@@ -30,8 +30,22 @@
                             <select class="input-line form-control noBk rounded-0 monserrat cero8em custom-select custom-select-sm mb-3 cities w100" name="city" id="cityId">
                                 <option value="">Select ciudad</option>
                             </select>
+                            <input type="hidden" name="country_id" id="country_id">
                             <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
                             <script src="{{asset('js/geoData.js')}}"></script>
+                            <script>
+                                    const selectedCountry = document.querySelector('.countries');
+                                    
+                                    selectedCountry.addEventListener('change', (event)=>{
+                                        const country_id = document.getElementById('country_id');
+                                        
+                                        for (const option in event.target.options) {
+                                            if (event.target[option].value === event.target.value) {
+                                                country_id.value = event.target[option].getAttribute('countryid');
+                                            }
+                                        }
+                                    });
+                            </script>
                         </div>
                     </div>
                 
